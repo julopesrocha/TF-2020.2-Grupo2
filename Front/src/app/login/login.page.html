@@ -1,7 +1,21 @@
 <ion-header>
+
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-title>Login</ion-title>
+        
+        <ion-button class="retorno">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-row>
+
+    </ion-grid>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -17,11 +31,12 @@
         <ion-input type="password" formControlName="senha"></ion-input>
       </ion-item>
     </ion-list>
+    <ion-button type="submit">Efetuar Login</ion-button>
   </form>
 
 
 
-  <h5>Ainda não tem uma conta?</h5>
+  <h6>Ainda não tem uma conta?</h6>
   <a href= "">Realizar cadastro</a>
 
 </ion-content>
