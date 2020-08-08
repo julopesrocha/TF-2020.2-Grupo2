@@ -6,6 +6,8 @@
 
 <ion-content>
 
+  <app-logo></app-logo>
+
   <app-post *ngFor="let post of posts" [titulo]="post.title" [autor]="post.autor" [texto]="post.texto"></app-post>
 
 </ion-content>
