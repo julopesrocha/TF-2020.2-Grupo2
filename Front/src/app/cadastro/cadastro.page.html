@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+    
+      <ion-row>
+        <ion-title>Cadastro</ion-title>
+    
+        <ion-button class="retorno">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-row>
+    
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="registerForm" ngSubmit="submitForm(registerForm)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" formControlName="nome"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar Senha</ion-label>
+        <ion-input type="password" formControlName="confirma_senha"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Curso</ion-label>
+        <ion-input type="text" formControlName="curso"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit">Cadastrar</ion-button>
+  </form>
+
+  <a href="">Já tenho uma conta</a>
+
+</ion-content>
