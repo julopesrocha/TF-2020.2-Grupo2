@@ -8,17 +8,17 @@
     <form [formGroup]="postForm" ngSubmit="submitForm(postForm)">
       <ion-list>
           <ion-item>
-            <ion-label position="floating">Disciplina</ion-label>
+            <ion-label position="stacked">Disciplina</ion-label>
             <ion-input type="text" formControlName="class"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label position="floating">O que gostaria de comentar sobre essa disciplina?</ion-label>
+            <ion-label position="stacked">O que gostaria de comentar sobre essa disciplina?</ion-label>
             <ion-input type="text" formControlName="content"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label>Tag</ion-label>
+            <ion-label formControlName="tag">Tag</ion-label>
             <ion-select interface="popover">
             <ion-select-option value="feedback">#feedback</ion-select-option>
             <ion-select-option value="recommendations">#recomendações</ion-select-option>
