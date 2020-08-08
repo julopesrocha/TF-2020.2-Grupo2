@@ -15,23 +15,23 @@ export class HomePage implements OnInit {
     this.posts = [
       {
         title: '1qualquer coisa',
-        autor: '1fulano',
-        texto: '1isso eh um texto'
+        author: '1fulano',
+        text: '1isso eh um texto'
       },
       {
         title: '2qualquer coisa',
-        autor: '2fulano',
-        texto: '2isso eh um texto'
+        author: '2fulano',
+        text: '2isso eh um texto'
       },
       {
         title: '3qualquer coisa',
-        autor: '3fulano',
-        texto: '3isso eh um texto'
+        author: '3fulano',
+        text: '3isso eh um texto'
       },
       {
         title: '4qualquer coisa',
-        autor: '4fulano',
-        texto: '4isso eh um texto'
+        author: '4fulano',
+        text: '4isso eh um texto'
       }
     ]
   }

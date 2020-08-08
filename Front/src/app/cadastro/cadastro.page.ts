@@ -14,11 +14,11 @@ export class CadastroPage implements OnInit {
   constructor(public formBuilder: FormBuilder) {
 
     this.registerForm = this.formBuilder.group({
-      nome: [null],
+      name: [null],
       email: [null],
-      senha: [null],
-      confirma_senha: [null],
-      curso: [null]
+      password: [null],
+      confirm_password: [null],
+      degree: [null]
     });
   }
 
