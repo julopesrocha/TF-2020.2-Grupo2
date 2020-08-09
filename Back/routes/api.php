@@ -24,3 +24,6 @@ Route::get('listUsers','UserController@listUsers');
 Route::get('listUser/{id}','UserController@listUser');
 Route::put('updateUser/{id}','UserController@updateUser');
 Route::delete('deleteUser/{id}','UserController@deleteUser');
+
+//Course
+Route::post('createCourse','CourseController@createCourse');
