@@ -23,3 +23,4 @@ Route::post('createUser','UserController@createUser');
 Route::get('listUsers','UserController@listUsers');
 Route::get('listUser/{id}','UserController@listUser');
 Route::put('updateUser/{id}','UserController@updateUser');
+Route::delete('deleteUser/{id}','UserController@deleteUser');

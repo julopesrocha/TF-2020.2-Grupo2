@@ -28,4 +28,9 @@ class UserController extends Controller
         $user->updateUser($request);
         return response()->json($user);
     }
+
+    public function deleteUser($id){
+        User::destroy($id);
+        return response()->json(['Usuário deletado']);
+    }
 }
