@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>createPost</ion-title>
+    <ion-title>criar post</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <form [formGroup]="createPostForm" (ngSubmit)="submitForm(createPostForm)">
+      <ion-list>
+          <ion-item>
+            <ion-label position="stacked">Disciplina</ion-label>
+            <ion-input type="text" formControlName="course"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">O que gostaria de comentar sobre essa disciplina?</ion-label>
+            <ion-input type="text" formControlName="content"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Tag</ion-label>
+            <ion-select interface="popover">
+                <ion-select-option value="feedback">#feedback</ion-select-option>
+                <ion-select-option value="recommendations">#recomendações</ion-select-option>
+                <ion-select-option value="doubts">#dúvidas</ion-select-option>
+                <ion-select-option value="others">#outros</ion-select-option>
+          </ion-select>
+          </ion-item>
+      </ion-list>
+      <ion-button (click)= "presentToast()" type="submit" [disabled]="postForm.invalid">Postar</ion-button>
+    </form>
 
 </ion-content>
