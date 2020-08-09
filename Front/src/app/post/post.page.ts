@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ToastController} from '@ionic/angular';
+import { PostService } from '../services/post.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class PostPage implements OnInit {
 
 postForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public toastController: ToastController) {
+  constructor(public formBuilder: FormBuilder, public toastController: ToastController, public postService: PostService) {
       this.postForm = this.formBuilder.group({
           course: [null, [Validators.required, Validators.minLength(3)]],
           content: [null, [Validators.required, Validators.minLength(3)]],
@@ -31,6 +32,11 @@ postForm: FormGroup;
   submitForm(form) {
       console.log(form);
       console.log(form.value);
+      this.postService.createPost(body).subscribe(
+        (res) => {console.log(res);
+        }, (err) => {console.log(err); }
+    )
+      window.location.href="/tabs/home";
   }
 
   ngOnInit() {
