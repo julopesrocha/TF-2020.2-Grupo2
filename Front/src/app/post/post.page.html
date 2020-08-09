@@ -5,11 +5,11 @@
 </ion-header>
 
 <ion-content>
-    <form [formGroup]="postForm" ngSubmit="submitForm(postForm)">
+    <form [formGroup]="postForm" (ngSubmit)="submitForm(postForm)">
       <ion-list>
           <ion-item>
             <ion-label position="stacked">Disciplina</ion-label>
-            <ion-input type="text" formControlName="class"></ion-input>
+            <ion-input type="text" formControlName="course"></ion-input>
           </ion-item>
 
           <ion-item>
@@ -27,7 +27,7 @@
           </ion-select>
           </ion-item>
       </ion-list>
-      <ion-button type="submit" [disable]="postForm.invalid">Postar</ion-button>
+      <ion-button (click)= "presentToast()" type="submit" [disabled]="postForm.invalid">Postar</ion-button>
     </form>
 
 </ion-content>
