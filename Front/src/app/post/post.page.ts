@@ -11,10 +11,9 @@ import { PostService } from '../services/post.service';
 })
 export class PostPage implements OnInit {
 
-  constructor(public formBuilder: FormBuilder, public toastController: ToastController, public postService: PostService) {
+  constructor(public formBuilder: FormBuilder, public toastController: ToastController, public postService: PostService) {}
 
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
