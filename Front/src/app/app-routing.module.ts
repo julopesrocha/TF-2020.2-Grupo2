@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'landing',
     loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
+  },
+  {
+    path: 'seguidos',
+    loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
   }
 
 ];
