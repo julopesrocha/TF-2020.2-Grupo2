@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //User
 Route::post('createUser','UserController@createUser');
+Route::get('listUsers','UserController@listUsers');
