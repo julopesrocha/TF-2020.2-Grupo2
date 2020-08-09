@@ -13,15 +13,15 @@ postForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder) {
       this.postForm = this.formBuilder.group({
-        class:[null],
-        content:[null],
-        tag:[null],
+          class:[null, [Validators.required, Validators.minLength(3)]],
+          content:[null, [Validators.required, Validators.minLength(3)]],
+          //tag:[null],
       });
    }
-
    submitForm(form) {
        console.log(form);
        console.log(form.value);
+       window.location.href="/home";
    }
 
   ngOnInit() {

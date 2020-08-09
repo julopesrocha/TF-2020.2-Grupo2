@@ -18,16 +18,16 @@
           </ion-item>
 
           <ion-item>
-            <ion-label formControlName="tag">Tag</ion-label>
+            <ion-label>Tag</ion-label>
             <ion-select interface="popover">
-            <ion-select-option value="feedback">#feedback</ion-select-option>
-            <ion-select-option value="recommendations">#recomendações</ion-select-option>
-            <ion-select-option value="doubts">#dúvidas</ion-select-option>
-            <ion-select-option value="others">#outros</ion-select-option>
+                <ion-select-option value="feedback">#feedback</ion-select-option>
+                <ion-select-option value="recommendations">#recomendações</ion-select-option>
+                <ion-select-option value="doubts">#dúvidas</ion-select-option>
+                <ion-select-option value="others">#outros</ion-select-option>
           </ion-select>
           </ion-item>
       </ion-list>
-      <ion-button type="submit">Postar</ion-button>
+      <ion-button type="submit" [disable]="postForm.invalid">Postar</ion-button>
     </form>
 
 </ion-content>
