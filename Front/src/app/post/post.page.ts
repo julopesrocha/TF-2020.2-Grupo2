@@ -32,10 +32,9 @@ postForm: FormGroup;
   submitForm(form) {
       console.log(form);
       console.log(form.value);
-      this.postService.createPost(body).subscribe(
-        (res) => {console.log(res);
-        }, (err) => {console.log(err); }
-    )
+//      this.postService.createPost(body).subscribe(
+//        (res) => {console.log(res);
+//        }, (err) => {console.log(err); })
       window.location.href="/tabs/home";
   }
 
