@@ -47,4 +47,20 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function updateUser(Request $request){
+        if($request->name){
+            $this->name = $request->name;
+        }
+        if($request->email){ 
+            $this->email = $request->email;   
+        }
+        if($request->password){
+            $this->password = $request->password;    
+        }
+        if($request->degree){
+            $this->degree = $request->degree;     
+        }              
+        $this->save();
+    }
+
 }
