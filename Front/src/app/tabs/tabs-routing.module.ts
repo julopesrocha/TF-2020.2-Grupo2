@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
-        path: 'post',
-        loadChildren: () => import('../post/post.module').then(m => m.PostPageModule)
+        path: 'create-post',
+        loadChildren: () => import('../create-post/create-post.module').then(m => m.CreatePostPageModule)
       },
       {
         path: 'tab2',
