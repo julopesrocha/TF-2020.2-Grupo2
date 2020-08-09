@@ -1,3 +1,9 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 ion-button {
   --background: #1158C1;
   text-align:center;
