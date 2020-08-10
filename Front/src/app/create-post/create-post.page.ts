@@ -15,6 +15,7 @@ createPostForm: FormGroup;
   constructor(public formBuilder: FormBuilder, public toastController: ToastController, public createPostService: CreatePostService) {
       this.createPostForm = this.formBuilder.group({
           course: [null, [Validators.required, Validators.minLength(3)]],
+          teacher: [null, [Validators.required, Validators.minLength(3)]],
           content: [null, [Validators.required, Validators.minLength(3)]],
           //tag:[null],
       });
@@ -35,6 +36,7 @@ createPostForm: FormGroup;
 //        (res) => {console.log(res);
 //        }, (err) => {console.log(err); })
       window.location.href="/tabs/home";
+      //depois mudar para redirecionar pro post em si
   }
 
   ngOnInit() {
