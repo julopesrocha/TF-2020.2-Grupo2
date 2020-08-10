@@ -27,3 +27,8 @@ Route::delete('deleteUser/{id}','UserController@deleteUser');
 
 //Course
 Route::post('createCourse','CourseController@createCourse');
+
+//Passport - User 
+Route::post('register','API\PassportController@register');
+Route::group(['middleware'=>'auth:api'], function(){
+});

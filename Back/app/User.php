@@ -44,7 +44,8 @@ class User extends Authenticatable
     public function createUser(Request $request){
         $this->name = $request->name;
         $this->email = $request->email;
-        $this->password = $request->password;
+        $this->password = bcrypt($request->password);
+        // $this['password'] = bcrypt($request->password);
         $this->degree = $request->degree;        
         $this->save();
     }
