@@ -13,4 +13,15 @@ class Post extends Model
         $this->tag = $request->tag;
         $this->save();
     }
+
+    // Fix bug when request is null
+    public function editPost(Request $request){
+        if($this->content){
+            $this->content = $request->content;
+        }
+        if($this->tag){
+            $this->tag = $request->tag;
+        }        
+        $this->save();
+    }
 }

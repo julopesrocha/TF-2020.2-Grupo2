@@ -33,4 +33,5 @@ Route::post('register','API\PassportController@register');
 Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
     Route::post('createPost','PostController@createPost');
+    Route::put('editPost/{id}','PostController@editPost');
 });
