@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class CadastroService {
     apiURL:string = 'http://localhost:8000/api/';
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
   createUser(form):Observable<any>{
-      return this.http.post(this.apiURL + 'createUser/', form);
+      return this.http.post(this.apiURL + 'createUser', form);
   }
 }
