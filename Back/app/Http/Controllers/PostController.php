@@ -8,6 +8,11 @@ use Auth;
 
 class PostController extends Controller
 {
+    public function listPosts(){
+        $post = Post::all();
+        return response()->json($post);
+    }
+
     public function createPost(Request $request){
         $post = new Post;
         $user = Auth::user();
@@ -19,13 +24,24 @@ class PostController extends Controller
     public function editPost(Request $request, $id){
         $user = Auth::user();
         $post = Post::findOrFail($id);
-        
+
         if($user->id == $post->user_id){
             $post->editPost($request);
             return response()->json($post);
         }else{
             return response()->json(['Ele nao pode editar']);
         }
+    }
 
+    public function deletePost($id){
+        $user = Auth::user();
+        $post = Post::findOrFail($id);
+
+        if($user->id == $post->user_id){
+            Post::destroy($id);
+            return response()->json('Post deletado');
+        }else{
+            return response()->json(['Não é possível deletar este post']);
+        }
     }
 }
