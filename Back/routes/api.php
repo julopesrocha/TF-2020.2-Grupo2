@@ -30,5 +30,6 @@ Route::post('createCourse','CourseController@createCourse');
 
 //Passport - User 
 Route::post('register','API\PassportController@register');
+Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
 });
