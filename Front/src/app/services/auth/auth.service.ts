@@ -22,4 +22,8 @@ export class AuthService {
     return this.http.post(this.apiURL + 'register', form, this.httpHeaders);
   }
 
+  login(form): Observable<any> {
+    return this.http.post(this.apiURL + 'login', form, this.httpHeaders);
+  }
+
 }
