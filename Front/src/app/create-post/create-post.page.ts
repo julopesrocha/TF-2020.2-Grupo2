@@ -17,7 +17,7 @@ createPostForm: FormGroup;
           course: [null, [Validators.required, Validators.minLength(3)]],
           teacher: [null, [Validators.required, Validators.minLength(3)]],
           content: [null, [Validators.required, Validators.minLength(3)]],
-          //tag:[null],
+          tag:[null],
       });
    }
 
