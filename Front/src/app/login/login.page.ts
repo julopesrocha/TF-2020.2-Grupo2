@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,31 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class LoginPage implements OnInit {
 
-  registerForm: FormGroup;
+  loginForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, public authService: AuthService) {
 
-    this.registerForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email:[null],
-      senha:[null]
+      password:[null]
     });
   }
 
   ngOnInit() {
   }
+  submitForm(form) {
+      console.log(form);
+      console.log(form.value);
 
+      this.authService.login(this.loginForm.value).subscribe(
+        (res)=>{
+          console.log(res);
+          localStorage.setItem('userToken', res.success.token);
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+      // window.location.href="/tabs/home";
+  }
 }

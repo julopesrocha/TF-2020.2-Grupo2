@@ -9,7 +9,8 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -25,16 +26,15 @@ const routes: Routes = [
   {
     path: 'create-post',
     loadChildren: () => import('./create-post/create-post.module').then( m => m.CreatePostPageModule)
-
+  },
+  {
     path: 'landing',
     loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
   {
     path: 'seguidos',
     loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
-
   }
-
 ];
 @NgModule({
   imports: [
