@@ -45,7 +45,7 @@
     </ion-list>
 
     <div class="container">
-      <ion-button type="submit">Cadastrar</ion-button>
+      <ion-button type="submit" [disabled]="registerForm.invalid">Cadastrar</ion-button>
     </div>
 
   </form>
