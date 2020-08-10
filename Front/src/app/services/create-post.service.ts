@@ -10,7 +10,6 @@ export class CreatePostService {
 
   constructor(public http: HttpClient) {}
 
-      createPost(body):Observable<any>{
-          return this.http.post(this.apiURL + 'createPost/'+ body);
-      }
+//      createPost(body):Observable<any>{
+//          return this.http.post(this.apiURL + 'createPost/'+ body);}
 }

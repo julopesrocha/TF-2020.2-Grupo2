@@ -11,6 +11,10 @@
             <ion-label position="stacked">Disciplina</ion-label>
             <ion-input type="text" formControlName="course"></ion-input>
           </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Professor responsável</ion-label>
+            <ion-input type="text" formControlName="teacher"></ion-input>
+          </ion-item>
 
           <ion-item>
             <ion-label position="stacked">O que gostaria de comentar sobre essa disciplina?</ion-label>
@@ -19,7 +23,7 @@
 
           <ion-item>
             <ion-label>Tag</ion-label>
-            <ion-select interface="popover">
+            <ion-select interface="popover" formControlName="tag">
                 <ion-select-option value="feedback">#feedback</ion-select-option>
                 <ion-select-option value="recommendations">#recomendações</ion-select-option>
                 <ion-select-option value="doubts">#dúvidas</ion-select-option>
