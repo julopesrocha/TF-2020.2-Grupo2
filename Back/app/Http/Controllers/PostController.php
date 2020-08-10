@@ -48,7 +48,7 @@ class PostController extends Controller
     public function filterPosts(Request $request){
         $post = Post::query();
         if($request->filter){
-            $post = $post->where('teacher','LIKE','%'.$request->filter.'$')->orWhere('course','LIKE','%'.$request->filter.'%');           
+            $post = $post->where('teacher','LIKE','%'.$request->filter.'%')->orWhere('course','LIKE','%'.$request->filter.'%');           
         }
 
         return response()->json($post->get());
