@@ -66,4 +66,8 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
+
 }
