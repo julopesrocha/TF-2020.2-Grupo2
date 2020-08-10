@@ -18,12 +18,21 @@ const routes: Routes = [
     loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   {
+
     path: 'post',
     loadChildren: () => import('./post/post.module').then( m => m.PostPageModule)
   },
   {
     path: 'create-post',
     loadChildren: () => import('./create-post/create-post.module').then( m => m.CreatePostPageModule)
+
+    path: 'landing',
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
+  },
+  {
+    path: 'seguidos',
+    loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
+
   }
 
 ];

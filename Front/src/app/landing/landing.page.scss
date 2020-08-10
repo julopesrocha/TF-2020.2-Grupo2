@@ -6,14 +6,10 @@
 
 ion-button {
   --background: #1158C1;
-  text-align:center;
 }
 
-h6{
-  margin-top: 10vw;
-  opacity: 0.75;
-}
-
-.retorno{
-  --background: black;
+h1{
+  text-emphasis: bold;
+  text-align: justify;
+  margin: 10vw;
 }
