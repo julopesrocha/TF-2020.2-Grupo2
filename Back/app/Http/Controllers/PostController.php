@@ -44,4 +44,13 @@ class PostController extends Controller
             return response()->json(['Não é possível deletar este post']);
         }
     }
+
+    public function filterPosts(Request $request){
+        $post = Post::query();
+        if($request->filter){
+            $post = $post->where('teacher',$request->filter)->orWhere('course',$request->filter);           
+        }
+
+        return response()->json($post->get());
+    }
 }

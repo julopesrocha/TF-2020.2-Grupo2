@@ -26,10 +26,11 @@ Route::put('updateUser/{id}','UserController@updateUser');
 Route::delete('deleteUser/{id}','UserController@deleteUser');
 
 //Course
-Route::post('createCourse','CourseController@createCourse');
+// Route::post('createCourse','CourseController@createCourse');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
+Route::post('filterPosts','PostController@filterPosts');
 
 //Passport - User 
 Route::post('register','API\PassportController@register');

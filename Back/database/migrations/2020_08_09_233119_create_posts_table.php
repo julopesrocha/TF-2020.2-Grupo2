@@ -17,14 +17,14 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->text('content');
             $table->string('tag');
+            $table->string('teacher');
+            $table->string('course');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('course_id')->nullable();
             $table->timestamps();
         });
 
         Schema::table('posts', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

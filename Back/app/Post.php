@@ -11,6 +11,8 @@ class Post extends Model
     public function createPost(Request $request){
         $this->content = $request->content;
         $this->tag = $request->tag;
+        $this->course = $request->course;
+        $this->teacher = $request->teacher;
         $this->save();
     }
 
