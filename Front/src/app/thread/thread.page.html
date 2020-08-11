@@ -1,0 +1,30 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <h1>{{original_post.author}}</h1>
+  <h3>{{original_post.title}}</h3>
+  <p>{{original_post.text}}</p>
+
+  <!-- integrar tags -->
+  <!-- <h5 *ngFor="tag in tags">{{tag}}</h5> -->
+
+  <!-- implementar requerimento para login -->
+  <h3>Comentários</h3>
+  <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Digite aqui</ion-label>
+        <ion-input type="text" formControlName="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button>
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </form>
+
+  <div *ngFor="let comment of comments">
+    <!-- <img src=""> -->
+    <h4>{{comment.text}}</h4>
+  </div>
+</ion-content>
