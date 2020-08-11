@@ -32,11 +32,15 @@ Route::delete('deleteUser/{id}','UserController@deleteUser');
 Route::get('listPosts','PostController@listPosts');
 Route::post('filterPosts','PostController@filterPosts');
 
-//Passport - User 
+//Passport
 Route::post('register','API\PassportController@register');
 Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
+    //Post
     Route::post('createPost','PostController@createPost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
+    //User
+    Route::get('getDetails','API\PassportController@getDetails');
+    Route::get('logout','API\PassportController@logout');
 });
