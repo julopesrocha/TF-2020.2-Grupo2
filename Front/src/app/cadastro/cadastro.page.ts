@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { CadastroService } from '../services/cadastro.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +11,7 @@ export class CadastroPage implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public cadastroService: CadastroService) {
+  constructor(public formBuilder: FormBuilder, public authService: AuthService) {
 
     this.registerForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
@@ -24,12 +24,11 @@ export class CadastroPage implements OnInit {
 
   ngOnInit() {
   }
-  submitForm(form) {
-      console.log(form);
-      console.log(form.value);
-      this.cadastroService.createUser(form.value).subscribe(
-             (res) => {console.log(res);
-             }, (err) => {console.log(err); })
-      window.location.href="/tabs/home";
+  
+  submitForm(form){
+    console.log(form.value);
+    this.authService.register(form.value).subscribe(
+          (res) => {console.log(res);
+          }, (err) => {console.log(err); })
   }
 }

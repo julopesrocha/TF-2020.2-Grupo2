@@ -2,13 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 3vh;
 }
 
 ion-button {
   --background: #1158C1;
-  text-align:center;
 }
 
 .return_button{
-  --background: black;
+  --background: #700282;
+}
+
+form{
+  width: 90%;
 }
