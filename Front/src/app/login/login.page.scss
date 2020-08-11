@@ -6,7 +6,8 @@
 
 ion-button {
   --background: #1158C1;
-  text-align:center;
+  text-align: center;
+  --border-radius: 15px;
 }
 
 h6{
@@ -16,4 +17,8 @@ h6{
 
 .retorno{
   --background: black;
+}
+
+form{
+  width: 95vw
 }
