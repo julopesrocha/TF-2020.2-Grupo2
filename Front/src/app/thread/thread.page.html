@@ -3,14 +3,14 @@
 
 <ion-content>
   <h1>{{original_post.author}}</h1>
-  <h3>{{original_post.title}}</h3>
+  <ion-card>{{original_post.title}}</ion-card>
   <p>{{original_post.text}}</p>
 
   <!-- integrar tags -->
   <!-- <h5 *ngFor="tag in tags">{{tag}}</h5> -->
 
   <!-- implementar requerimento para login -->
-  <h3>Comentários</h3>
+  
   <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
     <ion-list>
       <ion-item>
@@ -23,6 +23,7 @@
     </ion-button>
   </form>
 
+  <h3>Comentários</h3>
   <div *ngFor="let comment of comments">
     <!-- <img src=""> -->
     <h4>{{comment.text}}</h4>
