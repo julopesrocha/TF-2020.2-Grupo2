@@ -48,7 +48,7 @@
   </form>
 
   <div class="container">
-    <ion-button type="submit">Cadastrar</ion-button>
+    <ion-button type="submit" [disabled]="registerForm.invalid">Cadastrar</ion-button>
   </div>
   <div class="container">
     <a href="../login">Já tenho uma conta</a>
