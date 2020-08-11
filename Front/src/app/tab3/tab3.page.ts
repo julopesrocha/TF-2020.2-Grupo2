@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  user = {};
 
-  constructor() {}
+  constructor(public authService: AuthService) {}
+
+  ngOnInit(){
+    this.userDetails();
+    console.log(this.user);
+  }
+
+  userDetails(){
+    this.authService.getDetails().subscribe((res)=>{
+      this.user = res;
+    })
+  }
 
 }
