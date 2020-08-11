@@ -25,8 +25,8 @@ Route::get('listUser/{id}','UserController@listUser');
 Route::put('updateUser/{id}','UserController@updateUser');
 Route::delete('deleteUser/{id}','UserController@deleteUser');
 
-//Course
-// Route::post('createCourse','CourseController@createCourse');
+//Comment
+Route::post('createComment','CommentController@createComment');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
