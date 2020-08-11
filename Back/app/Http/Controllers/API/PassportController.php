@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\User;
 use Auth;
+use DB;
 
 class PassportController extends Controller
 {
@@ -31,5 +32,12 @@ class PassportController extends Controller
     public function getDetails(){
         $user = Auth::user();
         return response()->json($user);
+    }
+
+    public function logout(){
+        $accessToken = Auth::user()->token();
+        DB::table('oauth_refresh_tokens')->where('access_token_id', $accessToken->id)->update(['revoked'=>true]);
+        $accessToken->revoke();
+        return response()->json(['Usuário deslogado']);
     }
 }
