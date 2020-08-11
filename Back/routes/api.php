@@ -42,5 +42,5 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::delete('deletePost/{id}','PostController@deletePost');
     //User
     Route::get('getDetails','API\PassportController@getDetails');
-    Route::post('logout','API\PassportController@logout');
+    Route::get('logout','API\PassportController@logout');
 });

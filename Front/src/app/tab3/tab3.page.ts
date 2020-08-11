@@ -22,4 +22,10 @@ export class Tab3Page {
     })
   }
 
+  userLogout(){
+    this.authService.logout().subscribe((res)=>{
+      console.log(res);
+    })
+  }
+
 }
