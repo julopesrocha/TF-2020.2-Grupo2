@@ -27,4 +27,9 @@ class PassportController extends Controller
             return response()->json(['error'=>'Não autorizado']);
         }
     }
+
+    public function getDetails(){
+        $user = Auth::user();
+        return response()->json($user);
+    }
 }
