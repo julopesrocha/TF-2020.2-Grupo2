@@ -1,5 +1,5 @@
 h1{
-  font-size: 3rem;
+  font-size: 4rem;
   color: #700282;
   margin: 3vw;
 }
@@ -14,8 +14,22 @@ ion-card{
 p{
   font-size: 2rem;
   margin: 3vw;
+  text-align: justify;
 }
 
 .send_button{
   height: 80%;
+}
+
+ion-button{
+  margin-top: 20%;
+}
+
+h3{
+  margin: 3vw;
+}
+
+h4{
+  font-size: 1rem;
+  margin-left: 3vw;
 }

@@ -23,9 +23,9 @@ export class ThreadPage implements OnInit {
   ngOnInit() {
 
     this.original_post = {
-      author: 'ana',
+      author: 'Fulana',
       title: 'titulo1',
-      text: 'leifhncafauhnfkuafuh',
+      text: 'leifhncafauhnfkuafuhdjasdjlaskdjlasjdlkasdasdasdasdasdajdlkjakldjlaksjd',
     };
 
     this.comments = [
