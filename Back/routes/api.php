@@ -27,6 +27,7 @@ Route::delete('deleteUser/{id}','UserController@deleteUser');
 
 //Comment
 Route::post('createComment','CommentController@createComment');
+Route::get('listComments','CommentController@listComments');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
