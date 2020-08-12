@@ -23,10 +23,13 @@
     <ion-fab-button  color="secondary">
       <ion-icon name="ellipsis-vertical-outline" color="tertiary"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="bottom">
-      <ion-fab-button color="secondary"><ion-icon name="close-outline"></ion-icon></ion-fab-button>
+    <ion-fab-list side="bottom"
+    (trashClicked)='deleteComment($event)'>
+    <!-- (click)="alert()" -->
+      <ion-fab-button color="secondary"><ion-icon name="trash-outline"></ion-icon></ion-fab-button>
     </ion-fab-list>
     <ion-fab-list side="start">
+    <!-- (ngSubmit)="sendEditDetails(editDetailsForm)" [formGroup]="editDetailsForm" -->
       <ion-fab-button color="secondary"><ion-icon name="create-outline"></ion-icon></ion-fab-button>
     </ion-fab-list>
   </ion-fab>

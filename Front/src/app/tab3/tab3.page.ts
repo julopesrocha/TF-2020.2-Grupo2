@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth/auth.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class Tab3Page {
   user = {};
 
-  constructor(public authService: AuthService) {}
+  constructor(public formbuilder: FormBuilder, public authService: AuthService, public alertController: AlertController) {}
 
   ngOnInit(){
     this.userDetails();
@@ -26,6 +28,53 @@ export class Tab3Page {
     this.authService.logout().subscribe((res)=>{
       console.log(res);
     })
+  }
+  // sendEditDetails(form){
+  //   console.log(form);
+  //   console.log(form.value);
+  //   form.value.id = this.id;
+  //   this.editMode = false;
+  //   this.authService.editDetails(this.comment_id, form.value).subscribe(
+  //       (res)=>{
+  //           console.log(res);
+  //           this.textComment = '';
+  //           this.editDetailsForm.reset();
+  //           this.userDetails(this.users);
+  //       }, (err) => {console.log(err);
+  //       }
+  //   )
+  // }
+  //
+  // toggleEdit(id){
+  //     this.user_id = id;
+  //     for( let comment of this.comments ){
+  //       if (comment.id == id){
+  //         this.textComment = comment.text;
+  //       }
+  //     }
+  //     this.editMode = true;
+  //   }
+
+  // async alert() {
+  //     const alert = await this.alertController.create({
+  //         header: 'Tem certeza que deseja apagar seu perfil?',
+  //         buttons: ['Cancelar', 'Apagar Perfil']
+  //     });
+  //
+  //     await alert.present();
+  // }
+
+  deleteUser(id){
+    this.authService.deleteUser(id).subscribe(
+      (res)=>{
+        console.log(res);
+        alert(res[0]);
+        // window.location.href="/login"
+      },(err) =>{
+        console.log(err);
+        alert(err.error[0]);
+      }
+    );
   }
 
 }
