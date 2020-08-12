@@ -30,12 +30,13 @@ createPostForm: FormGroup;
   }
 
   submitForm(form) {
-      console.log(form);
-      console.log(form.value);
-//      this.postService.createPost(body).subscribe(
-//        (res) => {console.log(res);
-//        }, (err) => {console.log(err); })
-      window.location.href="/tabs/home";
+      // console.log(form);
+      // console.log(form.value);
+     this.createPostService.createPost(form.value).subscribe(
+       (res) => {console.log(res);
+       }, (err) => {console.log(err); })
+
+      // window.location.href="/tabs/home";
       //depois mudar para redirecionar pro post em si
   }
 

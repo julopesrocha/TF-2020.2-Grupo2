@@ -34,7 +34,15 @@ const routes: Routes = [
   {
     path: 'seguidos',
     loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
+  },  {
+    path: 'thread',
+    loadChildren: () => import('./thread/thread.module').then( m => m.ThreadPageModule)
+  },
+  {
+    path: 'editarperfil',
+    loadChildren: () => import('./editarperfil/editarperfil.module').then( m => m.EditarperfilPageModule)
   }
+
 ];
 @NgModule({
   imports: [

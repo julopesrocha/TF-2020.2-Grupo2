@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,24 +12,31 @@ export class CadastroPage implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService) {
+  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router) {
 
     this.registerForm = this.formBuilder.group({
-      name: [null],
-      email: [null],
-      password: [null],
-      confirm_password: [null],
+      name: [null, [Validators.required, Validators.minLength(3)]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      confirm_password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       degree: [null]
     });
   }
 
   ngOnInit() {
   }
+
+  goToLanding() {
+    this.route.navigate(['/landing']);
+  }
   
   submitForm(form){
     console.log(form.value);
     this.authService.register(form.value).subscribe(
-          (res) => {console.log(res);
-          }, (err) => {console.log(err); })
+    (res) => 
+    {
+      console.log(res);
+    }, (err) => {
+      console.log(err); })
   }
 }

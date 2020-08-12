@@ -31,13 +31,25 @@ Route::get('listComments','CommentController@listComments');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
+Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
 Route::post('filterPosts','PostController@filterPosts');
 
-//Passport - User 
+//Passport
 Route::post('register','API\PassportController@register');
 Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
+    //Post
     Route::post('createPost','PostController@createPost');
+    Route::post('likePost/{post_id}','PostController@likePost');
+    Route::post('dislikePost/{post_id}','PostController@dislikePost');
+    // Route::post('likeDislikePost','PostController@likeDislikePost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
+    //User
+    Route::get('getDetails','API\PassportController@getDetails');
+    Route::get('logout','API\PassportController@logout');
 });
+
+
+//Temporary (for tests)
+
