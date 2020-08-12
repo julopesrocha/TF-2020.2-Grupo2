@@ -18,4 +18,17 @@
     <ion-button (click)="userLogout()" expand="full" color="tertiary" class="logout" >
       <ion-icon name="close-circle" class="icon-text-logout"></ion-icon>Logout
     </ion-button>
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button  color="secondary">
+      <ion-icon name="ellipsis-vertical-outline" color="tertiary"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="secondary"><ion-icon name="close-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button color="secondary"><ion-icon name="create-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>
