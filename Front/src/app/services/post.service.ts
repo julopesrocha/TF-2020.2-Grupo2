@@ -8,6 +8,19 @@ import { Observable } from 'rxjs';
 export class PostService {
     apiURL:string = 'http://localhost:8000/api/';
 
+    httpHeaders: any = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+
   constructor(public http: HttpClient) {}
+  
+  likePost(): Observable<any> {
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.post(this.apiURL + 'likePost', this.httpHeaders);
+  }
+
 
 }
