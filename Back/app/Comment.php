@@ -11,4 +11,8 @@ class Comment extends Model
         $this->comment = $request->comment;
         $this->save();
     }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
