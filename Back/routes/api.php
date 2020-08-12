@@ -25,8 +25,9 @@ Route::get('listUser/{id}','UserController@listUser');
 Route::put('updateUser/{id}','UserController@updateUser');
 Route::delete('deleteUser/{id}','UserController@deleteUser');
 
-//Course
-// Route::post('createCourse','CourseController@createCourse');
+//Comment
+Route::get('listComments','CommentController@listComments');
+Route::get('listCommentsFromPost/{id}','CommentController@listCommentsFromPost');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
@@ -47,6 +48,8 @@ Route::group(['middleware'=>'auth:api'], function(){
     //User
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
+    //Comment
+    Route::post('createComment/{id}','CommentController@createComment');
 });
 
 

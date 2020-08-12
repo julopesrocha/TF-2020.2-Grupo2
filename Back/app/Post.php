@@ -34,4 +34,8 @@ class Post extends Model
     public function liked(){
         return $this->belongsToMany('App\User');
     }
+
+    public function postcomments(){
+        return $this->hasMany('App\Comment');
+    }
 }
