@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 use Auth;
 
 class PostController extends Controller
@@ -52,5 +53,22 @@ class PostController extends Controller
         }
 
         return response()->json($post->get());
+    }
+
+    public function likeDislikePost($user_id,$post_id){
+        $user = User::findOrFail($user_id);
+        $post = Post::findOrFail($post_id);
+
+
+        // $post->liked()->attach($user->id);
+
+
+        return response()->json($post->liked()->count());
+
+    }
+
+    public function getNumberOfLikes($post_id){
+        $post = Post::findOrFail($post_id);
+        return response()->json($post->liked()->count());
     }
 }

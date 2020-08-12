@@ -38,9 +38,15 @@ Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
     //Post
     Route::post('createPost','PostController@createPost');
+    // Route::post('likeDislikePost','PostController@likeDislikePost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
     //User
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
 });
+
+
+//Temporary (for tests)
+Route::post('likeDislikePost/{user_id}/{post_id}','PostController@likeDislikePost');
+Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
