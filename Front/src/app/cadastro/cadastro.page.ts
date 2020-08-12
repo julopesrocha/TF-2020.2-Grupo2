@@ -24,7 +24,7 @@ export class CadastroPage implements OnInit {
 
   ngOnInit() {
   }
-  
+
   submitForm(form){
     console.log(form.value);
     this.authService.register(form.value).subscribe(

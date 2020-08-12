@@ -14,8 +14,8 @@ export class LoginPage implements OnInit {
   constructor(public formBuilder: FormBuilder, public authService: AuthService) {
 
     this.loginForm = this.formBuilder.group({
-      email:[null],
-      password:[null]
+      email:[null, [Validators.required, Validators.email]],
+      password:[null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
     });
   }
 
