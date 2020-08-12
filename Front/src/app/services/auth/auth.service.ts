@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   constructor(public http: HttpClient) { }
 
   apiURL:string = 'http://localhost:8000/api/';
@@ -34,6 +34,11 @@ export class AuthService {
   logout(): Observable<any>{
     this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
     return this.http.get(this.apiURL + 'logout', this.httpHeaders);
+  }
+
+  deleteUser(): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.delete(this.apiURL + 'deleteUser', this.httpHeaders);
   }
 
 }
