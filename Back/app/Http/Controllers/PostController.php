@@ -55,8 +55,8 @@ class PostController extends Controller
         return response()->json($post->get());
     }
 
-    public function likeDislikePost($user_id,$post_id){
-        $user = User::findOrFail($user_id);
+    public function likePost($post_id){
+        $user = Auth::user();
         $post = Post::findOrFail($post_id);
 
         if(! $post->liked->contains($user->id)){
@@ -66,6 +66,19 @@ class PostController extends Controller
         return response()->json($post->liked()->get());
 
     }
+
+    public function dislikePost($post_id){
+        $user = Auth::user();
+        $post = Post::findOrFail($post_id);
+
+        if($post->liked->contains($user->id)){
+            $post->liked()->detach($user->id);
+        }
+
+        return response()->json($post->liked()->get());
+
+    }
+
 
     public function getNumberOfLikes($post_id){
         $post = Post::findOrFail($post_id);

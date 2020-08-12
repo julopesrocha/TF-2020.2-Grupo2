@@ -30,6 +30,7 @@ Route::delete('deleteUser/{id}','UserController@deleteUser');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
+Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
 Route::post('filterPosts','PostController@filterPosts');
 
 //Passport
@@ -38,6 +39,8 @@ Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
     //Post
     Route::post('createPost','PostController@createPost');
+    Route::post('likePost/{post_id}','PostController@likePost');
+    Route::post('dislikePost/{post_id}','PostController@dislikePost');
     // Route::post('likeDislikePost','PostController@likeDislikePost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
@@ -48,5 +51,4 @@ Route::group(['middleware'=>'auth:api'], function(){
 
 
 //Temporary (for tests)
-Route::post('likeDislikePost/{user_id}/{post_id}','PostController@likeDislikePost');
-Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
+
