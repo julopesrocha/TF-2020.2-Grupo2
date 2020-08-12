@@ -21,5 +21,14 @@ class UserTableSeeder extends Seeder
             $user->comments()->saveMany($comment);
             
         });
+
+        $all_posts = App\Post::all();
+
+        App\User::all()->each(function ($user) use ($all_posts){
+            $user->likes()->attach(
+                $all_posts->random(rand(1,10))->pluck('id')->toArray()
+            );
+        });
+
     }
 }
