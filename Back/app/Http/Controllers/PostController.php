@@ -52,7 +52,7 @@ class PostController extends Controller
             $post = $post->where('teacher','LIKE','%'.$request->filter.'%')->orWhere('course','LIKE','%'.$request->filter.'%');           
         }
 
-        return response()->json($post->get());
+        return response()->json($post->withCount('liked')->get());
     }
 
     public function likePost($post_id){
