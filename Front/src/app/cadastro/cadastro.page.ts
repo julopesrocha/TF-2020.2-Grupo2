@@ -26,13 +26,10 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
   goToLanding() {
     this.route.navigate(['/landing']);
   }
   
-=======
->>>>>>> 825dad1d34586d29534ce44e4d22b04523e34297
   submitForm(form){
     console.log(form.value);
     this.authService.register(form.value).subscribe(
