@@ -34,12 +34,10 @@ export class Tab3Page {
   //   console.log(form.value);
   //   form.value.id = this.id;
   //   this.editMode = false;
-  //   this.authService.editDetails(this.comment_id, form.value).subscribe(
+  //   this.authService.updateDetails(this.user_id, form.value).subscribe(
   //       (res)=>{
   //           console.log(res);
-  //           this.textComment = '';
-  //           this.editDetailsForm.reset();
-  //           this.userDetails(this.users);
+  //           this.userDetails(this.user);
   //       }, (err) => {console.log(err);
   //       }
   //   )
@@ -64,6 +62,7 @@ export class Tab3Page {
   //     await alert.present();
   // }
 
+// conferir se é (id) ou mais alguma coisa
   deleteUser(id){
     this.authService.deleteUser(id).subscribe(
       (res)=>{
