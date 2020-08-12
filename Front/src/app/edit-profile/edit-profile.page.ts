@@ -13,9 +13,9 @@ export class EditProfilePage implements OnInit {
     constructor(public formBuilder: FormBuilder, public authService: AuthService) {
 
       this.editDetailsForm = this.formBuilder.group({
-        name: [null, [Validators.required, Validators.minLength(3)]],
-        email: [null, [Validators.required, Validators.email]],
-        password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+        name: [null, [Validators.minLength(3)]],
+        email: [null, [Validators.email]],
+        password: [null, [Validators.minLength(6), Validators.maxLength(20)]],
         degree: [null]
       });
     }
