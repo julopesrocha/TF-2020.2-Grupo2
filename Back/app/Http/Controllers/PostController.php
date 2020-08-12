@@ -59,11 +59,11 @@ class PostController extends Controller
         $user = User::findOrFail($user_id);
         $post = Post::findOrFail($post_id);
 
+        if(! $post->liked->contains($user->id)){
+            $post->liked()->attach($user->id);
+        }
 
-        // $post->liked()->attach($user->id);
-
-
-        return response()->json($post->liked()->count());
+        return response()->json($post->liked()->get());
 
     }
 
