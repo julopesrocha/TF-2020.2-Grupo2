@@ -13,7 +13,9 @@
         <h6>Email</h6>
         <h3>{{user.email}}</h3>
         <h6>Senha</h6>
-        <h3>{{user.password}}</h3>
+        <!-- <h3>{{user.password}}</h3> -->
     </div>
-    <ion-button icon-start><ion-icon name="close-circle"></ion-icon>Logout</ion-button>
+    <ion-button icon-start (click)="userLogout()">
+      <ion-icon name="close-circle"></ion-icon>Logout
+    </ion-button>
 </ion-content>
