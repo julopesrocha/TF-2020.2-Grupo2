@@ -5,10 +5,10 @@
     <ion-grid>
 
       <ion-row>
-        <ion-title>Login</ion-title>
-        <ion-button class="retorno" (click)="goToLanding()">
-          <ion-icon name="arrow-back-outline"></ion-icon>
+        <ion-button>
+          <ion-icon name="close-outline"></ion-icon>
         </ion-button>
+        <ion-title>Login</ion-title>
       </ion-row>
 
     </ion-grid>
@@ -32,7 +32,7 @@
     </ion-list>
 
     <div class="container">
-      <ion-button type="submit">Efetuar Login</ion-button>
+      <ion-button type="submit" [disabled]="loginForm.invalid">Efetuar Login</ion-button>
     </div>
   </form>
 

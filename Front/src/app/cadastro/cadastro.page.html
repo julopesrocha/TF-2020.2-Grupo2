@@ -3,11 +3,11 @@
     <ion-grid>
 
       <ion-row>
-        <ion-title>Cadastro</ion-title>
 
-        <ion-button class="return_button" (click)="goToLanding()">
-          <ion-icon name="arrow-back-outline"></ion-icon>
+        <ion-button>
+          <ion-icon name="close-outline"></ion-icon>
         </ion-button>
+        <ion-title>Cadastro</ion-title>
       </ion-row>
 
     </ion-grid>
@@ -43,13 +43,14 @@
         <ion-input type="text" formControlName="degree"></ion-input>
       </ion-item>
     </ion-list>
+    <div class="container">
+      <ion-button type="submit" [disabled]="registerForm.invalid">Cadastrar</ion-button>
+    </div>
 
 
   </form>
 
-  <div class="container">
-    <ion-button type="submit" [disabled]="registerForm.invalid">Cadastrar</ion-button>
-  </div>
+
   <div class="container">
     <a href="../login">Já tenho uma conta</a>
   </div>

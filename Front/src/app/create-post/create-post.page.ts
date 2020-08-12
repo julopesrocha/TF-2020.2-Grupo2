@@ -36,7 +36,7 @@ createPostForm: FormGroup;
        (res) => {console.log(res);
        }, (err) => {console.log(err); })
 
-      window.location.href="/tabs/home";
+      // window.location.href="/tabs/home";
       //depois mudar para redirecionar pro post em si
   }
 
