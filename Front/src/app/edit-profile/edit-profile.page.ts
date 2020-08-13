@@ -16,7 +16,6 @@ export class EditProfilePage implements OnInit {
       this.editDetailsForm = this.formBuilder.group({
         name: [null, [Validators.minLength(3)]],
         email: [null, [Validators.email]],
-        password: [null, [Validators.minLength(6), Validators.maxLength(20)]],
         degree: [null]
       });
     }
