@@ -50,8 +50,6 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::get('logout','API\PassportController@logout');
     //Comment
     Route::post('createComment/{id}','CommentController@createComment');
-});
-
 
 //Temporary (for tests)
 
