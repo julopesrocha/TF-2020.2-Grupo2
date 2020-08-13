@@ -29,29 +29,7 @@ export class Tab3Page {
       console.log(res);
     })
   }
-  // sendEditDetails(form){
-  //   console.log(form);
-  //   console.log(form.value);
-  //   form.value.id = this.id;
-  //   this.editMode = false;
-  //   this.authService.updateDetails(this.user_id, form.value).subscribe(
-  //       (res)=>{
-  //           console.log(res);
-  //           this.userDetails(this.user);
-  //       }, (err) => {console.log(err);
-  //       }
-  //   )
-  // }
-  //
-  // toggleEdit(id){
-  //     this.user_id = id;
-  //     for( let comment of this.comments ){
-  //       if (comment.id == id){
-  //         this.textComment = comment.text;
-  //       }
-  //     }
-  //     this.editMode = true;
-  //   }
+
 
   // async alert() {
   //     const alert = await this.alertController.create({

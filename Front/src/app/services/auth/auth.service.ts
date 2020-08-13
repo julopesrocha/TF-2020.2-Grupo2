@@ -31,9 +31,9 @@ export class AuthService {
     return this.http.get(this.apiURL + 'getDetails', this.httpHeaders);
   }
 
-  updateUsers(id, form):Observable<any>{
+  updateUser(id, form): Observable<any>{
       this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
-      return this.http.put(this.apiURL + 'updateUsers/'+ id, form, this.httpHeaders);
+      return this.http.put(this.apiURL + 'updateUser/'+ id, form, this.httpHeaders);
   }
 
   logout(): Observable<any>{
