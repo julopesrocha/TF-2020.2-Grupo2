@@ -1,3 +1,7 @@
+.background{
+    --background: url('../../assets/grafismo-superior-inferior.png');
+}
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -13,10 +17,14 @@ ion-button {
 
 h1{
   text-emphasis: bold;
-  text-align: justify;
-  margin: 10vw;
+  text-align: center;
+  margin: 8vw;
+}
+
+ion-button{
+    margin: 1vh;
 }
 
 a{
-  margin: 2vw;
+  margin: 4vh;
 }
