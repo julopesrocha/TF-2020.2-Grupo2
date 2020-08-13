@@ -10,6 +10,7 @@ import { FilterService} from '../services/filter.service';
 })
 export class Tab2Page {
   posts = [];
+  users = [];
   searchForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public filterService: FilterService) {
@@ -53,7 +54,13 @@ export class Tab2Page {
         (res) => {
           this.posts = res;
           console.log(res);
-        }, (err) => {console.log(err); })
+        }, (err) => {console.log(err); }),
+
+        this.filterService.filterUsers(form.value).subscribe(
+          (res) => {
+            this.users = res;
+            console.log(res);
+          }, (err) => {console.log(err); })
   }
 
   // buscar(ev: any){

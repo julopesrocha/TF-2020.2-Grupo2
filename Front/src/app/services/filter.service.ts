@@ -22,4 +22,8 @@ export class FilterService {
     return this.http.post(this.apiURL + 'filterPosts', form, this.httpHeaders );
   }
 
+  filterUsers(form): Observable<any>{
+    return this.http.post(this.apiURL + 'filterUsers', form, this.httpHeaders );
+  }
+
 }
