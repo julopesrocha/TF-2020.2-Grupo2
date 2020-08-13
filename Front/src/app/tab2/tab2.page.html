@@ -29,6 +29,6 @@
       </ion-toolbar>
     </ion-header>
 
-    <app-post *ngFor="let post of posts" [title]="post.course" [user]="post.user.name" [text]="post.content" [likes]="post.liked_count"></app-post>
+    <app-post *ngFor="let post of posts" [title]="post.course" [user]="post.user.name" [text]="post.content" [likes]="post.liked_count" [id]="post.id"></app-post>
 
 </ion-content>
