@@ -11,13 +11,17 @@ export class PostComponent implements OnInit {
   @Input() author: string;
   @Input() text: string;
   @Input() likes: number;
-
+  @Input() dislikes: number;
 
   constructor() { }
 
   ngOnInit() {}
 
   like_post() { 
+
+  }
+
+  dislike_post(){
 
   }
 
