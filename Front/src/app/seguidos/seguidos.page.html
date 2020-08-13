@@ -24,23 +24,7 @@
 
   <ion-list>
     <ion-item *ngFor="let user of users">
-      <!-- <img src=""> -->
-      <!-- depois implementar html para foto de cada usuario -->
-      <div class="container">
-
-        <div class="flex_item">
-          <ion-title class="user_info">{{ user.name }}</ion-title>
-          <ion-title class="user_info email">{{ user.email }}</ion-title>
-        </div>
-        <div class="flex_item following">
-          <ion-button>Seguindo</ion-button>
-        </div>
-
-      </div>
-        <!-- talvez fazer o nome e email clicaveis, levam para perfil do usuario -->
-        <!-- <ion-subtitle></ion-subtitle> -->
-        <!-- botao precisa mudar status de usuario seguido -->
-        
+      <app-userinfo [name]="user.name" [degree]="user.degree"></app-userinfo>
     </ion-item>
   </ion-list>
 
