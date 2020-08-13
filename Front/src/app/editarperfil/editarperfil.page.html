@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-grid>
-    
+
       <ion-row>
-    
-        <ion-button (click)="goToLanding()">
+
+        <ion-button routerLink="/tabs/tab3">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
 
         <ion-title>Editar Perfil</ion-title>
 
       </ion-row>
-    
+
     </ion-grid>
   </ion-toolbar>
 </ion-header>
@@ -25,22 +25,22 @@
         <ion-label position="floating">Nome</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-label position="floating">E-mail</ion-label>
         <ion-input type="text" formControlName="email"></ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-label position="floating">Senha</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-label position="floating">Confirmar Senha</ion-label>
         <ion-input type="password" formControlName="confirm_password"></ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-label position="floating">Curso</ion-label>
         <ion-input type="text" formControlName="degree"></ion-input>
@@ -49,8 +49,8 @@
     <div class="container">
       <ion-button type="submit" [disabled]="editProfileForm.invalid">Cadastrar</ion-button>
     </div>
-  
-  
+
+
   </form>
 
 </ion-content>
