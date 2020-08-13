@@ -55,3 +55,6 @@ Route::group(['middleware'=>'auth:api'], function(){
 
 //Temporary (for tests)
 
+    Route::put('editProfile','API\PassportController@editProfile');
+    Route::delete('deleteProfile','API\PassportController@deleteProfile');
+});

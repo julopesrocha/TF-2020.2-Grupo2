@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth/auth.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class Tab3Page {
   user = {};
 
-  constructor(public authService: AuthService) {}
+  constructor(public formbuilder: FormBuilder, public authService: AuthService, public alertController: AlertController) {}
 
   ngOnInit(){
     this.userDetails();
@@ -26,6 +28,30 @@ export class Tab3Page {
     this.authService.logout().subscribe((res)=>{
       console.log(res);
     })
+  }
+
+
+  // async alert() {
+  //     const alert = await this.alertController.create({
+  //         header: 'Tem certeza que deseja apagar seu perfil?',
+  //         buttons: ['Cancelar', 'Apagar Perfil']
+  //     });
+  //
+  //     await alert.present();
+  // }
+
+// conferir se é (id) ou mais alguma coisa
+  deleteUser(id){
+    this.authService.deleteUser(id).subscribe(
+      (res)=>{
+        console.log(res);
+        alert(res[0]);
+        // window.location.href="/login"
+      },(err) =>{
+        console.log(err);
+        alert(err.error[0]);
+      }
+    );
   }
 
 }
