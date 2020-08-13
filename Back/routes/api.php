@@ -43,16 +43,20 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::post('createPost','PostController@createPost');
     Route::post('likePost/{post_id}','PostController@likePost');
     Route::post('dislikePost/{post_id}','PostController@dislikePost');
-    // Route::post('likeDislikePost','PostController@likeDislikePost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
     //User
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
+    Route::get('listUserFollowing','UserController@listUserFollowing');
+    Route::post('followUser/{id}','UserController@followUser');
     //Comment
     Route::post('createComment/{id}','CommentController@createComment');
 });
 
 
 //Temporary (for tests)
+// Route::post('followUser/{followed_id}/{follower_id}','UserController@followUser');
+// Route::get('listUserFollowers/{id}','UserController@listUserFollowers');
+// Route::get('listUserFollowing/{id}','UserController@listUserFollowing');
 
