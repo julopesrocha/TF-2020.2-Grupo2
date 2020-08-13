@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class UserController extends Controller
 {
@@ -41,4 +42,39 @@ class UserController extends Controller
         }
         return response()->json($user->get());
     }
+
+    // TEMPORARIA PARA TESTAR RELAÇÕES 
+
+    // public function followUser($followed_id, $follower_id){
+    //     $followed = User::findOrFail($followed_id);
+    //     $follower = User::findOrFail($follower_id);
+
+    //     $follower->following()->attach($followed->id);
+    // }
+
+    // public function listUserFollowers($id){
+    //     $user = User::findOrFail($id);
+
+    //     return response()->json($user->followers()->get());
+    // }
+
+    // public function listUserFollowing($id){
+    //     $user = User::findOrFail($id);
+
+    //     return response()->json($user->following()->get());
+    // }
+
+    public function listUserFollowing(){
+        $user = Auth::user();
+        return response()->json($user->following()->get());
+    }
+
+    public function followUser($id){
+        $user = Auth::user();
+        $followedUser = User::findOrFail($id);
+        $user->following()->attach($followedUser->id);
+
+    }
+
+
 }
