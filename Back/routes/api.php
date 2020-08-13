@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //User
 Route::post('createUser','UserController@createUser');
+Route::post('filterUsers','UserController@filterUsers');
 Route::get('listUsers','UserController@listUsers');
 Route::get('listUser/{id}','UserController@listUser');
 Route::put('updateUser/{id}','UserController@updateUser');

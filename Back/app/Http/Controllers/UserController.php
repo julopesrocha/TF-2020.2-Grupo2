@@ -33,4 +33,12 @@ class UserController extends Controller
         User::destroy($id);
         return response()->json(['Usuário deletado']);
     }
+
+    public function filterUsers(Request $request){
+        $user = User::query();
+        if($request->filter){
+            $user = $user->where('name','LIKE','%'.$request->filter.'%');            
+        }
+        return response()->json($user->get());
+    }
 }
