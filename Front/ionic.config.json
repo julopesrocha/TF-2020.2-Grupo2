@@ -1,5 +1,7 @@
 {
   "name": "Front",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
