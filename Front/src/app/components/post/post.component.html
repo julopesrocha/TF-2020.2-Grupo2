@@ -13,11 +13,17 @@
 
   <ion-card-content>
     <p>{{text}}</p>
-    <ion-button>
+    <ion-button (click)="like_post()">
       {{likes}}
       &nbsp;
       <ion-icon name="thumbs-up-sharp"></ion-icon>
     </ion-button>
+    <ion-button (click)="dislike_post()">
+      {{dislikes}}
+      &nbsp;
+      <ion-icon name="thumbs-down-sharp"></ion-icon>
+    </ion-button>
+    <ion-button (click)="follow_user()">Seguir usuário</ion-button>
   </ion-card-content>
   <!-- <ion-card-subtitle>#{{tag}}</ion-card-subtitle> -->
   <!-- colocar icone de coracao antes do seguidor -->

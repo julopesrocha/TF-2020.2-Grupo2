@@ -28,6 +28,7 @@
               <!-- </ion-searchbar> -->
       </ion-toolbar>
     </ion-header>
+
     <app-post *ngFor="let post of posts" [title]="post.course" [author]="post.author" [text]="post.content" [likes]="post.liked_count"></app-post>
 
 </ion-content>
