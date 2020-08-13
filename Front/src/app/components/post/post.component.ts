@@ -17,6 +17,12 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {}
 
+  like_post() { 
 
+  }
+
+  follow_user(){
+    
+  }
 
 }
