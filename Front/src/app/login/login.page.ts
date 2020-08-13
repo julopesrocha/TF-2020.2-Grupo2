@@ -38,8 +38,11 @@ export class LoginPage implements OnInit {
         },
         (err) => {
           console.log(err);
-        }
-      )
-      // window.location.href="/tabs/home";
+        },
+     )
   }
+  goToHome() {
+    this.route.navigate(['/tabs/home']);
+  }
+
 }

@@ -1,18 +1,15 @@
 .background{
     --background: url('../../assets/grafismo-inferior.png');
-    background-repeat: no-repeat;
+    --background-repeat: no-repeat;
     bottom: 0;
-    color: black;
     left: 0;
     overflow: auto;
     padding: 3em;
-    position: absolute;
     right: 0;
     text-align: center;
     top: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    --background-position: bottom;
+    --background-size: cover;
 }
 .container{
   display: flex;
