@@ -55,14 +55,13 @@ class PostController extends Controller
         return response()->json($post->withCount('liked')->with('user:id,name')->get());
     }
 
-    public function likePost($post_id){
+    public function likePost($id){
         $user = Auth::user();
-        $post = Post::findOrFail($post_id);
+        $post = Post::findOrFail($id);
 
         if(! $post->liked->contains($user->id)){
             $post->liked()->attach($user->id);
         }
-
         return response()->json($post->liked()->get());
 
     }
@@ -76,7 +75,6 @@ class PostController extends Controller
         }
 
         return response()->json($post->liked()->get());
-
     }
 
 

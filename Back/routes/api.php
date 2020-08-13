@@ -40,8 +40,8 @@ Route::post('register','API\PassportController@register');
 Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
     //Post
+    Route::get('likePost/{id}','PostController@likePost');
     Route::post('createPost','PostController@createPost');
-    Route::post('likePost/{post_id}','PostController@likePost');
     Route::post('dislikePost/{post_id}','PostController@dislikePost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
