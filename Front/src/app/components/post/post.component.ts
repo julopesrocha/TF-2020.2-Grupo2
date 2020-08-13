@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostComponent implements OnInit {
 
   @Input() title: string;
-  @Input() author: string;
+  @Input() user: string;
   @Input() text: string;
   @Input() likes: number;
   @Input() dislikes: number;
@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {}
 
-  like_post() { 
+  like_post() {
 
   }
 
@@ -26,7 +26,7 @@ export class PostComponent implements OnInit {
   }
 
   follow_user(){
-    
+
   }
 
 }
