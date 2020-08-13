@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,15 +13,17 @@ import { Router } from '@angular/router';
 export class CadastroPage implements OnInit {
 
   registerForm: FormGroup;
+  photo: SafeResourceUrl;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router) {
+  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, private sanitizer: DomSanitizer) {
 
     this.registerForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       confirm_password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      degree: [null]
+      degree: [null],
+      //photo: [null]
     });
   }
 
@@ -38,5 +42,17 @@ export class CadastroPage implements OnInit {
       console.log(res);
     }, (err) => {
       console.log(err); })
+  }
+
+  async takePicture() {
+    const image = await Plugins.Camera.getPhoto({
+      quality: 100,
+      allowEditing: true,
+      saveToGallery: true,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera
+    });
+
+    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 }
