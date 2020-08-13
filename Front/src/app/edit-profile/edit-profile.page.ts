@@ -22,16 +22,17 @@ export class EditProfilePage implements OnInit {
     }
   ngOnInit() {
   }
-  // sendEditDetails(form){
-  //   console.log(form);
-  //   console.log(form.value);
-  //   this.editMode = false;
-  //   this.authService.updateUser(this.user_id, form.value).subscribe(
-  //       (res)=>{
-  //           console.log(res);
-  //       }, (err) => {console.log(err);
-  //       }
-  //   )
-  // }
+
+  editDetails(form){
+    console.log(form);
+    console.log(form.value);
+    this.editMode = false;
+    this.authService.editProfile(form.value).subscribe(
+        (res)=>{
+            console.log(res);
+        }, (err) => {console.log(err);
+        }
+    )
+  }
 
 }

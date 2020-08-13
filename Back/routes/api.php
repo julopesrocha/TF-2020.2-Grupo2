@@ -43,4 +43,6 @@ Route::group(['middleware'=>'auth:api'], function(){
     //User
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
+    Route::put('editProfile','API\PassportController@editProfile');
+    Route::delete('deleteProfile','API\PassportController@deleteProfile');
 });

@@ -40,4 +40,17 @@ class PassportController extends Controller
         $accessToken->revoke();
         return response()->json(['Usuário deslogado']);
     }
+
+    public function editProfile(Request $request){
+        $user = Auth::user();
+        $user->updateUser($request);
+        return response()->json($user);
+    }
+
+    public function deleteProfile(){
+        $user = Auth::user();
+        User::destroy($user->id);
+        return response()->json('Usuário deletado');
+
+    }
 }
