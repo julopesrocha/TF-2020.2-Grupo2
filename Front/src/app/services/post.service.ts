@@ -22,5 +22,10 @@ export class PostService {
     return this.http.get(this.apiURL + "likePost/" + id, this.httpHeaders);
   }
 
+  dislikePost(id): Observable<any> {
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.get(this.apiURL + "dislikePost/" + id, this.httpHeaders);
+  }
+
 
 }

@@ -27,8 +27,10 @@ export class PostComponent implements OnInit {
     }, (err) => {console.log(err); })
   }
 
-  dislike_post(){
-
+  dislikePost(){
+    this.postService.dislikePost(this.id).subscribe((res)=>{
+      console.log(res);
+    }, (err) => {console.log(err); })
   }
 
   follow_user(){

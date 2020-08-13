@@ -66,9 +66,9 @@ class PostController extends Controller
 
     }
 
-    public function dislikePost($post_id){
+    public function dislikePost($id){
         $user = Auth::user();
-        $post = Post::findOrFail($post_id);
+        $post = Post::findOrFail($id);
 
         if($post->liked->contains($user->id)){
             $post->liked()->detach($user->id);
