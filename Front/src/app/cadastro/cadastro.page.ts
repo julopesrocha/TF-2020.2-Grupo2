@@ -19,10 +19,10 @@ export class CadastroPage implements OnInit {
 
     this.registerForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
+      degree: [null],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       confirm_password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      degree: [null],
       //photo: [null]
     });
   }
@@ -33,11 +33,11 @@ export class CadastroPage implements OnInit {
   goToLanding() {
     this.route.navigate(['/landing']);
   }
-  
+
   submitForm(form){
     console.log(form.value);
     this.authService.register(form.value).subscribe(
-    (res) => 
+    (res) =>
     {
       console.log(res);
     }, (err) => {
