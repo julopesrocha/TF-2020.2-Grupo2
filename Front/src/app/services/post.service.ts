@@ -17,9 +17,14 @@ export class PostService {
 
   constructor(public http: HttpClient) {}
   
-  likePost(): Observable<any> {
+  likePost(id): Observable<any> {
     this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
-    return this.http.post(this.apiURL + 'likePost', this.httpHeaders);
+    return this.http.get(this.apiURL + "likePost/" + id, this.httpHeaders);
+  }
+
+  dislikePost(id): Observable<any> {
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.get(this.apiURL + "dislikePost/" + id, this.httpHeaders);
   }
 
 

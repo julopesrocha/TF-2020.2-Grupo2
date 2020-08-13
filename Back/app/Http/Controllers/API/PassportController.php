@@ -53,4 +53,5 @@ class PassportController extends Controller
         return response()->json('Usuário deletado');
 
     }
+
 }
