@@ -31,19 +31,19 @@ export class ThreadPage implements OnInit {
     this.comments = [
       {
         author: 'fulano1',
-        text: 'lorem ipsum 1'
+        text: '1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
       },
       {
         author: 'fulano2',
-        text: 'lorem ipsum 2'
+        text: '2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
       },
       {
         author: 'fulano3',
-        text: 'lorem ipsum 3'
+        text: '3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
       },
       {
         author: 'fulano4',
-        text: 'lorem ipsum 4'
+        text: '4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
       },
     ];
   }
@@ -53,6 +53,16 @@ export class ThreadPage implements OnInit {
     console.log(form.value);
 
     
+  }
+
+  deleteComment(){
+    console.log('comment deleted');
+
+  }
+
+  editComment(){
+    console.log('comment edited');
+
   }
 
 }
