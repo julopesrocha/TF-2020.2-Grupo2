@@ -25,11 +25,13 @@ Route::get('listUser/{id}','UserController@listUser');
 Route::put('updateUser/{id}','UserController@updateUser');
 Route::delete('deleteUser/{id}','UserController@deleteUser');
 
-//Course
-// Route::post('createCourse','CourseController@createCourse');
+//Comment
+Route::get('listComments','CommentController@listComments');
+Route::get('listCommentsFromPost/{id}','CommentController@listCommentsFromPost');
 
 //Post
 Route::get('listPosts','PostController@listPosts');
+Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
 Route::post('filterPosts','PostController@filterPosts');
 
 //Passport
@@ -38,9 +40,18 @@ Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
     //Post
     Route::post('createPost','PostController@createPost');
+    Route::post('likePost/{post_id}','PostController@likePost');
+    Route::post('dislikePost/{post_id}','PostController@dislikePost');
+    // Route::post('likeDislikePost','PostController@likeDislikePost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
     //User
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
+    //Comment
+    Route::post('createComment/{id}','CommentController@createComment');
 });
+
+
+//Temporary (for tests)
+

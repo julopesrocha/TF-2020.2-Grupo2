@@ -10,10 +10,13 @@ export class PostComponent implements OnInit {
   @Input() title: string;
   @Input() author: string;
   @Input() text: string;
+  @Input() likes: number;
 
 
   constructor() { }
 
   ngOnInit() {}
+
+
 
 }

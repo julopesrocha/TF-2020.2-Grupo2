@@ -37,6 +37,10 @@ const routes: Routes = [
   },  {
     path: 'thread',
     loadChildren: () => import('./thread/thread.module').then( m => m.ThreadPageModule)
+  },
+  {
+    path: 'editarperfil',
+    loadChildren: () => import('./editarperfil/editarperfil.module').then( m => m.EditarperfilPageModule)
   }
 
 ];

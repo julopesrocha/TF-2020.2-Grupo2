@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService) {
+  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router) {
 
     this.loginForm = this.formBuilder.group({
       email:[null, [Validators.required, Validators.email]],
@@ -21,6 +22,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
+  goToLanding() {
+    this.route.navigate(['/landing']);
+  }
+
   submitForm(form) {
       console.log(form);
       console.log(form.value);
