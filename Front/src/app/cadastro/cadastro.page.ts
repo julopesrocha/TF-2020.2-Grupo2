@@ -40,6 +40,7 @@ export class CadastroPage implements OnInit {
     (res) =>
     {
       console.log(res);
+      this.route.navigate(['/tabs/home']);
     }, (err) => {
       console.log(err); })
   }
