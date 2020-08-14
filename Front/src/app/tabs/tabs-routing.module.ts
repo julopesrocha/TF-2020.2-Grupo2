@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
       },
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'seguidos',
+        loadChildren: () => import('../seguidos/seguidos.module').then(m => m.SeguidosPageModule)
       },
       {
         path: 'create-post',
@@ -33,14 +33,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/tab2',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tab2',
     pathMatch: 'full'
   }
 ];

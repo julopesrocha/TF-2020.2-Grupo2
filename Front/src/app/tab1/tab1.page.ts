@@ -13,7 +13,7 @@ export class Tab1Page {
 
   ngOnInit() {
     this.listFollowing();
-    
+
   }
 
   listFollowing(){
