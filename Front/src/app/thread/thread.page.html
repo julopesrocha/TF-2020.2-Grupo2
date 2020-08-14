@@ -4,10 +4,10 @@
       <ion-grid>
 
         <ion-row>
+          <ion-title>colocar logo</ion-title>
           <ion-button (click)="goToHome()" class="exit-button">
             <ion-icon name="close-outline"></ion-icon>
           </ion-button>
-          <ion-title>colocar logo</ion-title>
         </ion-row>
 
       </ion-grid>
@@ -19,6 +19,16 @@
   <h1>{{original_post.author}}</h1>
   <ion-card>{{original_post.title}}</ion-card>
   <p>{{original_post.text}}</p>
+  <div class="op_buttons">
+    <ion-button (click)="deleteComment()">
+      <!-- [disabled]="registerForm.invalid" -->
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="editComment()">
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-button>
+
+  </div>
 
   <!-- integrar tags -->
   <!-- <h5 *ngFor="tag in tags">{{tag}}</h5> -->
@@ -60,7 +70,7 @@
 
   <h3 class="comment_header">Comentários</h3>
   <div *ngFor="let comment of comments" class="comment_container">
-    <!-- <img src=""> -->
+    <!-- inserir imagem de perfil dos usuarios -->
     <h3 class="comment_content">{{comment.text}}</h3>
 
     <div class="comment_buttons">

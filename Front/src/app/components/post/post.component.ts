@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../../services/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -15,7 +16,7 @@ export class PostComponent implements OnInit {
   @Input() dislikes: number;
   @Input() id: number;
 
-  constructor(public postService: PostService) { }
+  constructor(public postService: PostService, private route: Router) { }
 
   ngOnInit() {}
 
@@ -33,8 +34,14 @@ export class PostComponent implements OnInit {
     }, (err) => {console.log(err); })
   }
 
-  view_thread(){
+  /* follow_user(){
+    this.postService.followUser(this.id).subscribe((res)=>{
+      console.log(res);
+    }, (err) => {console.log(err);})
+  } */
 
+  view_thread(){
+    this.route.navigate(['/thread']);
   }
 
 }

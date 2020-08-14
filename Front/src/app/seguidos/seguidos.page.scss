@@ -1,6 +1,7 @@
-.container{
-  display: flex;
-  flex-wrap: wrap;
+.retorno{
+  --background: #1158C1;
+  text-align: center;
+  --border-radius: 15px;
 }
 
 .user_info{
@@ -9,4 +10,11 @@
 
 .email{
   opacity: 0.75;
+}
+
+.list_container{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
