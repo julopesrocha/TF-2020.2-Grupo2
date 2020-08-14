@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -11,11 +12,15 @@ import { AuthService } from '../services/auth/auth.service';
 export class Tab3Page {
   user = {};
 
-  constructor(public formbuilder: FormBuilder, public authService: AuthService, public alertController: AlertController) {}
+  constructor(public formbuilder: FormBuilder, public authService: AuthService, public alertController: AlertController, private route: Router) {}
 
   ngOnInit(){
     this.userDetails();
     console.log(this.user);
+  }
+
+  goToEditProfile() {
+    this.route.navigate(['/edit-profile']);
   }
 
   userDetails(){
@@ -41,17 +46,17 @@ export class Tab3Page {
   // }
 
 // conferir se é (id) ou mais alguma coisa
-  deleteUser(id){
-    this.authService.deleteUser(id).subscribe(
-      (res)=>{
-        console.log(res);
-        alert(res[0]);
-        // window.location.href="/login"
-      },(err) =>{
-        console.log(err);
-        alert(err.error[0]);
-      }
-    );
-  }
+  // deleteUser(id){
+  //   this.authService.deleteUser(id).subscribe(
+  //     (res)=>{
+  //       console.log(res);
+  //       alert(res[0]);
+  //       // window.location.href="/login"
+  //     },(err) =>{
+  //       console.log(err);
+  //       alert(err.error[0]);
+  //     }
+  //   );
+  // }
 
 }
