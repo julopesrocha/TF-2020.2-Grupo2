@@ -35,14 +35,12 @@ export class LoginPage implements OnInit {
         (res)=>{
           console.log(res);
           localStorage.setItem('userToken', res.success.token);
+          this.route.navigate(['/tabs/home']);
         },
         (err) => {
           console.log(err);
         },
      )
-  }
-  goToHome() {
-    this.route.navigate(['/tabs/home']);
   }
 
 }
