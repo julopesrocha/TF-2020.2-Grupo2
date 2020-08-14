@@ -45,4 +45,9 @@ export class AuthService {
     this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
     return this.http.delete(this.apiURL + 'deleteUser/' + id, this.httpHeaders);
   }
+
+  followUser(id): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.get(this.apiURL + 'followUser/' + id, this.httpHeaders);
+  }
 }

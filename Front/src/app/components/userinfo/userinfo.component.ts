@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {AuthService} from '../../services/auth/auth.service';
 
 
 @Component({
@@ -10,14 +11,17 @@ export class UserinfoComponent implements OnInit {
 
   @Input() name: string;
   @Input() degree: string;
+  @Input() id: number;
   /* depois incluir dados da foto de perfil */
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {}
 
   followUser(){
-    console.log('segui o usuario');
+    this.authService.followUser(this.id).subscribe((res)=>{
+      console.log(res);
+    }, (err) => {console.log(err); })
   }
 
 }

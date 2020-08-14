@@ -74,6 +74,8 @@ class UserController extends Controller
         $followedUser = User::findOrFail($id);
         $user->following()->attach($followedUser->id);
 
+        return response()->json('Usuário seguido');
+
     }
 
 
