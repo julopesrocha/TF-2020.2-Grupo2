@@ -33,10 +33,6 @@ export class PostComponent implements OnInit {
     }, (err) => {console.log(err); })
   }
 
-  follow_user(){
-
-  }
-
   view_thread(){
 
   }
