@@ -50,4 +50,11 @@ export class AuthService {
     this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
     return this.http.get(this.apiURL + 'followUser/' + id, this.httpHeaders);
   }
+
+  listUserFollowing(): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.get(this.apiURL + 'listUserFollowing', this.httpHeaders);
+  }
+
+
 }

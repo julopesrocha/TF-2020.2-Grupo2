@@ -72,11 +72,13 @@ class UserController extends Controller
     public function followUser($id){
         $user = Auth::user();
         $followedUser = User::findOrFail($id);
-        $user->following()->attach($followedUser->id);
+
+        if(! $user->following->contains($followedUser->id)){
+            $user->following()->attach($followedUser->id);
+        }
 
         return response()->json('Usuário seguido');
 
     }
-
 
 }
