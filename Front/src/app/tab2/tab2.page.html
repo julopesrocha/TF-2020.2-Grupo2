@@ -1,34 +1,33 @@
-<ion-toolbar>
-    <ion-title>
-      Busca
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Busca
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header translucent>
-      <ion-toolbar>
-          <form [formGroup]="searchForm" (ngSubmit)="submitForm(searchForm)">
-          <ion-grid>
-              <ion-row>
-                  <ion-col size="9">
-                      <ion-item>
-                          <ion-icon name="search" color="primary"></ion-icon>
-                          <ion-textarea formControlName="filter" placeholder="  Enter a description"></ion-textarea>
-                      </ion-item>
-                  </ion-col>
-                  <ion-col>
-                      <ion-button type="submit" [disabled]="searchForm.invalid"><ion-icon name="send"></ion-icon></ion-button>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
-          </form>
-              <!-- <ion-searchbar placeholder="Busca" type="text" formControlName="search"> -->
-        <!-- (ionChange)="buscar($event)" -->
-              <!-- clearInput> -->
-              <!-- </ion-searchbar> -->
-      </ion-toolbar>
-    </ion-header>
+    <form [formGroup]="searchForm" (ngSubmit)="submitForm(searchForm)">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="9">
+                    <ion-item>
+                        <!-- <ion-icon name="search" color="primary"></ion-icon>
+                        <h5>&nbsp;</h5> -->
+                        <ion-input formControlName="filter" placeholder="Pesquise aqui"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col class="search_button_container">
+                    <ion-button class="search_button" type="submit" [disabled]="searchForm.invalid">
+                        <ion-icon name="search"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
 
-    <app-post *ngFor="let post of posts" [title]="post.course" [user]="post.user.name" [text]="post.content" [likes]="post.liked_count"></app-post>
+    <app-post *ngFor="let post of posts" [title]="post.course" [user]="post.user.name" [text]="post.content" [likes]="post.liked_count" [id]="post.id"></app-post>
+    <app-userinfo *ngFor="let user of users" [id]="user.id" [name]="user.name" [degree]="user.degree"></app-userinfo>
+    
 
 </ion-content>

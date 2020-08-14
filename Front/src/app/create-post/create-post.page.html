@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>criar post</ion-title>
+    <ion-title>Criar novo post</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,16 +8,16 @@
     <form [formGroup]="createPostForm" (ngSubmit)="submitForm(createPostForm)">
       <ion-list>
           <ion-item>
-            <ion-label position="stacked">Disciplina</ion-label>
+            <ion-label position="floating">Disciplina</ion-label>
             <ion-input type="text" formControlName="course"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">Professor responsável</ion-label>
+            <ion-label position="floating">Professor responsável</ion-label>
             <ion-input type="text" formControlName="teacher"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label position="stacked">O que gostaria de comentar sobre essa disciplina?</ion-label>
+            <ion-label position="floating">O que gostaria de comentar sobre essa disciplina?</ion-label>
             <ion-input type="text" formControlName="content"></ion-input>
           </ion-item>
 

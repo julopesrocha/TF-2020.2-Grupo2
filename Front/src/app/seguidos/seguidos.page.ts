@@ -15,23 +15,23 @@ export class SeguidosPage implements OnInit {
     this.users = [
       {
         name: 'Arthur',
-        email: 'arthur.albuquerque@gmail.com'
+        degree: 'ciencia da computacao'
       },
       {
         name: 'Diogo',
-        email: 'diogo.albuquerque@gmail.com'
+        degree: 'ciencia da computacao'
       },
       {
         name: 'Felipe',
-        email: 'felipe.albuquerque@gmail.com'
+        degree: 'ciencia da computacao'
       },
       {
         name: 'Luci',
-        email: 'luci.albuquerque@gmail.com'
+        degree: 'ciencia da computacao'
       },
       {
         name: 'Joaquim',
-        email: 'joaquim.albuquerque@gmail.com'
+        degree: 'ciencia da computacao'
       },
 
     ];

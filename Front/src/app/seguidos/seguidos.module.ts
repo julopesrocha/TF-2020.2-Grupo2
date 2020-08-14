@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SeguidosPageRoutingModule } from './seguidos-routing.module';
 
 import { SeguidosPage } from './seguidos.page';
+import { UserinfoComponent } from '../components/userinfo/userinfo.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SeguidosPage } from './seguidos.page';
     IonicModule,
     SeguidosPageRoutingModule
   ],
-  declarations: [SeguidosPage]
+  declarations: [SeguidosPage, UserinfoComponent]
 })
 export class SeguidosPageModule {}

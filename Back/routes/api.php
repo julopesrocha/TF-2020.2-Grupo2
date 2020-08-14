@@ -49,7 +49,7 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
     Route::get('listUserFollowing','UserController@listUserFollowing');
-    Route::post('followUser/{id}','UserController@followUser');
+    Route::get('followUser/{id}','UserController@followUser');
     //Comment
     Route::post('createComment/{id}','CommentController@createComment');
 
