@@ -11,6 +11,14 @@
 
 <ion-content>
     <h4>Insira seus novos dados nos campos a seguir</h4>
+
+    <div class="camera_button">
+        <img [src]="photo">
+        <ion-button (click)="takePicture()" shape="round">
+            <ion-icon name="camera"></ion-icon>
+        </ion-button>
+    </div>
+
     <form [formGroup]="editDetailsForm" (ngSubmit)="editDetails(editDetailsForm)">
       <ion-list>
         <ion-item>
@@ -29,7 +37,7 @@
         </ion-item>
       </ion-list>
       <div class="container">
-        <ion-button type="submit">Salvar Edições</ion-button>
+        <ion-button type="submit" class="button_submit">Salvar Edições</ion-button>
       </div>
 
 
