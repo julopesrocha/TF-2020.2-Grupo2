@@ -12,7 +12,10 @@ import { Router } from '@angular/router';
 export class Tab3Page {
   user = {};
 
-  constructor(public formbuilder: FormBuilder, public authService: AuthService, public alertController: AlertController, private route: Router) {}
+  constructor(public formbuilder: FormBuilder,
+      public authService: AuthService,
+      public alertController: AlertController,
+      private route: Router) {}
 
   ngOnInit(){
     this.userDetails();
