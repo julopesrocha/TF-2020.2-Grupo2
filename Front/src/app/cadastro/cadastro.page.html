@@ -17,12 +17,9 @@
 <ion-content class="background">
 
   <img [src]="photo">
-  <ion-fab vertical="top" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="takePicture()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
+  <ion-button class="camera_button" (click)="takePicture()">
+    <ion-icon name="camera"></ion-icon>
+  </ion-button>
 
   <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
     <ion-list>
@@ -53,7 +50,9 @@
 
     </ion-list>
     <div class="container">
-      <ion-button type="submit" [disabled]="registerForm.invalid">Cadastrar</ion-button>
+      <ion-button class="sing_up button" type="submit" [disabled]="registerForm.invalid">
+        Cadastrar
+      </ion-button>
     </div>
 
 

@@ -15,7 +15,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3vh;
+}
+
+.sign_up_button{
+  margin: 20px
 }
 
 ion-button {
@@ -23,9 +26,8 @@ ion-button {
   text-align: center;
   --border-radius: 15px;
 }
-ion-fab{
-    margin-top: 2vh;
-}
-form{
-    margin-top: 8vh;
+
+
+.camera_button{
+  margin: 5vh;
 }
