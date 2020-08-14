@@ -1,4 +1,18 @@
 <ion-header>
+    <ion-toolbar>
+
+      <ion-grid>
+
+        <ion-row>
+          <ion-button (click)="goToHome()" class="exit-button">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+          <ion-title>colocar logo</ion-title>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -16,14 +30,14 @@
       <ion-col>
         <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
           <ion-list >
-    
+
             <ion-item>
               <ion-label position="floating">Digite aqui</ion-label>
               <ion-input type="text" formControlName="text"></ion-input>
             </ion-item>
-    
+
           </ion-list>
-          
+
         </form>
 
       </ion-col>
@@ -42,7 +56,7 @@
 
     </ion-row>
   </ion-grid>
-  
+
 
   <h3 class="comment_header">Comentários</h3>
   <div *ngFor="let comment of comments" class="comment_container">
@@ -61,5 +75,5 @@
     </div>
 
   </div>
-  
+
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thread',
@@ -14,7 +15,7 @@ export class ThreadPage implements OnInit {
 
   comments = [];
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, private route: Router) {
     this.commentForm = this.formBuilder.group({
       text: [null]
     });
@@ -48,11 +49,15 @@ export class ThreadPage implements OnInit {
     ];
   }
 
+  goToHome() {
+    this.route.navigate(['/tabs/home']);
+}
+
   submitForm(form) {
     console.log(form);
     console.log(form.value);
 
-    
+
   }
 
   deleteComment(){
