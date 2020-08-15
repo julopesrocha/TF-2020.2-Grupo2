@@ -34,6 +34,7 @@ Route::get('listCommentsFromPost/{id}','CommentController@listCommentsFromPost')
 Route::get('getPost/{id}','PostController@getPost');
 Route::get('listPosts','PostController@listPosts');
 Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
+Route::get('getMostLikedPosts','PostController@getMostLikedPosts');
 Route::post('filterPosts','PostController@filterPosts');
 
 //Passport

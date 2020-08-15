@@ -88,4 +88,10 @@ class PostController extends Controller
         $post = Post::findOrFail($post_id);
         return response()->json($post->liked()->count());
     }
+
+    public function getMostLikedPosts(){
+        $post = Post::query();
+        $post = $post->withCount('liked')->orderBy('liked_count', 'DESC')->take(3);
+        return response()->json($post->get());
+    }
 }
