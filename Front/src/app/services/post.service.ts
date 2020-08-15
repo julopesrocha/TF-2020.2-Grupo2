@@ -31,5 +31,9 @@ export class PostService {
     return this.http.get(this.apiURL + "getMostLikedPosts/", this.httpHeaders);
   }
 
+  getFollowingPosts(): Observable<any>{
+    return this.http.get(this.apiURL + "getFollowingPosts/", this.httpHeaders);
+  }
+
 
 }
