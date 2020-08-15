@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Storage;
+
 
 class User extends Authenticatable
 {
@@ -42,10 +44,21 @@ class User extends Authenticatable
 
 
     public function createUser(Request $request){
+        if (!Storage::exists('localPhotos/')){
+            Storage::makeDirectory('localPhotos/',0775, true);
+        }
+
+        if($request->photo){
+            $file = $request->file('photo');
+            $filename = rand().'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('localPhotos',$filename);
+            $this->photo = $path;
+        }
+
+        
         $this->name = $request->name;
         $this->email = $request->email;
         $this->password = bcrypt($request->password);
-        // $this['password'] = bcrypt($request->password);
         $this->degree = $request->degree;        
         $this->save();
     }
