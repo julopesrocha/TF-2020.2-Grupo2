@@ -19,7 +19,7 @@
 <ion-content>
 
     <ion-card *ngFor="let user of users">
-        <ion-grid>
+        <ion-grid class="user_info_topo_container">
             <ion-row>
                 <ion-col>
                     <ion-avatar>
@@ -27,7 +27,7 @@
                     </ion-avatar>
                 </ion-col>
                 <ion-col>
-                    <ion-card-title>{{ user.name }}</ion-card-title>
+                    <ion-card-title color="secondary">{{ user.name }}</ion-card-title>
                 </ion-col>
             </ion-row>
         </ion-grid>

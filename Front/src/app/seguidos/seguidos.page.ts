@@ -16,23 +16,20 @@ export class SeguidosPage implements OnInit {
     this.users = [
       {
         name: 'Arthur Moraes',
-        degree: 'ciencia da computacao'
+        degree: 'ciência da computação'
       },
       {
-        name: 'Diogo Malena',
-        degree: 'ciencia da computacao'
+        name: 'Diana Malena',
+        degree: 'ciência da computação'
       },
       {
         name: 'Felipe Calvarati',
-        degree: 'ciencia da computacao'
+        degree: 'ciência da computação'
       },
+
       {
-        name: 'Luci Pabel',
-        degree: 'ciencia da computacao'
-      },
-      {
-        name: 'Joaquim Mopla',
-        degree: 'ciencia da computacao'
+        name: 'Joana Mopla',
+        degree: 'ciência da computação'
       },
 
     ];
