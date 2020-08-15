@@ -35,4 +35,17 @@ export class SeguidosPage implements OnInit {
     ];
   }
 
-}
+   unfollowUser(){
+    this.authService.unfollowUser().subscribe(
+      (res)=>{
+        console.log(res);
+        alert(res[0]);
+        this.unfollowUser(this.users);
+      },(err) =>{
+        console.log(err);
+        alert(err.error[0]);
+    },
+    );
+  }
+
+ }
