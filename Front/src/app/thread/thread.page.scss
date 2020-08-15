@@ -61,3 +61,8 @@ ion-button{
 ion-list{
   border-radius: 20px;
 }
+
+.toolbar_container{
+  display: flex;
+  justify-content: space-between;
+}
