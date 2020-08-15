@@ -15,7 +15,8 @@ class PostController extends Controller
     }
 
     public function getPost($id){
-        $post = Post::findOrFail($id);
+        $post = Post::query();
+        $post = $post->with('user:id,name')->where('id',$id)->get();
         return response()->json($post);
     }
 
