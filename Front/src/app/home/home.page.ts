@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -9,31 +10,17 @@ export class HomePage implements OnInit {
 
   posts = [];
 
-  constructor() { }
+  constructor(public postService: PostService) { }
 
   ngOnInit() {
-    this.posts = [
-      {
-        title: '1qualquer coisa',
-        user: '1fulano',
-        text: '1isso eh um texto'
-      },
-      {
-        title: '2qualquer coisa',
-        user: '2fulano',
-        text: '2isso eh um texto'
-      },
-      {
-        title: '3qualquer coisa',
-        user: '3fulano',
-        text: '3isso eh um texto'
-      },
-      {
-        title: '4qualquer coisa',
-        user: '4fulano',
-        text: '4isso eh um texto'
-      }
-    ]
+    this.getMostLikedPosts();
+  }
+
+  getMostLikedPosts(){
+    this.postService.getMostLikedPosts().subscribe((res)=>{
+      this.posts = res;
+      console.log(this.posts);
+    }, (err) => {console.log(err);})
   }
 
 }

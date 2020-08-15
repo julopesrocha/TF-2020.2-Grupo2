@@ -27,5 +27,9 @@ export class PostService {
     return this.http.get(this.apiURL + "dislikePost/" + id, this.httpHeaders);
   }
 
+  getMostLikedPosts(): Observable<any> {
+    return this.http.get(this.apiURL + "getMostLikedPosts/", this.httpHeaders);
+  }
+
 
 }
