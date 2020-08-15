@@ -97,13 +97,11 @@ class PostController extends Controller
 
     public function getFollowingPosts(){
         $user = Auth::user();
-        $teste = User::findOrFail(24);
+        $teste = User::findOrFail($user->id);
 
         $teste = $teste->following()->with(array('posts' => function($q){
             $q->with('user');
         }));
-        return response()->json($teste->get()->pluck('posts'));
-        
-
+        return response()->json($teste->get()->pluck('posts'));        
     }
 }
