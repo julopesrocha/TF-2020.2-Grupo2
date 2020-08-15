@@ -43,7 +43,11 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then(m => m.EditProfilePageModule), canActivate: [AuthGuard]
+  },  {
+    path: 'fail',
+    loadChildren: () => import('./fail/fail.module').then( m => m.FailPageModule)
   }
+
 
 ];
 @NgModule({
