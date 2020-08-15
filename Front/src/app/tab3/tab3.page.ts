@@ -33,15 +33,10 @@ export class Tab3Page {
     this.authService.logout().subscribe((res)=>{
       localStorage.removeItem("userToken");
       console.log(res);
-<<<<<<< HEAD
-      this.route.navigate(['/landing']);
-    })
-=======
 
     }, (err)=>{
       console.log(err);
     });
->>>>>>> arthur_guard_front
   }
 
 
