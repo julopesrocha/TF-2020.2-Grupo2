@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
         },
         (err) => {
           console.log(err);
-          this.route.navigate(['/tabs/home']);
+          this.route.navigate(['/fail']);
         },
      )
   }
