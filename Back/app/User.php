@@ -45,7 +45,6 @@ class User extends Authenticatable
         $this->name = $request->name;
         $this->email = $request->email;
         $this->password = bcrypt($request->password);
-        // $this['password'] = bcrypt($request->password);
         $this->degree = $request->degree;        
         $this->save();
     }
