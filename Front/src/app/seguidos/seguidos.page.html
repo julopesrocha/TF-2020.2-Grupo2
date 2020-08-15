@@ -18,10 +18,6 @@
 
 <ion-content>
 
-  <ion-list class="list_container">
-    <ion-item *ngFor="let user of users">
-      <app-userinfo [name]="user.name" [degree]="user.degree"></app-userinfo>
-    </ion-item>
-  </ion-list>
+      <app-userinfo *ngFor="let user of users" [name]="user.name" [degree]="user.degree"></app-userinfo>
 
 </ion-content>
