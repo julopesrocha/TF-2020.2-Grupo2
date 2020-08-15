@@ -33,10 +33,7 @@ export class ThreadPage implements OnInit {
   ngOnInit() {
 
     this.getPost();
-
-    this.original_post = [];
-
-    this.comments = [];
+    this.getComments();
   }
 
 
@@ -46,9 +43,20 @@ export class ThreadPage implements OnInit {
     this.threadService.getPost(id).subscribe((res)=>{
       this.post = res[0];
       this.postAuthor = res[0].user.name;
-      console.log(this.post);
+      // console.log(this.post);
     })
     
+  }
+
+  getComments(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.threadService.getComments(id).subscribe((res)=>{
+      this.comments = res;
+      // this.postAuthor = res[0].user.name;
+      console.log(this.comments);
+    })
+
   }
 
 

@@ -18,8 +18,14 @@ export class ThreadService {
     }
   }
 
+  
+
   getPost(id): Observable<any>{
     return this.http.get(this.apiURL + 'getPost/' + id, this.httpHeaders);
+  }
+
+  getComments(id): Observable<any>{
+    return this.http.get(this.apiURL + 'listCommentsFromPost/' + id, this.httpHeaders);
   }
 
 }
