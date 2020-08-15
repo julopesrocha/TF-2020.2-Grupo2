@@ -48,11 +48,14 @@ class User extends Authenticatable
             Storage::makeDirectory('localPhotos/',0775, true);
         }
 
-        $file = $request->file('photo');
-        $filename = rand().'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('localPhotos',$filename);
+        if($request->photo){
+            $file = $request->file('photo');
+            $filename = rand().'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('localPhotos',$filename);
+            $this->photo = $path;
+        }
+
         
-        $this->photo = $path;
         $this->name = $request->name;
         $this->email = $request->email;
         $this->password = bcrypt($request->password);
