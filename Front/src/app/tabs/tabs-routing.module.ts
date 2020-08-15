@@ -18,11 +18,13 @@ const routes: Routes = [
       },
       {
         path: 'seguidos',
-        loadChildren: () => import('../seguidos/seguidos.module').then(m => m.SeguidosPageModule)
+        loadChildren: () => import('../seguidos/seguidos.module').then(m => m.SeguidosPageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'create-post',
-        loadChildren: () => import('../create-post/create-post.module').then(m => m.CreatePostPageModule)
+        loadChildren: () => import('../create-post/create-post.module').then(m => m.CreatePostPageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'tab2',
