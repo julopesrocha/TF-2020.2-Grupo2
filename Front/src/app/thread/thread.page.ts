@@ -51,7 +51,11 @@ export class ThreadPage implements OnInit {
 
   goToHome() {
     this.route.navigate(['/tabs/home']);
-}
+  }
+
+  goBackToSearch(){
+    this.route.navigate(['/tabs/tab2']);
+  }
 
   submitForm(form) {
     console.log(form);
