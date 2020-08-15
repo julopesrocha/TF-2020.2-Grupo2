@@ -17,4 +17,9 @@ export class ThreadService {
       'Accept': 'application/json'
     }
   }
+
+  getPost(id): Observable<any>{
+    return this.http.get(this.apiURL + 'getPost/' + id, this.httpHeaders);
+  }
+
 }

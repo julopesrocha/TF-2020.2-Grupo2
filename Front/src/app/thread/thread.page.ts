@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ThreadService} from '../services/thread.service';
 
 @Component({
   selector: 'app-thread',
@@ -16,7 +17,14 @@ export class ThreadPage implements OnInit {
 
   comments = [];
 
-  constructor(public formBuilder: FormBuilder, private route: Router, private activatedRoute: ActivatedRoute) {
+  post = {};
+  postAuthor: string;
+  
+
+  constructor(public formBuilder: FormBuilder, 
+    private route: Router, 
+    private activatedRoute: ActivatedRoute,
+    public threadService: ThreadService) {
     this.commentForm = this.formBuilder.group({
       text: [null]
     });
@@ -24,12 +32,26 @@ export class ThreadPage implements OnInit {
 
   ngOnInit() {
 
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getPost();
 
     this.original_post = [];
 
     this.comments = [];
   }
+
+
+  getPost(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.threadService.getPost(id).subscribe((res)=>{
+      this.post = res[0];
+      this.postAuthor = res[0].user.name;
+      console.log(this.post);
+    })
+    
+  }
+
+
 
   goToHome() {
     this.route.navigate(['/tabs/home']);
