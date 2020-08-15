@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-seguidos',
@@ -14,23 +15,23 @@ export class SeguidosPage implements OnInit {
   ngOnInit() {
     this.users = [
       {
-        name: 'Arthur',
+        name: 'Arthur Moraes',
         degree: 'ciencia da computacao'
       },
       {
-        name: 'Diogo',
+        name: 'Diogo Malena',
         degree: 'ciencia da computacao'
       },
       {
-        name: 'Felipe',
+        name: 'Felipe Calvarati',
         degree: 'ciencia da computacao'
       },
       {
-        name: 'Luci',
+        name: 'Luci Pabel',
         degree: 'ciencia da computacao'
       },
       {
-        name: 'Joaquim',
+        name: 'Joaquim Mopla',
         degree: 'ciencia da computacao'
       },
 

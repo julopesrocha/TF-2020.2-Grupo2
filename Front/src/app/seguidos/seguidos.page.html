@@ -18,6 +18,21 @@
 
 <ion-content>
 
-      <app-userinfo *ngFor="let user of users" [name]="user.name" [degree]="user.degree"></app-userinfo>
+    <ion-card *ngFor="let user of users">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-avatar>
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col>
+                    <ion-card-title>{{ user.name }}</ion-card-title>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-card-subtitle>{{ user.degree }}</ion-card-subtitle>
+        <ion-button (click)="unfollowUser()"><ion-icon class="icon-button" name="heart-dislike"></ion-icon>Seguir</ion-button>
+    </ion-card>
 
 </ion-content>
