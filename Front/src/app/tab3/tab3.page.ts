@@ -33,7 +33,7 @@ export class Tab3Page {
     this.authService.logout().subscribe((res)=>{
       localStorage.removeItem("userToken");
       console.log(res);
-
+      this.route.navigate(['/login']);
     }, (err)=>{
       console.log(err);
     });
