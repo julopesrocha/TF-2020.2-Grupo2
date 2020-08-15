@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ThreadService} from '../services/thread.service';
 
 @Component({
   selector: 'app-thread',
@@ -9,13 +11,20 @@ import { Router } from '@angular/router';
 })
 export class ThreadPage implements OnInit {
 
-  original_post: Object;
+  original_post: [];
 
   commentForm: FormGroup;
 
   comments = [];
 
-  constructor(public formBuilder: FormBuilder, private route: Router) {
+  post = {};
+  postAuthor: string;
+  
+
+  constructor(public formBuilder: FormBuilder, 
+    private route: Router, 
+    private activatedRoute: ActivatedRoute,
+    public threadService: ThreadService) {
     this.commentForm = this.formBuilder.group({
       text: [null]
     });
@@ -23,31 +32,34 @@ export class ThreadPage implements OnInit {
 
   ngOnInit() {
 
-    this.original_post = {
-      author: 'Fulana',
-      title: 'titulo1',
-      text: 'leifhncafauhnfkuafuhdjasdjlaskdjlasjdlkasdasdasdasdasdajdlkjakldjlaksjd',
-    };
-
-    this.comments = [
-      {
-        author: 'fulano1',
-        text: '1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-      {
-        author: 'fulano2',
-        text: '2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-      {
-        author: 'fulano3',
-        text: '3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-      {
-        author: 'fulano4',
-        text: '4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-    ];
+    this.getPost();
+    this.getComments();
   }
+
+
+  getPost(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.threadService.getPost(id).subscribe((res)=>{
+      this.post = res[0];
+      this.postAuthor = res[0].user.name;
+      // console.log(this.post);
+    })
+    
+  }
+
+  getComments(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.threadService.getComments(id).subscribe((res)=>{
+      this.comments = res;
+      // this.postAuthor = res[0].user.name;
+      console.log(this.comments);
+    })
+
+  }
+
+
 
   goToHome() {
     this.route.navigate(['/tabs/home']);

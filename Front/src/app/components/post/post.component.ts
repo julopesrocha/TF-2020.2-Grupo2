@@ -42,7 +42,6 @@ export class PostComponent implements OnInit {
 
   view_thread(){
     this.route.navigate(['/thread', this.id]);
-    console.log(this.id);
   }
 
 }

@@ -31,6 +31,7 @@ Route::get('listComments','CommentController@listComments');
 Route::get('listCommentsFromPost/{id}','CommentController@listCommentsFromPost');
 
 //Post
+Route::get('getPost/{id}','PostController@getPost');
 Route::get('listPosts','PostController@listPosts');
 Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
 Route::post('filterPosts','PostController@filterPosts');
