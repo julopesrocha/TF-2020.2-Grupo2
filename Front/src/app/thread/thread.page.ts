@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-thread',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
 })
 export class ThreadPage implements OnInit {
 
-  original_post: Object;
+  original_post: [];
 
   commentForm: FormGroup;
 
   comments = [];
 
-  constructor(public formBuilder: FormBuilder, private route: Router) {
+  constructor(public formBuilder: FormBuilder, private route: Router, private activatedRoute: ActivatedRoute) {
     this.commentForm = this.formBuilder.group({
       text: [null]
     });
@@ -23,30 +24,11 @@ export class ThreadPage implements OnInit {
 
   ngOnInit() {
 
-    this.original_post = {
-      author: 'Fulana',
-      title: 'titulo1',
-      text: 'leifhncafauhnfkuafuhdjasdjlaskdjlasjdlkasdasdasdasdasdajdlkjakldjlaksjd',
-    };
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.comments = [
-      {
-        author: 'fulano1',
-        text: '1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-      {
-        author: 'fulano2',
-        text: '2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-      {
-        author: 'fulano3',
-        text: '3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-      {
-        author: 'fulano4',
-        text: '4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate scelerisque nibh ac lacinia. Nulla et convallis nunc. Aliquam erat volutpat. Aenean non mollis mauris. Donec fringilla quis diam a molestie. Pellentesque porttitor, nibh facilisis facilisis congue, est libero laoreet ante, ut dignissim velit ligula et diam.'
-      },
-    ];
+    this.original_post = [];
+
+    this.comments = [];
   }
 
   goToHome() {
