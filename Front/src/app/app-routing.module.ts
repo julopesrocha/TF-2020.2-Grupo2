@@ -42,11 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'edit-profile',
-    loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
-  },
-  {
-    path: 'delete',
-    loadChildren: () => import('./delete/delete.module').then(m => m.DeletePageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./edit-profile/edit-profile.module').then(m => m.EditProfilePageModule), canActivate: [AuthGuard]
   }
 
 ];
