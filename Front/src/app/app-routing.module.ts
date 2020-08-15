@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
+=======
+import { AuthGuard } from './guards/auth/auth.guard';
+>>>>>>> arthur_guard_front
 
 const routes: Routes = [
   {
@@ -36,12 +40,16 @@ const routes: Routes = [
     loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
   },
   {
+<<<<<<< HEAD
     path: 'thread/:id',
+=======
+    path: 'thread',
+>>>>>>> arthur_guard_front
     loadChildren: () => import('./thread/thread.module').then( m => m.ThreadPageModule)
   },
   {
     path: 'edit-profile',
-    loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+    loadChildren: () => import('./edit-profile/edit-profile.module').then(m => m.EditProfilePageModule), canActivate: [AuthGuard]
   }
 
 ];
