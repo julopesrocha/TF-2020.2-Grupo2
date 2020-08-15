@@ -14,6 +14,11 @@ class PostController extends Controller
         return response()->json($post);
     }
 
+    public function getPost($id){
+        $post = Post::findOrFail($id);
+        return response()->json($post);
+    }
+
     public function createPost(Request $request){
         $post = new Post;
         $user = Auth::user();
