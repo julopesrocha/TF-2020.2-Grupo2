@@ -94,4 +94,16 @@ class PostController extends Controller
         $post = $post->withCount('liked')->with('user')->orderBy('liked_count', 'DESC')->take(3);
         return response()->json($post->get());
     }
+
+    public function getFollowingPosts(){
+        $user = Auth::user();
+        $teste = User::findOrFail(24);
+
+        $teste = $teste->following()->with(array('posts' => function($q){
+            $q->with('user');
+        }));
+        return response()->json($teste->get()->pluck('posts'));
+        
+
+    }
 }
