@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -34,13 +35,18 @@ const routes: Routes = [
   {
     path: 'seguidos',
     loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
-  },  {
+  },
+  {
     path: 'thread',
     loadChildren: () => import('./thread/thread.module').then( m => m.ThreadPageModule)
   },
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
+  {
+    path: 'delete',
+    loadChildren: () => import('./delete/delete.module').then(m => m.DeletePageModule), canActivate: [AuthGuard]
   }
 
 ];
