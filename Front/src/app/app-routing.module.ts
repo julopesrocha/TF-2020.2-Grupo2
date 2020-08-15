@@ -34,8 +34,9 @@ const routes: Routes = [
   {
     path: 'seguidos',
     loadChildren: () => import('./seguidos/seguidos.module').then( m => m.SeguidosPageModule)
-  },  {
-    path: 'thread',
+  },
+  {
+    path: 'thread/:id',
     loadChildren: () => import('./thread/thread.module').then( m => m.ThreadPageModule)
   },
   {
