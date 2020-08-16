@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edite seu post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1>Substitua o conteúdo do post</h1>
+  <form [formGroup]="editPostForm" (ngSubmit)="submitForm(editPostForm)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Disciplina</ion-label>
+        <ion-input type="text" formControlName="course"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Professor responsável</ion-label>
+        <ion-input type="text" formControlName="teacher"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">O que gostaria de comentar sobre essa disciplina?</ion-label>
+        <ion-textarea type="text" formControlName="content"></ion-textarea>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Tag</ion-label>
+        <ion-select interface="popover" formControlName="tag">
+          <ion-select-option value="feedback">#feedback</ion-select-option>
+          <ion-select-option value="recommendations">#recomendações</ion-select-option>
+          <ion-select-option value="doubts">#dúvidas</ion-select-option>
+          <ion-select-option value="others">#outros</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <div class="container">
+      <ion-button (click)="presentToast()" type="submit" [disabled]="editPostForm.invalid">Postar</ion-button>
+    </div>
+  </form>
+
+</ion-content>
