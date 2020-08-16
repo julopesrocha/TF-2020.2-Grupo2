@@ -98,10 +98,11 @@ class PostController extends Controller
     public function getFollowingPosts(){
         $user = Auth::user();
         $authUser = User::findOrFail($user->id);
-
         $authUser = $authUser->following()->with(array('posts' => function($q){
-            $q->withCount('liked')->with('user');
-        }));
-        return response()->json($authUser->get()->pluck('posts'));        
+            $q->withCount('liked')->with('user');            
+            }));
+        
+        return response()->json($authUser->get()->pluck('posts')); 
     }
+
 }
