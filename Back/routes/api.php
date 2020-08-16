@@ -34,6 +34,7 @@ Route::get('listCommentsFromPost/{id}','CommentController@listCommentsFromPost')
 Route::get('getPost/{id}','PostController@getPost');
 Route::get('listPosts','PostController@listPosts');
 Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
+Route::get('getMostLikedPosts','PostController@getMostLikedPosts');
 Route::post('filterPosts','PostController@filterPosts');
 
 //Passport
@@ -43,6 +44,7 @@ Route::group(['middleware'=>'auth:api'], function(){
     //Post
     Route::get('likePost/{id}','PostController@likePost');
     Route::get('dislikePost/{id}','PostController@dislikePost');
+    Route::get('getFollowingPosts','PostController@getFollowingPosts');
     Route::post('createPost','PostController@createPost');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');

@@ -88,4 +88,20 @@ class PostController extends Controller
         $post = Post::findOrFail($post_id);
         return response()->json($post->liked()->count());
     }
+
+    public function getMostLikedPosts(){
+        $post = Post::query();
+        $post = $post->withCount('liked')->with('user')->orderBy('liked_count', 'DESC')->take(3);
+        return response()->json([$post->get()]);
+    }
+
+    public function getFollowingPosts(){
+        $user = Auth::user();
+        $authUser = User::findOrFail($user->id);
+
+        $authUser = $authUser->following()->with(array('posts' => function($q){
+            $q->withCount('liked')->with('user');
+        }));
+        return response()->json($authUser->get()->pluck('posts'));        
+    }
 }
