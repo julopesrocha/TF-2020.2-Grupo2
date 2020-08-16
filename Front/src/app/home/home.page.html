@@ -2,7 +2,7 @@
 
     <h4>DIScreve UFRJ</h4>
   <div *ngFor="let post of posts">
-    <app-post *ngFor="let nestedPost of post" [user]="nestedPost.user.name" [title]="nestedPost.course"  [text]="nestedPost.content" [likes]="nestedPost.liked_count"></app-post>
+    <app-post *ngFor="let nestedPost of post" [id]="nestedPost.id" [user]="nestedPost.user.name" [title]="nestedPost.course"  [text]="nestedPost.content" [likes]="nestedPost.liked_count"></app-post>
   </div>
 
 </ion-content>
