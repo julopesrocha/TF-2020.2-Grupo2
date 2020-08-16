@@ -53,14 +53,10 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::get('logout','API\PassportController@logout');
     Route::get('listUserFollowing','UserController@listUserFollowing');
     Route::get('followUser/{id}','UserController@followUser');
+    Route::get('unfollowUser/{id}','UserController@unfollowUser');
+    Route::put('editProfile','API\PassportController@editProfile');
+    Route::delete('deleteProfile','API\PassportController@deleteProfile');
     //Comment
     Route::post('createComment/{id}','CommentController@createComment');
 
-//Temporary (for tests)
-// Route::post('followUser/{followed_id}/{follower_id}','UserController@followUser');
-// Route::get('listUserFollowers/{id}','UserController@listUserFollowers');
-// Route::get('listUserFollowing/{id}','UserController@listUserFollowing');
-
-    Route::put('editProfile','API\PassportController@editProfile');
-    Route::delete('deleteProfile','API\PassportController@deleteProfile');
 });
