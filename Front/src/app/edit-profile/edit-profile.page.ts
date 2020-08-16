@@ -19,8 +19,8 @@ export class EditProfilePage implements OnInit {
       this.editDetailsForm = this.formBuilder.group({
         name: [null, [Validators.minLength(3)]],
         email: [null, [Validators.email]],
-        degree: [null]
-        //photo: [null]
+        degree: [null],
+        photo: [null]
       });
     }
   ngOnInit() {
