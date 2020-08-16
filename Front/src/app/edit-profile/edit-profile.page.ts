@@ -51,7 +51,7 @@ export class EditProfilePage implements OnInit {
       source: CameraSource.Camera
     });
 
-    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
+    //this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 
 }
