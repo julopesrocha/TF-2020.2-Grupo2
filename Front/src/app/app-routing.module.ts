@@ -46,6 +46,10 @@ const routes: Routes = [
   },  {
     path: 'fail',
     loadChildren: () => import('./fail/fail.module').then( m => m.FailPageModule)
+  },
+  {
+    path: 'edit-post',
+    loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
   }
 
 
