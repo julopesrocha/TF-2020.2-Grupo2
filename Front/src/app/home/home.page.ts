@@ -13,11 +13,19 @@ export class HomePage implements OnInit {
   constructor(public postService: PostService) { }
 
   ngOnInit() {
-    this.getMostLikedPosts();
+    // this.getMostLikedPosts();
+    this.getFollowingPosts();
   }
 
   getMostLikedPosts(){
     this.postService.getMostLikedPosts().subscribe((res)=>{
+      this.posts = res;
+      console.log(this.posts);
+    }, (err) => {console.log(err);})
+  }
+
+  getFollowingPosts(){
+    this.postService.getFollowingPosts().subscribe((res)=>{
       this.posts = res;
       console.log(this.posts);
     }, (err) => {console.log(err);})

@@ -32,6 +32,7 @@ export class PostService {
   }
 
   getFollowingPosts(): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
     return this.http.get(this.apiURL + "getFollowingPosts/", this.httpHeaders);
   }
 
