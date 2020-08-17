@@ -17,7 +17,9 @@
 <ion-content class="background">
 
   <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+    
     <img [src]="photo">
+
     <ion-button class="camera_button" (click)="takePicture()">
         <ion-icon name="camera"></ion-icon>
     </ion-button>

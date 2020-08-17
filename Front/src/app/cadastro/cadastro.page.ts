@@ -23,7 +23,7 @@ export class CadastroPage implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       confirm_password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      //photo: [null]
+      photo: [null]
     });
   }
 
