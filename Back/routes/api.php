@@ -59,4 +59,7 @@ Route::group(['middleware'=>'auth:api'], function(){
     //Comment
     Route::post('createComment/{id}','CommentController@createComment');
 
+
+    Route::post('filterAuthUsers','UserController@filterAuthUsers');
+
 });
