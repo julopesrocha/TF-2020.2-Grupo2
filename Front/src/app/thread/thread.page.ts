@@ -76,13 +76,21 @@ export class ThreadPage implements OnInit {
 
   }
 
-  deleteComment(){
-    console.log('comment deleted');
-    
+  deletePost(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log('post deleted');
+    this.threadService.deletePost(id).subscribe(
+      (res) => {
+        console.log(res);
+        //colocar um aviso ou toast de o post foi deletado
+      }, (err) => {
+        console.log(err.error);
+      }
+    );
   }
 
-  editComment(){
-    console.log('comment edited');
+  editPost(){
+    console.log('post edited');
     this.route.navigate(['/edit-post']);
   }
   
