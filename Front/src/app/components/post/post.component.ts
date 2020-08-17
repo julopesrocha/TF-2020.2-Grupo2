@@ -18,6 +18,7 @@ export class PostComponent implements OnInit {
   @Input() dislikes: number;
   @Input() id: number;
 
+
   constructor(public postService: PostService, private route: Router) { }
 
   ngOnInit() {}
@@ -27,12 +28,15 @@ export class PostComponent implements OnInit {
   likePost() {
     this.postService.likePost(this.id).subscribe((res)=>{
       console.log(res);
+      this.likes++;
     }, (err) => {console.log(err); })
+
   }
 
   dislikePost(){
     this.postService.dislikePost(this.id).subscribe((res)=>{
       console.log(res);
+      this.likes--;
     }, (err) => {console.log(err); })
   }
 

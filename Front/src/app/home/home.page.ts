@@ -33,12 +33,12 @@ export class HomePage implements OnInit {
         }else{
           this.posts = res;
         console.log(this.posts);
-        }     
+        }
       }, (err) => {console.log(err);})
     }else{
       console.log('Usuário não está logado');
-    }   
-    
+    }
+
   }
 
 }
