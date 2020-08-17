@@ -28,4 +28,14 @@ export class ThreadService {
     return this.http.get(this.apiURL + 'listCommentsFromPost/' + id, this.httpHeaders);
   }
 
+  editPost(form, id): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.put(this.apiURL + "editPost/" + id,form, this.httpHeaders);
+  }
+
+  deletePost(id): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.delete(this.apiURL + "deletePost/" + id, this.httpHeaders);
+  }
+
 }
