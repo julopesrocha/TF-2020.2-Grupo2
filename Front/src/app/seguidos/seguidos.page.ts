@@ -21,7 +21,8 @@ export class SeguidosPage implements OnInit {
     this.authService.unfollowUser(id).subscribe(
       (res)=>{
         console.log(res);
-        alert(res[0]);
+        this.listFollowing();
+        // alert(res[0]);
       },(err) =>{
         console.log(err);
         alert(err.error[0]);

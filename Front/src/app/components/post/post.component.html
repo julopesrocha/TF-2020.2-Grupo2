@@ -16,7 +16,7 @@
     <ion-card-subtitle class="tag">#{{tag}}</ion-card-subtitle>
     <div class="button_container">
       <div>
-        <ion-button (click)="likePost()">
+        <ion-button *ngIf="true" (click)="likePost()">
           {{likes}}
           &nbsp;
           <ion-icon name="thumbs-up-sharp"></ion-icon>
