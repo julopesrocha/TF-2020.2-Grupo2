@@ -41,9 +41,10 @@ class EmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
+                    ->greeting('Olá!')
+                    ->line('Bem-vindo/a ao Discreve UFRJ!')
                     ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Obrigado por usar o nosso aplicativo.');
     }
 
     /**

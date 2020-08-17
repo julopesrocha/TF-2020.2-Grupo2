@@ -8,12 +8,16 @@ use App\Http\Controllers\UserController;
 use App\User;
 use Auth;
 use DB;
+use App\Notifications\EmailNotification;
 
 class PassportController extends Controller
 {
     public function register(Request $request){
         $newUser = new User;
         $newUser->createUser($request);
+
+        $newUser->notify(new EmailNotification());
+
         $success['token']=$newUser->createToken('MyApp')->accessToken;
         return response()->json(['success'=>$success,'user'=>$newUser]);
     }
