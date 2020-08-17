@@ -36,7 +36,7 @@ export class Tab3Page {
     this.authService.logout().subscribe((res)=>{
       localStorage.removeItem("userToken");
       console.log(res);
-      this.route.navigate(['/login']);
+      this.route.navigate(['/landing']);
     }, (err)=>{
       console.log(err);
     });
