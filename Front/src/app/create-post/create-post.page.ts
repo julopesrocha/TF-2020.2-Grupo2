@@ -25,7 +25,8 @@ createPostForm: FormGroup;
    async presentToast() {
     const toast = await this.toastController.create({
       message: 'Post criado com sucesso!',
-      duration: 2000
+      duration: 2000,
+      color: "secondary"
     });
     toast.present();
   }
