@@ -46,6 +46,7 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::get('dislikePost/{id}','PostController@dislikePost');
     Route::get('getFollowingPosts','PostController@getFollowingPosts');
     Route::post('createPost','PostController@createPost');
+    Route::post('filterAuthUsers','UserController@filterAuthUsers');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
     //User
@@ -58,8 +59,5 @@ Route::group(['middleware'=>'auth:api'], function(){
     Route::delete('deleteProfile','API\PassportController@deleteProfile');
     //Comment
     Route::post('createComment/{id}','CommentController@createComment');
-
-
-    Route::post('filterAuthUsers','UserController@filterAuthUsers');
-
+    Route::delete('deleteComment/{id}','CommentController@deleteComment');
 });
