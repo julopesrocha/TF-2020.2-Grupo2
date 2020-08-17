@@ -26,8 +26,8 @@
         </ion-grid>
     </form>
 
-    <app-post *ngFor="let post of posts" [title]="post.course" [user]="post.user.name" [text]="post.content" [likes]="post.liked_count" [id]="post.id"></app-post>
+    <app-post *ngFor="let post of posts" [title]="post.course" [teacher]="post.teacher" [user]="post.user.name" [text]="post.content" [tag]="post.tag" [likes]="post.liked_count" [id]="post.id"></app-post>
     <app-userinfo *ngFor="let user of users" [photo]="user.photo" [id]="user.id" [name]="user.name" [degree]="user.degree"></app-userinfo>
-    
+
 
 </ion-content>

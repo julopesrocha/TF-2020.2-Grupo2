@@ -4,15 +4,16 @@
 
     <!-- <div class="title_container">{{title}}</div> -->
     <ion-card class="title_container">
-      <ion-card-content>{{title}}</ion-card-content>
+      <ion-card-content class="font_title">{{title}} com {{teacher}}</ion-card-content>
     </ion-card>
 
-    <ion-card-subtitle class="user_post">{{user}}</ion-card-subtitle>
+    <ion-card-title class="user_post">{{user}}</ion-card-title>
 
   </ion-card-header>
 
   <ion-card-content>
     <p>{{text}}</p>
+    <ion-card-subtitle class="tag">#{{tag}}</ion-card-subtitle>
     <div class="button_container">
       <div>
         <ion-button (click)="likePost()">
@@ -27,7 +28,7 @@
         </ion-button>
       </div>
 
-      <ion-button (click)="view_thread()">Ver comentários</ion-button>
+      <ion-button (click)="view_thread()">Ver mais</ion-button>
 
     </div>
   </ion-card-content>
@@ -35,5 +36,4 @@
   <!-- colocar icone de coracao antes do seguidor -->
   <!-- checar se tem como mostrar lista de seguidores -->
   <!-- <ion-card-subtitle>{{follower}} segue esse post</ion-card-subtitle> -->
-
 </ion-card>
