@@ -10,22 +10,25 @@
 
 }
 
+.content{
+    margin: 2.5vw;
+}
 
 h1{
   font-size: 2.5rem;
   color: #700282;
-  margin: 3vw;
+  margin: 3vh;
 }
 
 ion-card{
   font-size: 2rem;
   color: white;
   background-color: #1158C1;
-  padding: 5px;
+  padding: 2vh;
 }
 
-p{
-  font-size: 2rem;
+.post-content{
+  font-size: 1.8em;
   margin: 3vw;
   text-align: justify;
 }
@@ -37,6 +40,12 @@ h3{
 h4{
   font-size: 1rem;
   margin-left: 3vw;
+}
+
+.tag{
+    color: #00EBCF;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 ion-button{

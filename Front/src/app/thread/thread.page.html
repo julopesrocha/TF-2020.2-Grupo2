@@ -19,9 +19,13 @@
 </ion-header>
 
 <ion-content>
-  <h1>{{postAuthor}}</h1>
-  <ion-card>{{post.course}}</ion-card>
-  <p>{{post.content}}</p>
+    <div  class="content">
+        <h1>{{postAuthor}}</h1>
+        <ion-card>{{post.course}} com {{post.teacher}}</ion-card>
+        <h2 class="post-content">{{post.content}}</h2>
+        <h3 class="tag">#{{post.tag}}</h3>
+    </div>
+
   <div class="op_buttons">
     <ion-button (click)="deleteComment()">
       <!-- [disabled]="registerForm.invalid" -->
