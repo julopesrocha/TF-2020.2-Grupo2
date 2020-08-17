@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CreatePostPage implements OnInit {
 
-createPostForm: FormGroup;
+  createPostForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public toastController: ToastController, public createPostService: CreatePostService, private route: Router) {
       this.createPostForm = this.formBuilder.group({

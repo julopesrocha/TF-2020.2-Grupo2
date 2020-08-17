@@ -33,8 +33,9 @@ export class CadastroPage implements OnInit {
   goToLanding() {
     this.route.navigate(['/landing']);
   }
-
+  //botar mediumtext na migration
   submitForm(form){
+    form.value.photo = this.photo['changingThisBreaksApplicationSecurity'];
     console.log(form.value);
     this.authService.register(form.value).subscribe(
     (res) =>
