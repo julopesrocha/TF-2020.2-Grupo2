@@ -21,6 +21,18 @@ class CommentController extends Controller
       return response()->json($comment);
 
     }
+
+    public function deleteComment($id){
+        $user = Auth::user();
+        $comment = Comment::findOrFail($id);
+
+        if($user->id == $comment->user_id){
+            Comment::destroy($id);
+            return response()->json('Comentário deletado');
+        }else{
+            return response()->json(['Não é possível deletar este comentário']);
+        }
+    }
    
     public function listComments(){
         $comment = Comment::all();
