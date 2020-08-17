@@ -44,9 +44,9 @@ class User extends Authenticatable
 
 
     public function createUser(Request $request){
-        if (!Storage::exists('localPhotos/')){
-            Storage::makeDirectory('localPhotos/',0775, true);
-        }
+        // if (!Storage::exists('localPhotos/')){
+        //     Storage::makeDirectory('localPhotos/',0775, true);
+        // }
 
         // if($request->photo){
         //     $file = $request->file('photo');
@@ -56,11 +56,7 @@ class User extends Authenticatable
         // }
 
         if($request->photo){
-            $image = base64_decode($request->photo);
-            $filename=uniqid();
-            $path=storage_path('app/localPhotos/'.$filename);
-            file_put_contents($path,$image);
-            $this->photo = $path;
+            $this->photo = $request->photo;
         }
 
         
