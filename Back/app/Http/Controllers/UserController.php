@@ -86,7 +86,7 @@ class UserController extends Controller
         $followedUser = User::findOrFail($id);
 
         if($user->following->contains($followedUser->id)){
-            $user->following()->attach($followedUser->id);
+            $user->following()->detach($followedUser->id);
         }
 
         return response()->json('Você deixou de seguir o usuário');
