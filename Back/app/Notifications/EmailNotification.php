@@ -41,10 +41,11 @@ class EmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Confirmação de cadastro')
                     ->greeting('Olá!')
-                    ->line('Bem-vindo/a ao Discreve UFRJ!')
-                    ->action('Notification Action', url('/'))
-                    ->line('Obrigado por usar o nosso aplicativo.');
+                    ->line('Bem-vindo/a ao DIScreve UFRJ!')
+                    ->line('Com o nosso aplicativo você pode ficar por dentro de tudo que acontece nas suas disciplinas, saber o que os seus amigos andam publicando sobre e muito mais! Nunca foi tão fácil escolher uma disciplina para cursar e saber mais sobre ela.')
+                    ->line('Obrigada por se cadastrar,');
     }
 
     /**
