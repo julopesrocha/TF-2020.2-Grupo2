@@ -48,6 +48,24 @@ export class ThreadPage implements OnInit {
     
   }
 
+  deletePost() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log('post deleted');
+    this.threadService.deletePost(id).subscribe(
+      (res) => {
+        console.log(res);
+        //colocar um aviso ou toast de o post foi deletado
+      }, (err) => {
+        console.log(err.error);
+      }
+    );
+  }
+
+  editPost() {
+    console.log('post edited');
+    this.route.navigate(['/edit-post']);
+  }
+
   getComments(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
@@ -74,24 +92,6 @@ export class ThreadPage implements OnInit {
     console.log(form.value);
 
 
-  }
-
-  deletePost(){
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('post deleted');
-    this.threadService.deletePost(id).subscribe(
-      (res) => {
-        console.log(res);
-        //colocar um aviso ou toast de o post foi deletado
-      }, (err) => {
-        console.log(err.error);
-      }
-    );
-  }
-
-  editPost(){
-    console.log('post edited');
-    this.route.navigate(['/edit-post']);
   }
   
 }
