@@ -55,9 +55,10 @@ export class AuthService {
     this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
     return this.http.get(this.apiURL + 'listUserFollowing', this.httpHeaders);
   }
-  unfollowUser(): Observable<any>{
+
+  unfollowUser(id): Observable<any>{
     this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
-    return this.http.get(this.apiURL + 'unfollowUser', this.httpHeaders);
+    return this.http.get(this.apiURL + 'unfollowUser/' + id, this.httpHeaders);
   }
 
 

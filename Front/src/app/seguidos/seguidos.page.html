@@ -18,7 +18,7 @@
 
 <ion-content>
 
-    <ion-card *ngFor="let user of users">
+    <ion-card *ngFor="let user of users" >
         <ion-grid class="user_info_topo_container">
             <ion-row>
                 <ion-col>
@@ -32,7 +32,7 @@
             </ion-row>
         </ion-grid>
         <ion-card-subtitle>{{ user.degree }}</ion-card-subtitle>
-        <ion-button (click)="unfollowUser()"><ion-icon class="icon-button" name="heart-dislike"></ion-icon>Deixar de seguir</ion-button>
+        <ion-button (click)="unfollowUser(user.id)"><ion-icon class="icon-button" name="heart-dislike"></ion-icon>Deixar de seguir</ion-button>
     </ion-card>
 
 </ion-content>

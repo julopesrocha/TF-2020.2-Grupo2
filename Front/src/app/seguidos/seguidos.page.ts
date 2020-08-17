@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {AuthService} from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-seguidos',
@@ -10,42 +11,30 @@ export class SeguidosPage implements OnInit {
 
   users = [];
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    this.users = [
-      {
-        name: 'Arthur Moraes',
-        degree: 'ciência da computação'
-      },
-      {
-        name: 'Diana Malena',
-        degree: 'ciência da computação'
-      },
-      {
-        name: 'Felipe Calvarati',
-        degree: 'ciência da computação'
-      },
-
-      {
-        name: 'Joana Mopla',
-        degree: 'ciência da computação'
-      },
-
-    ];
+    this.listFollowing();
   }
 
-  //  unfollowUser(){
-  //   this.authService.unfollowUser().subscribe(
-  //     (res)=>{
-  //       console.log(res);
-  //       alert(res[0]);
-  //       this.unfollowUser(this.users);
-  //     },(err) =>{
-  //       console.log(err);
-  //       alert(err.error[0]);
-  //   },
-  //   );
-  // }
+   unfollowUser(id){
+    this.authService.unfollowUser(id).subscribe(
+      (res)=>{
+        console.log(res);
+        alert(res[0]);
+      },(err) =>{
+        console.log(err);
+        alert(err.error[0]);
+    },
+    );
+  }
+
+  listFollowing(){
+    this.authService.listUserFollowing().subscribe((res)=>{
+      this.users = res;
+      console.log(this.users);
+    }, (err) => {console.log(err);}
+    )
+  }
 
  }
