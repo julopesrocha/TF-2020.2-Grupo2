@@ -48,10 +48,18 @@ class User extends Authenticatable
             Storage::makeDirectory('localPhotos/',0775, true);
         }
 
+        // if($request->photo){
+        //     $file = $request->file('photo');
+        //     $filename = rand().'.'.$file->getClientOriginalExtension();
+        //     $path = $file->storeAs('localPhotos',$filename);
+        //     $this->photo = $path;
+        // }
+
         if($request->photo){
-            $file = $request->file('photo');
-            $filename = rand().'.'.$file->getClientOriginalExtension();
-            $path = $file->storeAs('localPhotos',$filename);
+            $image = base64_decode($request->photo);
+            $filename=uniqid();
+            $path=storage_path('app/localPhotos/'.$filename);
+            file_put_contents($path,$image);
             $this->photo = $path;
         }
 
@@ -90,9 +98,6 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany('App\Comment');
     }
-
-
-    // VERIFICAR SE ESTÁ CERTO
 
     public function followers(){
         return $this->belongsToMany('App\User','followed_follower','followed_id','follower_id');
