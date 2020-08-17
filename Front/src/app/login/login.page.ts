@@ -21,15 +21,6 @@ export class LoginPage implements OnInit {
     });
   }
 
-  async presentToast() {
-   const toast = await this.toastController.create({
-     message: 'Login realizado com sucesso!',
-     duration: 2000,
-     color: "secondary"
-   });
-   toast.present();
- }
-
   ngOnInit() {
   }
 
@@ -37,18 +28,28 @@ export class LoginPage implements OnInit {
     this.route.navigate(['/landing']);
   }
 
+  async presentToast(message: string) {
+   const toast = await this.toastController.create({
+     message,
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
+
   submitForm(form) {
       console.log(form);
       console.log(form.value);
 
       this.authService.login(this.loginForm.value).subscribe(
         (res)=>{
-          console.log(res);
           localStorage.setItem('userToken', res.success.token);
+          this.presentToast('Login realizado com sucesso!');
           this.route.navigate(['/tabs/home']);
         },
         (err) => {
           console.log(err);
+          this.presentToast('Não foi possível realizar o login, revise seus dados.');
           this.route.navigate(['/fail']);
         },
      )
