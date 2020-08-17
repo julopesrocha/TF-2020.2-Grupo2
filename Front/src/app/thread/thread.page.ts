@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ThreadService} from '../services/thread.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-thread',
@@ -19,23 +20,34 @@ export class ThreadPage implements OnInit {
 
   post = {};
   postAuthor: string;
-  
+
+  user;
 
   constructor(public formBuilder: FormBuilder, 
     private route: Router, 
     private activatedRoute: ActivatedRoute,
-    public threadService: ThreadService) {
+    public threadService: ThreadService,
+    public authService: AuthService) {
     this.commentForm = this.formBuilder.group({
       text: [null]
     });
   }
 
   ngOnInit() {
-
+    this.getDetails();
     this.getPost();
     this.getComments();
   }
 
+
+  getDetails(){
+    this.authService.getDetails().subscribe((res)=>{
+      console.log('getDetails: ', res);
+      /* this.user = res */
+    }, (err) => {
+      console.log(err);
+    });
+  }
 
   getPost(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -44,7 +56,8 @@ export class ThreadPage implements OnInit {
       this.post = res[0];
       this.postAuthor = res[0].user.name;
       // console.log(this.post);
-    })
+    }, (err) => {console.log(err);}
+    );
     
   }
 
