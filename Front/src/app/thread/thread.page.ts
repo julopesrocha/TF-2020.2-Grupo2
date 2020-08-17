@@ -78,12 +78,12 @@ export class ThreadPage implements OnInit {
 
   deleteComment(){
     console.log('comment deleted');
-
+    
   }
 
   editComment(){
     console.log('comment edited');
-
+    this.route.navigate(['/edit-post']);
   }
-
+  
 }
