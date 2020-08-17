@@ -22,45 +22,31 @@ export class Tab2Page {
 
   ngOnInit() {
 
-  // }
-  //
-  // inicializar(){
-      // this.posts = [
-      //   {
-      //     title: '1qualquer coisa',
-      //     author: '1fulano',
-      //     text: '1isso eh um texto tu'
-      //   },
-      //   {
-      //     title: '2qualquer coisa',
-      //     author: '2fulano',
-      //     text: '2isso eh um texto'
-      //   },
-      //   {
-      //     title: '3qualquer coisa',
-      //     author: '3fulano',
-      //     text: '3isso eh um texto'
-      //   },
-      //   {
-      //     title: '4qualquer coisa',
-      //     author: '4fulano',
-      //     text: '4isso eh um texto'
-      //   }
-      // ]
   }
 
   submitForm(form) {
+    let userToken = localStorage.getItem('userToken');
+
       this.filterService.filterPosts(form.value).subscribe(
         (res) => {
           this.posts = res;
           console.log(res);
-        }, (err) => {console.log(err); }),
-
-        this.filterService.filterUsers(form.value).subscribe(
-          (res) => {
+        }, (err) => {console.log(err); });
+        
+      if(userToken){
+        this.filterService.filterAuthUsers(form.value).subscribe(
+          (res)=>{
             this.users = res;
             console.log(res);
           }, (err) => {console.log(err); })
+        }else{
+          this.filterService.filterUsers(form.value).subscribe(
+            (res) => {
+              this.users = res;
+              console.log(res);
+            }, (err) => {console.log(err); })
+        }
+      
   }
 
   // buscar(ev: any){
