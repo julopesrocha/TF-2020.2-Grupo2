@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 export class PostComponent implements OnInit {
 
   @Input() title: string;
+  @Input() teacher: string;
   @Input() user: string;
   @Input() text: string;
+  @Input() tag: string;
   @Input() likes: number;
   @Input() dislikes: number;
   @Input() id: number;
