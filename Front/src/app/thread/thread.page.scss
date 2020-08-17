@@ -7,11 +7,10 @@
 .op_buttons{
   display: flex;
   justify-items: center;
-
 }
 
 .content{
-    margin: 2.5vw;
+  margin: 2.5vw;
 }
 
 h1{
@@ -43,9 +42,9 @@ h4{
 }
 
 .tag{
-    color: #00EBCF;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+  color: #00EBCF;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 ion-button{
@@ -65,12 +64,11 @@ ion-button{
 
 .comment_content{
   text-align: justify;
-  color: black;
   font-size: 1.4em;
 }
 
 .comment_buttons{
-    margin-bottom: 2vh;
+  margin-bottom: 2vh;
 }
 
 ion-list{
@@ -83,5 +81,5 @@ ion-list{
 }
 
 .user-comment{
-    color: #700282;
+  color: #700282;
 }

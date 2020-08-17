@@ -27,11 +27,11 @@
     </div>
 
   <div class="op_buttons">
-    <ion-button (click)="deletePost()">
+    <ion-button *ngIf="isAdmin" (click)="deletePost()">
       <!-- [disabled]="registerForm.invalid" -->
       <ion-icon name="trash-outline"></ion-icon>
     </ion-button>
-    <ion-button (click)="editPost()">
+    <ion-button *ngIf="isAdmin" (click)="editPost()">
       <ion-icon name="pencil-outline"></ion-icon>
     </ion-button>
 
@@ -72,14 +72,14 @@
     <!-- inserir imagem de perfil ou nome dos usuarios -->
     <!-- <h4 class="user-comment">{{comment.user}}</h4> -->
     <ion-card-content class="comment_content">{{comment.comment}}</ion-card-content>
-    <div class="comment_buttons">
+    <!-- <div class="comment_buttons">
       <ion-button (click)="deleteComment()">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>
       <ion-button (click)="editComment()">
         <ion-icon name="pencil-outline"></ion-icon>
       </ion-button>
-    </div>
+    </div> -->
   </ion-card>
 
 </ion-content>
