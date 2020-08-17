@@ -54,6 +54,7 @@ export class ThreadPage implements OnInit {
     this.threadService.deletePost(id).subscribe(
       (res) => {
         console.log(res);
+        this.route.navigate(['/edit-post']);
         //colocar um aviso ou toast de o post foi deletado
       }, (err) => {
         console.log(err.error);
