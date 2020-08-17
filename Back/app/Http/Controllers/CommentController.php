@@ -26,7 +26,7 @@ class CommentController extends Controller
         $user = Auth::user();
         $comment = Comment::findOrFail($id);
 
-        if($user->id == $comment->user_id){
+        if($user->id == $comment->user_id || $user->admin == TRUE){
             Comment::destroy($id);
             return response()->json('Comentário deletado');
         }else{
