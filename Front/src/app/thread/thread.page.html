@@ -21,7 +21,7 @@
 <ion-content>
     <div  class="content">
         <h1>{{postAuthor}}</h1>
-        <ion-card>{{post.course}} com {{post.teacher}}</ion-card>
+        <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
         <h2 class="post-content">{{post.content}}</h2>
         <h3 class="tag">#{{post.tag}}</h3>
     </div>
@@ -46,51 +46,40 @@
     <ion-row>
       <ion-col>
         <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
-          <ion-list >
-
+          <ion-list>
             <ion-item>
               <ion-label position="floating">Digite aqui</ion-label>
               <ion-input type="text" formControlName="text"></ion-input>
             </ion-item>
-
           </ion-list>
-
         </form>
-
       </ion-col>
-
       <ion-col class="send_button" size="3">
-
         <ion-row class="button_container">
-
           <ion-button class="send_button">
             <ion-icon name="send"></ion-icon>
           </ion-button>
-
         </ion-row>
-
       </ion-col>
-
     </ion-row>
   </ion-grid>
 
+  <div class="content">
+      <h3 class="comment_header">Comentários</h3>
+  </div>
 
-  <h3 class="comment_header">Comentários</h3>
-  <div *ngFor="let comment of comments" class="comment_container">
-    <!-- inserir imagem de perfil dos usuarios -->
-    <h3 class="comment_content">{{comment.comment}}</h3>
-
+  <ion-card *ngFor="let comment of comments" class="comment_container">
+    <!-- inserir imagem de perfil ou nome dos usuarios -->
+    <!-- <h4 class="user-comment">{{comment.user}}</h4> -->
+    <ion-card-content class="comment_content">{{comment.comment}}</ion-card-content>
     <div class="comment_buttons">
-
       <ion-button (click)="deleteComment()">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>
       <ion-button (click)="editComment()">
         <ion-icon name="pencil-outline"></ion-icon>
       </ion-button>
-
     </div>
-
-  </div>
+  </ion-card>
 
 </ion-content>
