@@ -22,7 +22,7 @@ export class ThreadPage implements OnInit {
   postAuthor: string;
 
   user;
-  isAdmin;
+  canEdit;
 
   constructor(public formBuilder: FormBuilder, 
     private route: Router, 
@@ -45,7 +45,7 @@ export class ThreadPage implements OnInit {
     this.authService.getDetails().subscribe((res)=>{
       console.log('getDetails: ', res);
       this.user = res;
-      this.isAdmin = res.admin;
+      this.canEdit = res.admin;
       console.log(this.user.admin);
     }, (err) => {
       console.log(err);
