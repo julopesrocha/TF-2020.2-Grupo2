@@ -27,11 +27,11 @@
     </div>
 
   <div class="op_buttons">
-    <ion-button *ngIf="canEdit" (click)="deletePost()">
+    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="deletePost()">
       <!-- [disabled]="registerForm.invalid" -->
       <ion-icon name="trash-outline"></ion-icon>
     </ion-button>
-    <ion-button *ngIf="canEdit" (click)="editPost()">
+    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="editPost()">
       <ion-icon name="pencil-outline"></ion-icon>
     </ion-button>
 

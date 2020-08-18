@@ -21,10 +21,11 @@ export class ThreadPage implements OnInit {
   post = {};
   postAuthor: string;
   postId: number;
+  postUserId = -1;
 
   user;
-  userId: number;
-  canEdit = false;
+  userId: number = -2;
+  isAdmin = false;
 
   constructor(public formBuilder: FormBuilder, 
     private route: Router, 
@@ -44,29 +45,21 @@ export class ThreadPage implements OnInit {
 
 
   getDetails(){
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.authService.getDetails().subscribe((res) => {
       console.log('getDetails: ', res);
       this.user = res;
-      this.canEdit = res.admin;
+      this.isAdmin = res.admin;
+      this.userId = res.id;
     }, (err) => {
       console.log(err);
     });
-
-    this.threadService.getPost(id).subscribe((res) => {
-      this.post = res[0];
-      this.postAuthor = res[0].user.name;
-      this.postId = res[0].user.id;
-      // console.log(this.post);
-    }, (err) => { console.log(err); }
-    );
 
     /* if( this.postId == this.user.id){
       console.log('post id: ', this.postId);
       console.log('user id: ', this.user.id);
       console.log(' id: ', this.userId);
-      this.canEdit = true;
+      this.isAdmin = true;
     } */
   }
 
@@ -76,6 +69,7 @@ export class ThreadPage implements OnInit {
     this.threadService.getPost(id).subscribe((res)=>{
       this.post = res[0];
       this.postAuthor = res[0].user.name;
+      this.postUserId = res[0].user.id;
       // console.log(this.post);
     }, (err) => {console.log(err);}
     );
