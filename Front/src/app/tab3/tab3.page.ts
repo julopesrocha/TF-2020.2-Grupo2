@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,6 @@ export class Tab3Page {
 
   constructor(public formbuilder: FormBuilder,
       public authService: AuthService,
-      public alertController: AlertController,
       private route: Router) {}
 
   ngOnInit(){

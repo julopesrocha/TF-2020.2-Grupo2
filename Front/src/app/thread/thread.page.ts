@@ -20,9 +20,11 @@ export class ThreadPage implements OnInit {
 
   post = {};
   postAuthor: string;
+  postUserId = -1;
 
   user;
-  isAdmin;
+  userId: number = -2;
+  isAdmin = false;
 
   constructor(public formBuilder: FormBuilder, 
     private route: Router, 
@@ -42,11 +44,12 @@ export class ThreadPage implements OnInit {
 
 
   getDetails(){
-    this.authService.getDetails().subscribe((res)=>{
+
+    this.authService.getDetails().subscribe((res) => {
       console.log('getDetails: ', res);
       this.user = res;
       this.isAdmin = res.admin;
-      console.log(this.user.admin);
+      this.userId = res.id;
     }, (err) => {
       console.log(err);
     });
@@ -56,8 +59,10 @@ export class ThreadPage implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.threadService.getPost(id).subscribe((res)=>{
+      console.log(res);
       this.post = res[0];
       this.postAuthor = res[0].user.name;
+      this.postUserId = res[0].user.id;
       // console.log(this.post);
     }, (err) => {console.log(err);}
     );
@@ -66,10 +71,10 @@ export class ThreadPage implements OnInit {
 
   deletePost() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('post deleted');
     this.threadService.deletePost(id).subscribe(
       (res) => {
         console.log(res);
+        console.log('post deleted');
         this.route.navigate(['/tabs/home']);
         //colocar um aviso ou toast de o post foi deletado
       }, (err) => {
@@ -79,8 +84,10 @@ export class ThreadPage implements OnInit {
   }
 
   editPost() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
     console.log('post edited');
-    this.route.navigate(['/edit-post']);
+    this.route.navigate(['/edit-post', id]);
   }
 
   getComments(){
@@ -88,7 +95,6 @@ export class ThreadPage implements OnInit {
 
     this.threadService.getComments(id).subscribe((res)=>{
       this.comments = res;
-      // this.postAuthor = res[0].user.name;
       console.log(this.comments);
     })
 
@@ -107,8 +113,14 @@ export class ThreadPage implements OnInit {
   submitForm(form) {
     console.log(form);
     console.log(form.value);
+  }
 
-
+  followUser(id){
+    this.authService.followUser(id).subscribe((res) => {
+      console.log(res);
+    }, (err) => {
+      console.log(err.error);
+    });
   }
   
 }

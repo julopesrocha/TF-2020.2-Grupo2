@@ -47,7 +47,7 @@
       </ion-item>
     </ion-list>
     <div class="container">
-      <ion-button type="submit" [disabled]="editProfileForm.invalid">Cadastrar</ion-button>
+      <ion-button (click)= "presentToast()" type="submit" [disabled]="editProfileForm.invalid">Cadastrar</ion-button>
     </div>
 
 

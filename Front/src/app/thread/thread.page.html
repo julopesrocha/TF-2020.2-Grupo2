@@ -23,15 +23,21 @@
         <h1>{{postAuthor}}</h1>
         <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
         <h2 class="post-content">{{post.content}}</h2>
+        <ion-button (click)="followUser(post.user.id)">
+          <ion-icon name="heart-outline"></ion-icon>
+          &nbsp;
+          Seguir
+          {{postAuthor}}
+        </ion-button>
         <h3 class="tag">#{{post.tag}}</h3>
     </div>
 
   <div class="op_buttons">
-    <ion-button *ngIf="isAdmin" (click)="deletePost()">
+    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="deletePost()">
       <!-- [disabled]="registerForm.invalid" -->
       <ion-icon name="trash-outline"></ion-icon>
     </ion-button>
-    <ion-button *ngIf="isAdmin" (click)="editPost()">
+    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="editPost()">
       <ion-icon name="pencil-outline"></ion-icon>
     </ion-button>
 
