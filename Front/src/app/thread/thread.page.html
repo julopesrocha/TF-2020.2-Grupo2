@@ -20,15 +20,16 @@
 
 <ion-content>
     <div  class="content">
-        <h1>{{postAuthor}}</h1>
+        <div class="user-e-seguir">
+            <h1>{{postAuthor}}</h1>
+            <ion-button size="small" (click)="followUser(post.user.id)" class="seguir-button">
+            <ion-icon name="heart-outline"></ion-icon>
+            &nbsp;
+            Seguir
+          </ion-button>
+        </div>
         <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
         <h2 class="post-content">{{post.content}}</h2>
-        <ion-button (click)="followUser(post.user.id)">
-          <ion-icon name="heart-outline"></ion-icon>
-          &nbsp;
-          Seguir
-          {{postAuthor}}
-        </ion-button>
         <h3 class="tag">#{{post.tag}}</h3>
     </div>
 
