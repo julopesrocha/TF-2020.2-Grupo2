@@ -26,7 +26,7 @@ class PassportController extends Controller
         Auth::attempt(['email'=>request('email'), 'password'=>request('password')]);
         $user = Auth::user();
         $success['token']=$user->createToken('MyApp')->accessToken;
-        return response()->json(['success'=>$success, 'user'=>$user], 500);
+        return response()->json(['success'=>$success, 'user'=>$user]);
     }
 
     public function getDetails(){
