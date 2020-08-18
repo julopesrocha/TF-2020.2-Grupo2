@@ -14,7 +14,7 @@
           </ion-row>
       </ion-grid>
       <ion-card-subtitle>{{ degree }}</ion-card-subtitle>
-      <ion-button (click)="followUser()"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Seguir</ion-button>
+      <ion-button (click)="followUser()" (click)= "presentToast()"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Seguir</ion-button>
   </ion-card>
 
   <!-- talvez fazer o nome e email clicaveis, levam para perfil do usuario -->

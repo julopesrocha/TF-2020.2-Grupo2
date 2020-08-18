@@ -1,6 +1,8 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {AuthService} from '../services/auth/auth.service';
+import { ToastController} from '@ionic/angular';
+
 
 @Component({
   selector: 'app-seguidos',
@@ -14,21 +16,32 @@ export class SeguidosPage implements OnInit {
   ionViewWillEnter(){
     this.listFollowing();
   }
-
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public toastController: ToastController) { }
 
   ngOnInit() {
 
     this.listFollowing();
-    
+
   }
+
+  async presentToast() {
+   const toast = await this.toastController.create({
+     message: 'Você deixou de seguir o usuário!',
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
 
    unfollowUser(id){
     this.authService.unfollowUser(id).subscribe(
       (res)=>{
         console.log(res);
+<<<<<<< HEAD
         this.listFollowing();
         // alert(res[0]);
+=======
+>>>>>>> anna_alertas_front
       },(err) =>{
         console.log(err);
         alert(err.error[0]);

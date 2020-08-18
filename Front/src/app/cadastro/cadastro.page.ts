@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { ToastController} from '@ionic/angular';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -15,7 +16,7 @@ export class CadastroPage implements OnInit {
   registerForm: FormGroup;
   photo: SafeResourceUrl;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, private sanitizer: DomSanitizer) {
+  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, private sanitizer: DomSanitizer, public toastController: ToastController) {
 
     this.registerForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
@@ -26,6 +27,15 @@ export class CadastroPage implements OnInit {
       photo: [null]
     });
   }
+
+    async presentToast(message: string) {
+     const toast = await this.toastController.create({
+       message,
+       duration: 2000,
+       color: 'secondary'
+     });
+     toast.present();
+   }
 
   ngOnInit() {
   }
@@ -38,12 +48,14 @@ export class CadastroPage implements OnInit {
     form.value.photo = this.photo['changingThisBreaksApplicationSecurity'];
     console.log(form.value);
     this.authService.register(form.value).subscribe(
-    (res) =>
-    {
+    (res) =>{
       console.log(res);
+      this.presentToast('Conta cadastrada! Realize o login.');
       this.route.navigate(['/login']);
     }, (err) => {
-      console.log(err); })
+      console.log(err);
+      this.presentToast('Não foi possível realizar seu cadastro.');
+   })
   }
 
   async takePicture() {
