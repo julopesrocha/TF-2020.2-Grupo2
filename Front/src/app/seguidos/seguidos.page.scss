@@ -20,3 +20,15 @@ ion-card-title{
 ion-avatar{
     --border-radius: 15px;
 }
+
+.image{
+    --background: url('../../assets/undraw_followers_4i0p.png');
+    --background-repeat: no-repeat;
+    --background-position: center;
+    --background-size: cover;
+}
+
+img{
+    size:50%;
+    align-items: center;
+}
