@@ -22,6 +22,7 @@ export class ThreadPage implements OnInit {
   postAuthor: string;
 
   user;
+  userId;
   isAdmin;
 
   constructor(public formBuilder: FormBuilder, 
@@ -107,8 +108,14 @@ export class ThreadPage implements OnInit {
   submitForm(form) {
     console.log(form);
     console.log(form.value);
+  }
 
-
+  followUser(id){
+    this.authService.followUser(id).subscribe((res) => {
+      console.log(res);
+    }, (err) => {
+      console.log(err.error);
+    });
   }
   
 }
