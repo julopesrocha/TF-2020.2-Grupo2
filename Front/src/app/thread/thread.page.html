@@ -41,7 +41,6 @@
     <ion-button *ngIf="isAdmin || postUserId == userId" (click)="editPost()">
       <ion-icon name="pencil-outline"></ion-icon>
     </ion-button>
-
   </div>
 
   <!-- integrar tags -->
@@ -50,12 +49,15 @@
   <!-- implementar requerimento para login -->
   <ion-grid class="container">
 
+    <div class="content">
+          <h3 class="comment_header">Comentários</h3>
+    </div>
     <ion-row>
       <ion-col>
         <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
           <ion-list>
             <ion-item>
-              <ion-label position="floating">Digite aqui</ion-label>
+              <ion-label position="floating">Faça um comentário</ion-label>
               <ion-input type="text" formControlName="text"></ion-input>
             </ion-item>
           </ion-list>
@@ -70,10 +72,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <div class="content">
-      <h3 class="comment_header">Comentários</h3>
-  </div>
 
   <ion-card *ngFor="let comment of comments" class="comment_container">
     <!-- inserir imagem de perfil ou nome dos usuarios -->
