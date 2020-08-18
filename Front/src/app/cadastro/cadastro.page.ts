@@ -28,11 +28,11 @@ export class CadastroPage implements OnInit {
     });
   }
 
-    async presentToast() {
+    async presentToast(message: string) {
      const toast = await this.toastController.create({
-       message: 'Cadastro realizado com sucesso!',
+       message,
        duration: 2000,
-       colot: 'secondary'
+       color: 'secondary'
      });
      toast.present();
    }
@@ -47,12 +47,15 @@ export class CadastroPage implements OnInit {
   submitForm(form){
     console.log(form.value);
     this.authService.register(form.value).subscribe(
-    (res) =>
-    {
+    (res) =>{
       console.log(res);
+      this.presentToast('Conta cadastrada! Realize o login.');
       this.route.navigate(['/login']);
     }, (err) => {
-      console.log(err); })
+      console.log(err);
+      this.presentToast('Não foi possível realizar seu cadastro.');
+      this.registerForm.reset();
+   })
   }
 
   async takePicture() {

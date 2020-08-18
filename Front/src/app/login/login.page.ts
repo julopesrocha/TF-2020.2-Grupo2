@@ -43,6 +43,7 @@ export class LoginPage implements OnInit {
 
       this.authService.login(this.loginForm.value).subscribe(
         (res)=>{
+          console.log(res);
           localStorage.setItem('userToken', res.success.token);
           this.presentToast('Login realizado com sucesso!');
           this.route.navigate(['/tabs/home']);
