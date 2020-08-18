@@ -25,7 +25,13 @@
     </form>
 
     <app-post *ngFor="let post of posts" [title]="post.course" [teacher]="post.teacher" [user]="post.user.name" [text]="post.content" [tag]="post.tag" [likes]="post.liked_count" [id]="post.id"></app-post>
-    <app-userinfo *ngFor="let user of users" [photo]="user.photo" [id]="user.id" [name]="user.name" [degree]="user.degree"></app-userinfo>
+        <ion-card *ngFor="let user of users" >
+            <app-userinfo [photo]="user.photo" [id]="user.id" [name]="user.name" [degree]="user.degree"></app-userinfo>
+            <ion-button *ngIf="user.followers.length == 0" (click)="followUser(user.id)"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Seguir</ion-button>
+            <ion-button *ngIf="user.followers.length == 1" (click)="followUser(user.id)"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Deixar de seguir</ion-button>
+        </ion-card>
+  
+    
 
 
 </ion-content>
