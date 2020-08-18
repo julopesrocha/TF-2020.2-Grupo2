@@ -84,8 +84,10 @@ export class ThreadPage implements OnInit {
   }
 
   editPost() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
     console.log('post edited');
-    this.route.navigate(['/edit-post']);
+    this.route.navigate(['/edit-post', id]);
   }
 
   getComments(){
