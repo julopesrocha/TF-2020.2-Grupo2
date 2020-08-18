@@ -1,13 +1,12 @@
 <ion-header>
     <ion-toolbar>
-
       <ion-grid>
 
         <ion-row class="toolbar_container">
           <ion-button (click)="goToHome()" class="exit-button">
             <ion-icon name="home"></ion-icon>
           </ion-button>
-          <!-- <ion-title>colocar logo</ion-title> -->
+          <ion-title>Post</ion-title>
           <ion-button (click)="goBackToSearch()" class="exit-button">
             <ion-icon name="search"></ion-icon>
           </ion-button>
@@ -22,7 +21,7 @@
     <div  class="content">
         <div class="user-e-seguir">
             <h1>{{postAuthor}}</h1>
-            <ion-button size="small" (click)="followUser(post.user.id)" class="seguir-button">
+            <ion-button (click)="followUser(post.user.id)" class="seguir-button">
             <ion-icon name="heart-outline"></ion-icon>
             &nbsp;
             Seguir
@@ -30,18 +29,26 @@
         </div>
         <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
         <h2 class="post-content">{{post.content}}</h2>
-        <h3 class="tag">#{{post.tag}}</h3>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h3 class="tag">#{{post.tag}}</h3>
+            </ion-col>
+            <ion-col>
+                <div class="op_buttons">
+                    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="deletePost()">
+      <!-- [disabled]="registerForm.invalid" -->
+                    <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="editPost()">
+                    <ion-icon name="pencil-outline"></ion-icon>
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
     </div>
 
-  <div class="op_buttons">
-    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="deletePost()">
-      <!-- [disabled]="registerForm.invalid" -->
-      <ion-icon name="trash-outline"></ion-icon>
-    </ion-button>
-    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="editPost()">
-      <ion-icon name="pencil-outline"></ion-icon>
-    </ion-button>
-  </div>
 
   <!-- integrar tags -->
   <!-- <h5 *ngFor="tag in tags">{{tag}}</h5> -->

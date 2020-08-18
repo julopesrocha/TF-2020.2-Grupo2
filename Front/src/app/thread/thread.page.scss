@@ -6,7 +6,7 @@
 
 .op_buttons{
   display: flex;
-  justify-items: center;
+  justify-content: center;
 }
 
 .content{
@@ -50,10 +50,6 @@ h1{
   text-align: justify;
 }
 
-h3{
-  margin: 3vw;
-}
-
 h4{
   font-size: 1rem;
   margin-left: 3vw;
@@ -63,6 +59,7 @@ h4{
   color: #00EBCF;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  font-size: 1.7em;
 }
 
 ion-button{
