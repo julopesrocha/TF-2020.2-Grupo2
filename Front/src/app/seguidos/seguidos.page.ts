@@ -19,20 +19,19 @@ export class SeguidosPage implements OnInit {
     this.listFollowing();
   }
 
- //  async presentToast() {
- //   const toast = await this.toastController.create({
- //     message: 'Você deixou de seguir o usuário!',
- //     duration: 2000,
- //     color: "secondary"
- //   });
- //   toast.present();
- // }
+  async presentToast() {
+   const toast = await this.toastController.create({
+     message: 'Você deixou de seguir o usuário!',
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
 
    unfollowUser(id){
     this.authService.unfollowUser(id).subscribe(
       (res)=>{
         console.log(res);
-        alert('Você deixou de seguir o usuário!');
       },(err) =>{
         console.log(err);
         alert(err.error[0]);

@@ -31,7 +31,8 @@ export class CadastroPage implements OnInit {
     async presentToast() {
      const toast = await this.toastController.create({
        message: 'Cadastro realizado com sucesso!',
-       duration: 2000
+       duration: 2000,
+       colot: 'secondary'
      });
      toast.present();
    }
