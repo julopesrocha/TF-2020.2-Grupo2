@@ -20,10 +20,12 @@ export class ThreadPage implements OnInit {
 
   post = {};
   postAuthor: string;
+  postId: number;
+  postUserId = -1;
 
   user;
-  userId;
-  isAdmin;
+  userId: number = -2;
+  isAdmin = false;
 
   constructor(public formBuilder: FormBuilder, 
     private route: Router, 
@@ -43,14 +45,22 @@ export class ThreadPage implements OnInit {
 
 
   getDetails(){
-    this.authService.getDetails().subscribe((res)=>{
+
+    this.authService.getDetails().subscribe((res) => {
       console.log('getDetails: ', res);
       this.user = res;
       this.isAdmin = res.admin;
-      console.log(this.user.admin);
+      this.userId = res.id;
     }, (err) => {
       console.log(err);
     });
+
+    /* if( this.postId == this.user.id){
+      console.log('post id: ', this.postId);
+      console.log('user id: ', this.user.id);
+      console.log(' id: ', this.userId);
+      this.isAdmin = true;
+    } */
   }
 
   getPost(){
@@ -60,6 +70,7 @@ export class ThreadPage implements OnInit {
       console.log(res);
       this.post = res[0];
       this.postAuthor = res[0].user.name;
+      this.postUserId = res[0].user.id;
       // console.log(this.post);
     }, (err) => {console.log(err);}
     );
