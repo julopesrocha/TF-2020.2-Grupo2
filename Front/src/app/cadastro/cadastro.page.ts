@@ -54,7 +54,6 @@ export class CadastroPage implements OnInit {
     }, (err) => {
       console.log(err);
       this.presentToast('Não foi possível realizar seu cadastro.');
-      this.registerForm.reset();
    })
   }
 
