@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ToastController} from '@ionic/angular';
 
 @Component({
@@ -16,12 +14,11 @@ export class EditProfilePage implements OnInit {
     editMode = false;
 
 
-    constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, private sanitizer: DomSanitizer, public toastController: ToastController) {
+    constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, public toastController: ToastController) {
       this.editDetailsForm = this.formBuilder.group({
         name: [null, [Validators.minLength(3)]],
         email: [null, [Validators.email]],
-        degree: [null],
-        photo: [null]
+        degree: [null]
       });
     }
   ngOnInit() {}
@@ -51,17 +48,4 @@ export class EditProfilePage implements OnInit {
         }
     )
   }
-
-  async takePicture() {
-    const image = await Plugins.Camera.getPhoto({
-      quality: 100,
-      allowEditing: true,
-      saveToGallery: true,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera
-    });
-
-    //this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-  }
-
 }

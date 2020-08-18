@@ -45,7 +45,9 @@ export class CadastroPage implements OnInit {
   }
   //botar mediumtext na migration
   submitForm(form){
-    form.value.photo = this.photo['changingThisBreaksApplicationSecurity'];
+      if(this.photo){
+          form.value.photo = this.photo['changingThisBreaksApplicationSecurity'];
+      }
     console.log(form.value);
     this.authService.register(form.value).subscribe(
     (res) =>{
