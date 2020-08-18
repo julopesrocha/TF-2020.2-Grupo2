@@ -12,6 +12,11 @@ export class HomePage implements OnInit {
 
   constructor(public postService: PostService) { }
 
+  ionViewWillEnter(){
+    this.getMostLikedPosts();
+    this.getFollowingPosts();
+  }
+
   ngOnInit() {
     this.getMostLikedPosts();
     this.getFollowingPosts();
