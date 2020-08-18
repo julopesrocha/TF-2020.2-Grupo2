@@ -54,13 +54,6 @@ export class ThreadPage implements OnInit {
     }, (err) => {
       console.log(err);
     });
-
-    /* if( this.postId == this.user.id){
-      console.log('post id: ', this.postId);
-      console.log('user id: ', this.user.id);
-      console.log(' id: ', this.userId);
-      this.isAdmin = true;
-    } */
   }
 
   getPost(){
