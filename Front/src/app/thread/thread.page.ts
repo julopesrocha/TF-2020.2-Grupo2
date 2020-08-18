@@ -20,7 +20,6 @@ export class ThreadPage implements OnInit {
 
   post = {};
   postAuthor: string;
-  postId: number;
   postUserId = -1;
 
   user;
@@ -94,7 +93,6 @@ export class ThreadPage implements OnInit {
 
     this.threadService.getComments(id).subscribe((res)=>{
       this.comments = res;
-      // this.postAuthor = res[0].user.name;
       console.log(this.comments);
     })
 
