@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {AuthService} from '../services/auth/auth.service';
 
@@ -11,10 +11,16 @@ export class SeguidosPage implements OnInit {
 
   users = [];
 
+  ionViewWillEnter(){
+    this.listFollowing();
+  }
+
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
+
     this.listFollowing();
+    
   }
 
    unfollowUser(id){
