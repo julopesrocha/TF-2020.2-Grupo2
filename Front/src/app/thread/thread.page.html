@@ -23,12 +23,13 @@
         <h1>{{postAuthor}}</h1>
         <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
         <h2 class="post-content">{{post.content}}</h2>
-        <h3 class="tag">#{{post.tag}}</h3>
         <ion-button (click)="followUser(post.user.id)">
           <ion-icon name="heart-outline"></ion-icon>
           &nbsp;
           Seguir
+          {{postAuthor}}
         </ion-button>
+        <h3 class="tag">#{{post.tag}}</h3>
     </div>
 
   <div class="op_buttons">
