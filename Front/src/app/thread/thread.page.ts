@@ -33,7 +33,7 @@ export class ThreadPage implements OnInit {
     public authService: AuthService,
     public toastController: ToastController) {
     this.commentForm = this.formBuilder.group({
-      text: [null]
+      comment: [null]
     });
   }
 
@@ -125,7 +125,8 @@ export class ThreadPage implements OnInit {
           (res)=>{
               console.log(res);
               this.commentForm.reset();
-              this.comments = res;
+              this.getComments();
+              // this.comments = res;
               this.presentToast('Comentário realizado com sucesso!');
           }, (err) => {console.log(err);
              this.presentToast('Não foi possível comentar, tente novamente.');}
