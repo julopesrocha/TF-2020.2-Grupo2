@@ -18,11 +18,17 @@ class Post extends Model
 
     // Fix bug when request is null
     public function editPost(Request $request){
+        if($this->course){
+            $this->course = $request->course;
+        }
         if($this->content){
             $this->content = $request->content;
         }
         if($this->tag){
             $this->tag = $request->tag;
+        }
+        if($this->teacher){
+            $this->teacher = $request->teacher;
         }        
         $this->save();
     }
