@@ -69,7 +69,7 @@ class PostController extends Controller
         if(! $post->liked->contains($user->id)){
             $post->liked()->attach($user->id);
         }
-        return response()->json($post->liked()->get());
+        return response()->json($post->liked()->count());
 
     }
 
@@ -81,7 +81,7 @@ class PostController extends Controller
             $post->liked()->detach($user->id);
         }
 
-        return response()->json($post->liked()->get());
+        return response()->json($post->liked()->count());
     }
 
 
