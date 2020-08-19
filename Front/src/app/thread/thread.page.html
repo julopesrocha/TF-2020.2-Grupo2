@@ -48,36 +48,36 @@
         </ion-row>
     </ion-grid>
     </div>
+    
     <div class="content">
-  <h3 class="comment_header">Comentários</h3>
-</div>
-  <form [formGroup]="commentForm" (ngSubmit)="submitForm(commentForm)">
-      <ion-grid class="container">
-    <ion-row>
-        <ion-col>
-          <ion-list>
-            <ion-item>
-              <ion-label position="floating">Faça um comentário</ion-label>
-              <ion-textarea type="text" formControlName="text"></ion-textarea>
-            </ion-item>
-          </ion-list>
-      </ion-col>
-      <ion-col class="send_button" size="3">
-        <ion-row class="button_container">
-          <ion-button type="submit" class="send_button">
-            <ion-icon name="send"></ion-icon>
-          </ion-button>
-        </ion-row>
-      </ion-col>
-    </ion-row>
+        <h3 class="comment_header">Comentários</h3>
+    </div>
+    <form [formGroup]="commentForm" (ngSubmit)="submitForm(commentForm)">
+        <ion-grid class="container">
+            <ion-row>
+                <ion-col>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating">Faça um comentário</ion-label>
+                            <ion-textarea type="text" formControlName="text"></ion-textarea>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+                <ion-col class="send_button" size="3">
+                    <ion-row class="button_container">
+                        <ion-button type="submit" class="send_button">
+                            <ion-icon name="send"></ion-icon>
+                        </ion-button>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
         </ion-grid>
-       </form>
+    </form>
 
-  <ion-card *ngFor="let comment of comments" class="comment_container">
-    <!-- inserir imagem de perfil ou nome dos usuarios -->
-    <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
-    <ion-label class="comment_content">{{comment.comment}}</ion-label>
-    <!-- <div class="comment_buttons">
+    <ion-card *ngFor="let comment of comments" class="comment_container">
+        <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
+        <ion-label class="comment_content">{{comment.comment}}</ion-label>
+      <!-- <div class="comment_buttons">
       <ion-button (click)="deleteComment()">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>
