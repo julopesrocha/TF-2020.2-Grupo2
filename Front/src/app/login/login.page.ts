@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
         },
         (err) => {
           console.log(err);
-          this.presentToast('Não foi possível realizar o login, revise seus dados.');
+          this.presentToast('Não foi possível realizar o login, escreva novamente seus dados.');
           this.loginForm.reset();
         },
      )
