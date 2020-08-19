@@ -57,7 +57,6 @@ export class ThreadPage implements OnInit {
   getDetails(){
 
     this.authService.getDetails().subscribe((res) => {
-      console.log('getDetails: ', res);
       this.user = res;
       this.isAdmin = res.admin;
       this.userId = res.id;
