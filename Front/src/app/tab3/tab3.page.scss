@@ -24,8 +24,13 @@ ion-avatar{
     height: 40%;
 }
 
-.tag_moderador{
-    --background: yellow;
-    --border-radius: 15px;
-    --color: black;
+.moderador-icon{
+    color: #00EBCF;
+    margin-left: 2vw;
+}
+.moderador{
+    display: flex;
+    align-items: center;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
 }
