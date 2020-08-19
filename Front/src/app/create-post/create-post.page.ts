@@ -36,7 +36,7 @@ export class CreatePostPage implements OnInit {
       // console.log(form.value);
      this.createPostService.createPost(form.value).subscribe(
        (res) => {console.log(res);
-       this.route.navigate(['/thread/1']);
+       this.route.navigate(['thread/', res.id]);;
        }, (err) => {console.log(err); })
   }
 
