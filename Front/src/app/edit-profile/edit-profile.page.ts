@@ -23,9 +23,9 @@ export class EditProfilePage implements OnInit {
     }
   ngOnInit() {}
 
-  async presentToast() {
+  async presentToast(message: string) {
    const toast = await this.toastController.create({
-     message: 'Suas alterações foram salvas!',
+     message,
      duration: 2000,
      color: "secondary"
    });
@@ -43,8 +43,10 @@ export class EditProfilePage implements OnInit {
     this.authService.editProfile(form.value).subscribe(
         (res)=>{
             console.log(res);
+            this.presentToast('Suas alterações foram salvas!');
             this.route.navigate(['/tabs/tab3']);
         }, (err) => {console.log(err);
+            this.presentToast('Não foi possível salvar suas alterações.');
         }
     )
   }

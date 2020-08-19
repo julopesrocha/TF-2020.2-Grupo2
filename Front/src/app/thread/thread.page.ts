@@ -129,7 +129,7 @@ export class ThreadPage implements OnInit {
               // this.comments = res;
               this.presentToast('Comentário realizado com sucesso!');
           }, (err) => {console.log(err);
-             this.presentToast('Não foi possível comentar, tente novamente.');}
+             this.presentToast('Não foi possível comentar.');}
       );
   }
 
