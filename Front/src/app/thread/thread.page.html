@@ -75,8 +75,8 @@
 
   <ion-card *ngFor="let comment of comments" class="comment_container">
     <!-- inserir imagem de perfil ou nome dos usuarios -->
-    <h4 class="user-comment">{{comment.user.name}}</h4>
-    <ion-card-content class="comment_content">{{comment.comment}}</ion-card-content>
+    <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
+    <ion-label class="comment_content">{{comment.comment}}</ion-label>
     <!-- <div class="comment_buttons">
       <ion-button (click)="deleteComment()">
         <ion-icon name="trash-outline"></ion-icon>
