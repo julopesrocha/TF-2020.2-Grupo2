@@ -70,9 +70,11 @@ class UserController extends Controller
 
         if(! $user->following->contains($followedUser->id)){
             $user->following()->attach($followedUser->id);
+        } else{
+            $user->following()->detach($followedUser->id);
         }
 
-        return response()->json('Usuário seguido');
+        return response()->json('Operação de seguir/deixar de seguir realizada com sucesso!');
 
     }
 
