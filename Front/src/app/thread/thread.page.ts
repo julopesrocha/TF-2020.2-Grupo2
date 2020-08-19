@@ -87,9 +87,10 @@ export class ThreadPage implements OnInit {
         console.log(res);
         console.log('post deleted');
         this.route.navigate(['/tabs/home']);
-        //colocar um aviso ou toast de o post foi deletado
+        this.presentToast('Post deletado!');
       }, (err) => {
         console.log(err.error);
+        this.presentToast('Não foi possível deletar o post.');
       }
     );
   }
