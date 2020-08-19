@@ -19,7 +19,7 @@
         <h3 class="dados">{{user.email}}</h3>
         <!-- <h6>Senha</h6>
         <h3>{{user.password}}</h3> -->
-        <ion-button class="tag_moderador"*ngIf="isAdmin">Moderador</ion-button>
+        <ion-button class="tag_moderador"*ngIf="isAdmin" [disabled]="true">Moderador</ion-button>
     </div>
     <ion-button (click)="userLogout()" expand="full" color="tertiary" class="logout" >
       <ion-icon name="close-circle" class="icon-text-logout"></ion-icon>Logout
