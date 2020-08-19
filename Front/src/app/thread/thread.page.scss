@@ -16,8 +16,8 @@
 
 .user-e-seguir{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-items: center;
 }
 
 .seguir-button-inside{
@@ -25,9 +25,9 @@
     margin-bottom: 1vh;
 }
 
-.seguir-button{
-      margin-right: 2.5vw;
-}
+/* .seguir-button{
+  --display: inline-block;
+} */
 
 h1{
   font-size: 2.3rem;
