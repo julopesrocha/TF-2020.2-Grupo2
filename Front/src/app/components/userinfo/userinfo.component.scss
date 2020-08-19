@@ -12,10 +12,14 @@ ion-card{
     display: flex;
     align-content: center;
     justify-content: flex-start;
-    margin-bottom: 2vw;
+    margin: 2vw;
 }
 ion-card-title{
     font-size: 1.5em;
+}
+
+ion-card-subtitle{
+    margin-left: 5vw;
 }
 ion-avatar{
     --border-radius: 15px;
