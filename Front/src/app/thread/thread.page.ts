@@ -16,7 +16,6 @@ export class ThreadPage implements OnInit {
   original_post: [];
 
   commentForm: FormGroup;
-
   comments = [];
 
   post = {};
@@ -38,20 +37,20 @@ export class ThreadPage implements OnInit {
     });
   }
 
-  async presentToast(message: string) {
-   const toast = await this.toastController.create({
-     message,
-     duration: 2000,
-     color: 'secondary'
-   });
-   toast.present();
- }
-
   ngOnInit() {
     this.getDetails();
     this.getPost();
     this.getComments();
   }
+
+  async presentToast(message: string) {
+   const toast = await this.toastController.create({
+     message,
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
 
 
   getDetails(){
@@ -111,8 +110,6 @@ export class ThreadPage implements OnInit {
 
   }
 
-
-
   goToHome() {
     this.route.navigate(['/tabs/home']);
   }
@@ -122,9 +119,23 @@ export class ThreadPage implements OnInit {
   }
 
   submitForm(form) {
-    console.log(form);
-    console.log(form.value);
+      let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+      this.threadService.createComment(this.userId, form.valeu).subscribe(
+          (res)=>{
+              console.log(res);
+              this.commentForm.reset();
+              this.comments = res;
+              this.presentToast('Comentário realizado com sucesso!');
+          }, (err) => {console.log(err);
+          this.presentToast('Não foi possível comentar, tente novamente.');}
+      );
   }
+  //
+  // form.value.republic_id = this.republic_id;
+  // form.value.username = this.username;
+  // this.editMode = false;
+  // this.commentService.createComment(form.value).subscribe(
 
   followUser(id){
     this.authService.followUser(id).subscribe((res) => {

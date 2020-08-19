@@ -61,7 +61,7 @@
     </div>
     <ion-row>
       <ion-col>
-        <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
+        <form [formGroup]="commentForm" (ngSubmit)="submitForm(commentForm)">
           <ion-list>
             <ion-item>
               <ion-label position="floating">Faça um comentário</ion-label>
@@ -72,7 +72,7 @@
       </ion-col>
       <ion-col class="send_button" size="3">
         <ion-row class="button_container">
-          <ion-button class="send_button">
+          <ion-button type="submit" class="send_button">
             <ion-icon name="send"></ion-icon>
           </ion-button>
         </ion-row>
