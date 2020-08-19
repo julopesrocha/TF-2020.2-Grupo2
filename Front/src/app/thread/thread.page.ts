@@ -136,7 +136,7 @@ export class ThreadPage implements OnInit {
   followUser(id){
     this.authService.followUser(id).subscribe((res) => {
       console.log(res);
-      this.presentToast('Usuário seguido!');
+      this.presentToast('Operação concluída');
     }, (err) => {
       console.log(err.error);
     });
