@@ -13,6 +13,8 @@ import { ToastController} from '@ionic/angular';
 })
 export class ThreadPage implements OnInit {
 
+  isFollowing;
+
   original_post: [];
 
   commentForm: FormGroup;
@@ -127,9 +129,21 @@ export class ThreadPage implements OnInit {
     console.log(form.value);
   }
 
+  unFollowUser(user_id){
+    this.isFollowing = false;
+    this.authService.followUser(user_id).subscribe((res) => {
+      console.log(res);
+      this.presentToast('Deixou de seguir');
+    }, (err) => {
+      console.log(err.error);
+    });
+  }
+  
+
   followUser(id){
     this.authService.followUser(id).subscribe((res) => {
       console.log(res);
+      this.isFollowing = true;
       this.presentToast('Usuário seguido!');
     }, (err) => {
       console.log(err.error);
