@@ -17,6 +17,7 @@ export class ThreadPage implements OnInit {
 
   commentForm: FormGroup;
   comments = [];
+  commentId: number;
 
   post = {};
   postAuthor: string;
@@ -119,9 +120,8 @@ export class ThreadPage implements OnInit {
   }
 
   submitForm(form) {
-      let id = this.activatedRoute.snapshot.paramMap.get('id');
-
-      this.threadService.createComment(this.userId, form.valeu).subscribe(
+      form.valeu.postUserId = this.postUserId;
+      this.threadService.createComment(id, form.valeu).subscribe(
           (res)=>{
               console.log(res);
               this.commentForm.reset();
