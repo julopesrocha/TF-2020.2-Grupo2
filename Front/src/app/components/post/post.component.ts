@@ -36,7 +36,6 @@ export class PostComponent implements OnInit {
 //this.postService.likePost()
   likePost() {
     this.postService.likePost(this.id).subscribe((res)=>{
-      this.presentToast('Post curtido!');
       this.likes = res;
     }, (err) => {console.log(err);
        this.presentToast('Não foi possível curtir o post.'); })
@@ -46,7 +45,6 @@ export class PostComponent implements OnInit {
   dislikePost(){
     this.postService.dislikePost(this.id).subscribe((res)=>{
       this.likes = res;
-      this.presentToast('Post descurtido!');
     }, (err) => {console.log(err);
        this.presentToast('Não foi possível descurtir o post.'); })
   }
