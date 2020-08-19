@@ -40,7 +40,7 @@
       <!-- [disabled]="registerForm.invalid" -->
                     <ion-icon name="trash-outline"></ion-icon>
                     </ion-button>
-                    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="editPost()">
+                    <ion-button *ngIf="postUserId == userId" (click)="editPost()">
                     <ion-icon name="pencil-outline"></ion-icon>
                     </ion-button>
                 </div>
