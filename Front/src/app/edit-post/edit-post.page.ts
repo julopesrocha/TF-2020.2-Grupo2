@@ -42,7 +42,7 @@ export class EditPostPage implements OnInit {
     this.threadService.editPost(form.value, id).subscribe(
       (res) => {
         console.log(res);
-        //this.route.navigate(['thread', id]);
+        this.route.navigate(['thread', id]);
       }, (err) => { console.log(err); })
   }
 
