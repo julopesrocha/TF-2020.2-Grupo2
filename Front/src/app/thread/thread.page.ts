@@ -17,7 +17,6 @@ export class ThreadPage implements OnInit {
 
   commentForm: FormGroup;
   comments = [];
-  commentId: number;
 
   post = {};
   postAuthor: string;
@@ -119,23 +118,20 @@ export class ThreadPage implements OnInit {
     this.route.navigate(['/tabs/tab2']);
   }
 
-  submitForm(form) {
-      form.valeu.postUserId = this.postUserId;
-      this.threadService.createComment(id, form.valeu).subscribe(
+  async submitForm(form) {
+      // let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+      let user = await this.getDetails();
+      this.threadService.createComment(user.id, form.value).subscribe(
           (res)=>{
               console.log(res);
               this.commentForm.reset();
               this.comments = res;
               this.presentToast('Comentário realizado com sucesso!');
           }, (err) => {console.log(err);
-          this.presentToast('Não foi possível comentar, tente novamente.');}
+             this.presentToast('Não foi possível comentar, tente novamente.');}
       );
   }
-  //
-  // form.value.republic_id = this.republic_id;
-  // form.value.username = this.username;
-  // this.editMode = false;
-  // this.commentService.createComment(form.value).subscribe(
 
   followUser(id){
     this.authService.followUser(id).subscribe((res) => {
