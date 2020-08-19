@@ -57,6 +57,8 @@ class User extends Authenticatable
 
         if($request->photo){
             $this->photo = $request->photo;
+        } else{
+            $this->photo = "https://icon-library.com/images/generic-user-icon/generic-user-icon-19.jpg";
         }
 
         

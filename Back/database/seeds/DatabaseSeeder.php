@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('senha123'),
             'degree' => 'Engenharia Elétrica',
             'admin' => 1,
+            'photo' => 'https://icon-library.com/images/generic-user-icon/generic-user-icon-19.jpg',
         ]);
 
         DB::table('users')->insert([
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('senha123'),
             'degree' => 'Design',
             'admin' => 1,
+            'photo' => 'https://icon-library.com/images/generic-user-icon/generic-user-icon-19.jpg',
         ]);
 
         DB::table('users')->insert([
@@ -36,6 +38,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('senha123'),
             'degree' => 'Ciência da Computação',
             'admin' => 1,
+            'photo' => 'https://icon-library.com/images/generic-user-icon/generic-user-icon-19.jpg',
         ]);
     }
 
