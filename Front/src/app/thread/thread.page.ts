@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ThreadService} from '../services/thread.service';
 import { AuthService } from '../services/auth/auth.service';
+import { ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-thread',
@@ -26,15 +27,25 @@ export class ThreadPage implements OnInit {
   userId: number = -2;
   isAdmin = false;
 
-  constructor(public formBuilder: FormBuilder, 
-    private route: Router, 
+  constructor(public formBuilder: FormBuilder,
+    private route: Router,
     private activatedRoute: ActivatedRoute,
     public threadService: ThreadService,
-    public authService: AuthService) {
+    public authService: AuthService,
+    public toastController: ToastController) {
     this.commentForm = this.formBuilder.group({
       text: [null]
     });
   }
+
+  async presentToast(message: string) {
+   const toast = await this.toastController.create({
+     message,
+     duration: 2000,
+     color: 'secondary'
+   });
+   toast.present();
+ }
 
   ngOnInit() {
     this.getDetails();
@@ -66,7 +77,7 @@ export class ThreadPage implements OnInit {
       // console.log(this.post);
     }, (err) => {console.log(err);}
     );
-    
+
   }
 
   deletePost() {
@@ -118,9 +129,10 @@ export class ThreadPage implements OnInit {
   followUser(id){
     this.authService.followUser(id).subscribe((res) => {
       console.log(res);
+      this.presentToast('Usuário seguido!');
     }, (err) => {
       console.log(err.error);
     });
   }
-  
+
 }
