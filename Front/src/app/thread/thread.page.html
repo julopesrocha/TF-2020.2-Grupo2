@@ -48,13 +48,7 @@
         </ion-row>
     </ion-grid>
     </div>
-
-
-  <!-- integrar tags -->
-  <!-- <h5 *ngFor="tag in tags">{{tag}}</h5> -->
-
-  <!-- implementar requerimento para login -->
-  <div class="content">
+    <div class="content">
   <h3 class="comment_header">Comentários</h3>
 </div>
   <form [formGroup]="commentForm" (ngSubmit)="submitForm(commentForm)">
@@ -81,7 +75,7 @@
 
   <ion-card *ngFor="let comment of comments" class="comment_container">
     <!-- inserir imagem de perfil ou nome dos usuarios -->
-    <!-- <h4 class="user-comment">{{comment.user}}</h4> -->
+    <h4 class="user-comment">{{comment.user.name}}</h4>
     <ion-card-content class="comment_content">{{comment.comment}}</ion-card-content>
     <!-- <div class="comment_buttons">
       <ion-button (click)="deleteComment()">

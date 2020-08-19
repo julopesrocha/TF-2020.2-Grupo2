@@ -118,11 +118,10 @@ export class ThreadPage implements OnInit {
     this.route.navigate(['/tabs/tab2']);
   }
 
-  async submitForm(form) {
-      // let id = this.activatedRoute.snapshot.paramMap.get('id');
+  submitForm(form) {
+      let id = this.activatedRoute.snapshot.paramMap.get('id');
 
-      let user = await this.getDetails();
-      this.threadService.createComment(user.id, form.value).subscribe(
+      this.threadService.createComment(id, form.value).subscribe(
           (res)=>{
               console.log(res);
               this.commentForm.reset();
