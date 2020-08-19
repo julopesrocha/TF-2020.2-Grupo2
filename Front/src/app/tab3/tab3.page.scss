@@ -17,8 +17,15 @@
     justify-content: center;
     margin: 2vh;
 }
+
 ion-avatar{
     --border-radius: 15px;
     width: 40%;
     height: 40%;
+}
+
+.tag_moderador{
+    background-color: yellow;
+    align-self: center;
+    border-radius: 15px;
 }
