@@ -17,8 +17,7 @@
         <h3 class="dados">{{user.degree}}</h3>
         <h6>Email</h6>
         <h3 class="dados">{{user.email}}</h3>
-        <!-- <h6>Senha</h6>
-        <h3>{{user.password}}</h3> -->
+        <h3 *ngIf="isAdmin"  class="moderador">Moderador <ion-icon class="moderador-icon" name="checkmark-circle"></ion-icon></h3>
     </div>
     <ion-button (click)="userLogout()" expand="full" color="tertiary" class="logout" >
       <ion-icon name="close-circle" class="icon-text-logout"></ion-icon>Logout

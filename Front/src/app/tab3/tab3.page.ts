@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page {
   user = {};
+  isAdmin = false;
 
   constructor(public formbuilder: FormBuilder,
       public authService: AuthService,
@@ -27,6 +28,7 @@ export class Tab3Page {
   userDetails(){
     this.authService.getDetails().subscribe((res)=>{
       this.user = res;
+      this.isAdmin = res.admin;
     })
   }
 
