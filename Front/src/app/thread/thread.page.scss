@@ -6,17 +6,35 @@
 
 .op_buttons{
   display: flex;
-  justify-items: center;
+  justify-content: center;
 }
 
 .content{
-  margin: 2.5vw;
+  margin-right: 2.5vw;
+  margin-left: 2.5vw;
+}
+
+.user-e-seguir{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seguir-button-inside{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.seguir-button{
+      margin-right: 2.5vw;
 }
 
 h1{
   font-size: 2.3rem;
   color: #700282;
-  margin: 3vh;
+  margin-top: 3vh;
+  margin-right: 3vh;
+  margin-left: 3vh;
 }
 
 .card-course{
@@ -32,10 +50,6 @@ h1{
   text-align: justify;
 }
 
-h3{
-  margin: 3vw;
-}
-
 h4{
   font-size: 1rem;
   margin-left: 3vw;
@@ -45,6 +59,7 @@ h4{
   color: #00EBCF;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  font-size: 1.7em;
 }
 
 ion-button{
