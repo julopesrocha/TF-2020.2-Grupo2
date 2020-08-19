@@ -23,7 +23,7 @@
 .button_container{
   display: flex;
   justify-content: space-between;
-  justify-items:center;
+  align-items: flex-end;
 }
 
 .tag{
@@ -31,4 +31,10 @@
     margin-top: 2vh;
     margin-bottom: 2vh;
     font-size: 1em;
+}
+
+.n-likes{
+    color: #700282;
+    margin-bottom: 1vh;
+    font-weight: bold;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
+import { ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-post',
@@ -19,17 +20,27 @@ export class PostComponent implements OnInit {
   @Input() id: number;
 
 
-  constructor(public postService: PostService, private route: Router) { }
+  constructor(public postService: PostService, private route: Router, public toastController: ToastController) { }
 
   ngOnInit() {}
 
+  async presentToast(message: string) {
+   const toast = await this.toastController.create({
+     message,
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
 
 //this.postService.likePost()
   likePost() {
     this.postService.likePost(this.id).subscribe((res)=>{
       console.log(res);
+      this.presentToast('Post curtido!');
       this.likes++;
-    }, (err) => {console.log(err); })
+    }, (err) => {console.log(err);
+       this.presentToast('Não foi possível curtir o post.'); })
 
   }
 
@@ -37,7 +48,9 @@ export class PostComponent implements OnInit {
     this.postService.dislikePost(this.id).subscribe((res)=>{
       console.log(res);
       this.likes--;
-    }, (err) => {console.log(err); })
+      this.presentToast('Post descurtido!');
+    }, (err) => {console.log(err);
+       this.presentToast('Não foi possível descurtir o post.'); })
   }
 
   /* follow_user(){
