@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
+import { ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-post',
@@ -19,7 +20,7 @@ export class PostComponent implements OnInit {
   @Input() id: number;
 
 
-  constructor(public postService: PostService, private route: Router) { }
+  constructor(public postService: PostService, private route: Router, public toastController: ToastController) { }
 
   ngOnInit() {}
 
