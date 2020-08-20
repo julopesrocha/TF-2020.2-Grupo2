@@ -46,7 +46,7 @@ export class HomePage implements OnInit {
 
       }, (err) => {console.log(err);})
     }else{
-      console.log('Usuário não está logado');
+      //console.log('Usuário não está logado');
     }
 
   }
