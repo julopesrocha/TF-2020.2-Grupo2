@@ -41,29 +41,4 @@ export class Tab3Page {
       console.log(err);
     });
   }
-
-
-  // async alert() {
-  //     const alert = await this.alertController.create({
-  //         header: 'Tem certeza que deseja apagar seu perfil?',
-  //         buttons: ['Cancelar', 'Apagar Perfil']
-  //     });
-  //
-  //     await alert.present();
-  // }
-
-// conferir se é (id) ou mais alguma coisa
-  // deleteUser(id){
-  //   this.authService.deleteUser(id).subscribe(
-  //     (res)=>{
-  //       console.log(res);
-  //       alert(res[0]);
-  //       // window.location.href="/login"
-  //     },(err) =>{
-  //       console.log(err);
-  //       alert(err.error[0]);
-  //     }
-  //   );
-  // }
-
 }

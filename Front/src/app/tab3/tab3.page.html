@@ -5,12 +5,15 @@
 </ion-header>
 
 <ion-content>
+
     <div class="avatar">
         <ion-avatar>
             <img [src]="user.photo">
         </ion-avatar>
     </div>
+
     <div class="text-dados">
+
         <h6>Nome</h6>
         <h3 class="dados">{{user.name}}</h3>
         <h6>Curso</h6>
@@ -18,13 +21,19 @@
         <h6>Email</h6>
         <h3 class="dados">{{user.email}}</h3>
         <h3 *ngIf="isAdmin"  class="moderador">Moderador <ion-icon class="moderador-icon" name="checkmark-circle"></ion-icon></h3>
+
     </div>
+
     <ion-button (click)="userLogout()" expand="full" color="tertiary" class="logout" >
       <ion-icon name="close-circle" class="icon-text-logout"></ion-icon>Logout
     </ion-button>
 
-    <ion-fab vertical="top" horizontal="end" slot="fixed" >
-      <ion-fab-button color="secondary" (click)="goToEditProfile()"><ion-icon name="pencil-outline" color="tertiary"></ion-icon></ion-fab-button>
-  </ion-fab>
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+
+      <ion-fab-button color="secondary" (click)="goToEditProfile()">
+        <ion-icon name="pencil-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+      
+    </ion-fab>
 
 </ion-content>
