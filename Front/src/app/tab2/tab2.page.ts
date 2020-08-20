@@ -19,9 +19,8 @@ export class Tab2Page {
     public filterService: FilterService,
     public authService: AuthService,
     public changeDetect: ChangeDetectorRef) {
-      // this.inicializar();
       this.searchForm = this.formBuilder.group({
-          filter: [null],
+        filter: [null],
       });
   }
 
