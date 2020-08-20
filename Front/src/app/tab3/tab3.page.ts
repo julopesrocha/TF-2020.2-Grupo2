@@ -18,7 +18,10 @@ export class Tab3Page {
 
   ngOnInit(){
     this.userDetails();
-    console.log(this.user);
+  }
+
+  ionViewWillEnter(){
+    this.userDetails();
   }
 
   goToEditProfile() {
