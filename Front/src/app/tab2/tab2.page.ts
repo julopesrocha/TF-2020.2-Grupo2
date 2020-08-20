@@ -27,6 +27,9 @@ export class Tab2Page {
   ngOnInit() {
 
   }
+  ionViewWillLeave(){
+    this.resetSearch();
+  }
 
   followUser(id){
     this.authService.followUser(id).subscribe((res)=>{
@@ -69,6 +72,21 @@ export class Tab2Page {
           this.users = res;  
           console.log(res);
         }, (err) => {console.log(err); })}
+  }
+
+  resetSearch(){
+    this.filterService.filterPosts('').subscribe(
+      (res) => {
+        this.posts = [];
+        console.log(res);
+      }, (err) => {console.log(err); });
+
+      this.filterService.filterUsers('').subscribe(
+        (res) => {
+          this.users = [];
+          console.log(res);
+        }, (err) => {console.log(err); })
+
   }
 
 

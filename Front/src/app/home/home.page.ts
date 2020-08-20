@@ -13,12 +13,10 @@ export class HomePage implements OnInit {
   constructor(public postService: PostService) { }
 
   ionViewWillEnter(){
-    this.getMostLikedPosts();
     this.getFollowingPosts();
   }
 
   ngOnInit() {
-    this.getMostLikedPosts();
     this.getFollowingPosts();
   }
 
@@ -38,7 +36,7 @@ export class HomePage implements OnInit {
       this.postService.getFollowingPosts().subscribe((res)=>{
 
         if(res.length == 0){
-          return
+          this.getMostLikedPosts();
         }else{
           this.posts = res;
           console.log(this.posts);
@@ -46,7 +44,8 @@ export class HomePage implements OnInit {
 
       }, (err) => {console.log(err);})
     }else{
-      //console.log('Usuário não está logado');
+      this.getMostLikedPosts();
+      // console.log('Usuário não está logado');
     }
 
   }
