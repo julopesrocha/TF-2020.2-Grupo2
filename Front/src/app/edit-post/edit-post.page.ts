@@ -14,24 +14,25 @@ export class EditPostPage implements OnInit {
 
   editPostForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, 
-    public toastController: ToastController, 
-    private route: Router, 
+  constructor(public formBuilder: FormBuilder,
+    public toastController: ToastController,
+    private route: Router,
     public threadService: ThreadService,
     private activatedRoute: ActivatedRoute) {
 
     this.editPostForm = this.formBuilder.group({
-      course: [null, [Validators.required, Validators.minLength(3)]],
-      teacher: [null, [Validators.required, Validators.minLength(3)]],
-      content: [null, [Validators.required, Validators.minLength(3)]],
+      course: [null, [Validators.minLength(3)]],
+      teacher: [null, [Validators.minLength(3)]],
+      content: [null, [Validators.minLength(3)]],
       tag: [null],
     });
   }
 
-  async presentToast() {
+  async presentToast(message: string) {
     const toast = await this.toastController.create({
-      message: 'Post editado com sucesso!',
-      duration: 2000
+      message,
+      duration: 2000,
+      color: 'secondary'
     });
     toast.present();
   }
@@ -42,8 +43,15 @@ export class EditPostPage implements OnInit {
     this.threadService.editPost(form.value, id).subscribe(
       (res) => {
         console.log(res);
+        this.presentToast('Post editado com sucesso!');
         this.route.navigate(['thread', id]);
-      }, (err) => { console.log(err); })
+      }, (err) => { console.log(err);
+         this.presentToast('Não foi possível editar esse post.'); })
+  }
+  goToPost() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    
+    this.route.navigate(['thread', id]);
   }
 
   ngOnInit() {

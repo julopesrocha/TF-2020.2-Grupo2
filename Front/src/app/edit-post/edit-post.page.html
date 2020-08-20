@@ -1,9 +1,14 @@
 <ion-header>
-
   <ion-toolbar>
-    <ion-title>Edite seu post</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-title>Edite seu post</ion-title>
+        <ion-button (click)="goToPost()">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>
@@ -21,12 +26,12 @@
         <ion-label position="floating">Professor responsável</ion-label>
         <ion-input type="text" formControlName="teacher"></ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-label position="stacked">O que gostaria de comentar sobre essa disciplina?</ion-label>
         <ion-textarea type="text" formControlName="content"></ion-textarea>
       </ion-item>
-  
+
       <ion-item>
 
         <ion-label>Tag</ion-label>
@@ -44,9 +49,9 @@
     </ion-list>
 
     <div class="container">
-      <ion-button (click)="presentToast()" type="submit" [disabled]="editPostForm.invalid">Postar</ion-button>
+      <ion-button type="submit" [disabled]="editPostForm.invalid">Postar</ion-button>
     </div>
-    
+
   </form>
 
 </ion-content>
