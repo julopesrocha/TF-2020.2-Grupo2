@@ -30,15 +30,20 @@ export class HomePage implements OnInit {
   }
 
   getFollowingPosts(){
+
     let userToken = localStorage.getItem('userToken');
+
     if(userToken){
+
       this.postService.getFollowingPosts().subscribe((res)=>{
+
         if(res.length == 0){
           return
         }else{
           this.posts = res;
-        console.log(this.posts);
+          console.log(this.posts);
         }
+
       }, (err) => {console.log(err);})
     }else{
       console.log('Usuário não está logado');
