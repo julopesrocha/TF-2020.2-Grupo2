@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {AuthService} from '../services/auth/auth.service';
+import { ToastController} from '@ionic/angular';
+
 
 @Component({
   selector: 'app-seguidos',
@@ -9,32 +13,45 @@ export class SeguidosPage implements OnInit {
 
   users = [];
 
-  constructor() { }
+  ionViewWillEnter(){
+    this.listFollowing();
+  }
+  constructor(public authService: AuthService, public toastController: ToastController) { }
 
   ngOnInit() {
-    this.users = [
-      {
-        name: 'Arthur',
-        email: 'arthur.albuquerque@gmail.com'
-      },
-      {
-        name: 'Diogo',
-        email: 'diogo.albuquerque@gmail.com'
-      },
-      {
-        name: 'Felipe',
-        email: 'felipe.albuquerque@gmail.com'
-      },
-      {
-        name: 'Luci',
-        email: 'luci.albuquerque@gmail.com'
-      },
-      {
-        name: 'Joaquim',
-        email: 'joaquim.albuquerque@gmail.com'
-      },
 
-    ];
+    this.listFollowing();
+
   }
 
-}
+  async presentToast() {
+   const toast = await this.toastController.create({
+     message: 'Você deixou de seguir o usuário!',
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
+
+   unfollowUser(id){
+    this.authService.unfollowUser(id).subscribe(
+      (res)=>{
+        console.log(res);
+        this.listFollowing();
+        // alert(res[0]);
+      },(err) =>{
+        console.log(err);
+        alert(err.error[0]);
+    },
+    );
+  }
+
+  listFollowing(){
+    this.authService.listUserFollowing().subscribe((res)=>{
+      this.users = res;
+      console.log(this.users);
+    }, (err) => {console.log(err);}
+    )
+  }
+
+ }

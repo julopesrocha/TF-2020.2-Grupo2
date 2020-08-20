@@ -1,7 +1,25 @@
+.background{
+  --background: url('../../assets/inferior.svg');
+  --background-repeat: no-repeat;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding: 3em;
+  right: 0;
+  text-align: center;
+  top: 0;
+  --background-position: bottom;
+  --background-size: cover;
+}
+
 .container{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.sign_up_button{
   margin: 3vh;
 }
 
@@ -9,4 +27,16 @@ ion-button {
   --background: #1158C1;
   text-align: center;
   --border-radius: 15px;
+}
+
+ion-input{
+  color: #700282;
+}
+
+.camera_button{
+  margin: 2vh;
+}
+
+.margem-fundo{
+  margin-bottom: 20vh;
 }

@@ -1,44 +1,45 @@
 <ion-header>
-
   <ion-toolbar>
-
     <ion-grid>
-
       <ion-row>
+        <ion-title>Login</ion-title>
         <ion-button (click)="goToLanding()">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
-        <ion-title>Login</ion-title>
       </ion-row>
-
     </ion-grid>
-
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
   <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
+
     <ion-list>
+
       <ion-item>
         <ion-label position="floating">E-mail</ion-label>
-        <ion-input type="text" formControlName="email"></ion-input>
+        <ion-input type="text" formControlName="email" color="secondary"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-input type="password" formControlName="password" color="secondary"></ion-input>
       </ion-item>
+
     </ion-list>
 
     <div class="container">
       <ion-button type="submit" [disabled]="loginForm.invalid">Efetuar Login</ion-button>
     </div>
+
   </form>
 
   <div class="container">
+
     <h6>Ainda não tem uma conta?</h6>
     <a href= "../cadastro">Realizar cadastro</a>
+    <a class="home_page_link" href="../tabs/home">Pular para página inicial</a>
+
   </div>
 
 </ion-content>

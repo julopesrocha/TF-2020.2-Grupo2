@@ -2,12 +2,39 @@
   background-color: #1158C1;
   color: #FFFFFF;
   font-weight: bold;
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+  padding: 0;
 }
 
-.author_post{
+.font_title{
+  font-size: 1.5em;
+}
+
+.user_post{
   color:#700282;
 }
 
 .ion-card{
   border-radius: 20px;
+}
+
+.button_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.tag{
+  color: #00EBCF;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  font-size: 1em;
+}
+
+.number_of_likes{
+  color: #700282;
+  margin-bottom: 1vh;
+  font-weight: bold;
 }

@@ -19,17 +19,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //User
-Route::post('createUser','UserController@createUser');
 Route::get('listUsers','UserController@listUsers');
 Route::get('listUser/{id}','UserController@listUser');
+Route::post('createUser','UserController@createUser');
+Route::post('filterUsers','UserController@filterUsers');
 Route::put('updateUser/{id}','UserController@updateUser');
 Route::delete('deleteUser/{id}','UserController@deleteUser');
 
-//Course
-// Route::post('createCourse','CourseController@createCourse');
+//Comment
+Route::get('listComments','CommentController@listComments');
+Route::get('listCommentsFromPost/{id}','CommentController@listCommentsFromPost');
 
 //Post
+Route::get('getPost/{id}','PostController@getPost');
 Route::get('listPosts','PostController@listPosts');
+Route::get('getNumberOfLikes/{post_id}','PostController@getNumberOfLikes');
+Route::get('getMostLikedPosts','PostController@getMostLikedPosts');
 Route::post('filterPosts','PostController@filterPosts');
 
 //Passport
@@ -37,10 +42,22 @@ Route::post('register','API\PassportController@register');
 Route::post('login','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'], function(){
     //Post
+    Route::get('likePost/{id}','PostController@likePost');
+    Route::get('dislikePost/{id}','PostController@dislikePost');
+    Route::get('getFollowingPosts','PostController@getFollowingPosts');
     Route::post('createPost','PostController@createPost');
+    Route::post('filterAuthUsers','UserController@filterAuthUsers');
     Route::put('editPost/{id}','PostController@editPost');
     Route::delete('deletePost/{id}','PostController@deletePost');
     //User
     Route::get('getDetails','API\PassportController@getDetails');
     Route::get('logout','API\PassportController@logout');
+    Route::get('listUserFollowing','UserController@listUserFollowing');
+    Route::get('followUser/{id}','UserController@followUser');
+    Route::get('unfollowUser/{id}','UserController@unfollowUser');
+    Route::put('editProfile','API\PassportController@editProfile');
+    Route::delete('deleteProfile','API\PassportController@deleteProfile');
+    //Comment
+    Route::post('createComment/{id}','CommentController@createComment');
+    Route::delete('deleteComment/{id}','CommentController@deleteComment');
 });

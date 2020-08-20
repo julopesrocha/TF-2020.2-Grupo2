@@ -1,21 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <img src="../../assets/logo.png">
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div>
-        <h6>Nome</h6>
-        <h3>{{user.name}}</h3>
-        <h6>Curso</h6>
-        <h3>{{user.degree}}</h3>
-        <h6>Email</h6>
-        <h3>{{user.email}}</h3>
-        <!-- <h6>Senha</h6>
-        <h3>{{user.password}}</h3> -->
+
+    <div class="avatar">
+        <ion-avatar>
+            <img [src]="user.photo">
+        </ion-avatar>
     </div>
-    <ion-button icon-start (click)="userLogout()">
-      <ion-icon name="close-circle"></ion-icon>Logout
+
+    <div class="text-dados">
+
+        <h6>Nome</h6>
+        <h3 class="dados">{{user.name}}</h3>
+        <h6>Curso</h6>
+        <h3 class="dados">{{user.degree}}</h3>
+        <h6>Email</h6>
+        <h3 class="dados">{{user.email}}</h3>
+        <h3 *ngIf="isAdmin"  class="moderador">Moderador <ion-icon class="moderador-icon" name="checkmark-circle"></ion-icon></h3>
+
+    </div>
+
+    <ion-button (click)="userLogout()" expand="full" color="tertiary" class="logout" >
+      <ion-icon name="close-circle" class="icon-text-logout"></ion-icon>Logout
     </ion-button>
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+
+      <ion-fab-button color="secondary" (click)="goToEditProfile()">
+        <ion-icon name="pencil-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+      
+    </ion-fab>
+
 </ion-content>

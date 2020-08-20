@@ -18,16 +18,30 @@ class Post extends Model
 
     // Fix bug when request is null
     public function editPost(Request $request){
-        if($this->content){
+        if($request->course){
+            $this->course = $request->course;
+        }
+        if($request->content){
             $this->content = $request->content;
         }
-        if($this->tag){
+        if($request->tag){
             $this->tag = $request->tag;
+        }
+        if($request->teacher){
+            $this->teacher = $request->teacher;
         }        
         $this->save();
     }
 
     public function user(){
         return $this->belongsTo('App\User');
+    }
+
+    public function liked(){
+        return $this->belongsToMany('App\User');
+    }
+
+    public function postcomments(){
+        return $this->hasMany('App\Comment');
     }
 }

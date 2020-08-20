@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PostService } from '../../services/post.service';
+import { Router } from '@angular/router';
+import { ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-post',
@@ -8,13 +11,66 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostComponent implements OnInit {
 
   @Input() title: string;
-  @Input() author: string;
+  @Input() teacher: string;
+  @Input() user: string;
   @Input() text: string;
+  @Input() tag: string;
   @Input() likes: number;
+  @Input() dislikes: number;
+  @Input() id: number;
 
 
-  constructor() { }
+  constructor(public postService: PostService, private route: Router, public toastController: ToastController) { }
 
   ngOnInit() {}
+
+  async presentToast(message: string) {
+   const toast = await this.toastController.create({
+     message,
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
+
+//this.postService.likePost()
+  likePost() {
+    this.postService.likePost(this.id).subscribe((res)=>{
+      this.likes = res;
+    }, (err) => {
+        if (err.statusText == 'Unauthorized') {
+          this.presentToast('Para curtir o post é necessário entrar em uma conta.');
+          this.route.navigate(['/login']);
+        } else {
+          console.log(err);
+          this.presentToast('Não foi possível curtir o post.'); 
+          this.route.navigate(['/login']);
+        }
+      })
+  }
+
+  dislikePost(){
+    this.postService.dislikePost(this.id).subscribe((res)=>{
+      this.likes = res;
+    }, (err) => {
+      if (err.statusText == 'Unauthorized') {
+        this.presentToast('Para descurtir o post é necessário entrar em uma conta.');
+        this.route.navigate(['/login']);
+      } else {
+        console.log(err);
+        this.presentToast('Não foi possível descurtir o post.');
+      }
+    })
+  }
+
+  /* follow_user(){
+    this.postService.followUser(this.id).subscribe((res)=>{
+      console.log(res);
+    }, (err) => {console.log(err);})
+  } */
+
+  view_thread(){
+    this.route.navigate(['/thread', this.id]);
+  }
 
 }

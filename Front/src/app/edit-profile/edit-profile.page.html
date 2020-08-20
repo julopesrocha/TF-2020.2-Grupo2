@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-title>Editar Perfil</ion-title>
+          <ion-button (click)="goToPerfil()"><ion-icon name="close-outline"></ion-icon></ion-button>
+        </ion-row>
+      </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h4>Insira seus novos dados nos campos a seguir</h4>
+
+    <form [formGroup]="editDetailsForm" (ngSubmit)="editDetails(editDetailsForm)">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="name" color="secondary"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" formControlName="email" color="secondary"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Curso</ion-label>
+          <ion-input type="text" formControlName="degree" color="secondary"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="container">
+        <ion-button type="submit" (click)= "presentToast()" class="button_submit">Salvar Edições</ion-button>
+      </div>
+
+
+    </form>
+</ion-content>

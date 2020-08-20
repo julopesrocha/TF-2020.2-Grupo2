@@ -22,4 +22,13 @@ export class FilterService {
     return this.http.post(this.apiURL + 'filterPosts', form, this.httpHeaders );
   }
 
+  filterUsers(form): Observable<any>{
+    return this.http.post(this.apiURL + 'filterUsers', form, this.httpHeaders );
+  }
+
+  filterAuthUsers(form): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.post(this.apiURL + 'filterAuthUsers', form, this.httpHeaders );
+  }
+
 }

@@ -1,27 +1,41 @@
-<ion-card (click)="view_thread()">
+<ion-card>
 
   <ion-card-header>
 
-    <!-- <div class="title_container">{{title}}</div> -->
     <ion-card class="title_container">
-      <ion-card-content>{{title}}</ion-card-content>
+      <ion-card-content class="font_title">{{title}} com {{teacher}}</ion-card-content>
     </ion-card>
 
-    <ion-card-subtitle class="author_post">{{author}}</ion-card-subtitle>
+    <ion-card-title class="user_post">{{user}}</ion-card-title>
 
   </ion-card-header>
 
   <ion-card-content>
-    <p>{{text}}</p>
-    <ion-button>
-      {{likes}}
-      &nbsp;
-      <ion-icon name="thumbs-up-sharp"></ion-icon>
-    </ion-button>
+
+    <h2>{{text}}</h2>
+    <ion-card-subtitle class="tag">#{{tag}}</ion-card-subtitle>
+
+    <div class="button_container">
+
+      <div>
+
+        <h2 *ngIf="true" class="number_of_likes">{{likes}} pessoas curtiram
+        &nbsp;</h2>
+
+        <ion-button *ngIf="true" (click)="likePost()">
+          <ion-icon name="thumbs-up-sharp"></ion-icon>
+        </ion-button>
+        
+        <ion-button (click)="dislikePost()">
+          <ion-icon name="thumbs-down-sharp"></ion-icon>
+        </ion-button>
+
+      </div>
+
+      <ion-button (click)="view_thread()">Ver mais</ion-button>
+
+    </div>
+
   </ion-card-content>
-  <!-- <ion-card-subtitle>#{{tag}}</ion-card-subtitle> -->
-  <!-- colocar icone de coracao antes do seguidor -->
-  <!-- checar se tem como mostrar lista de seguidores -->
-  <!-- <ion-card-subtitle>{{follower}} segue esse post</ion-card-subtitle> -->
 
 </ion-card>

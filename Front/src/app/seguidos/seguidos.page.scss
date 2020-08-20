@@ -1,12 +1,39 @@
-.container{
-  display: flex;
-  flex-wrap: wrap;
+ion-card{
+    padding: 5vw;
+    margin: 2vw;
+    margin-bottom: 4vh;
 }
 
-.user_info{
-  font-size: 1rem;
+.icon-button{
+    margin-right: 3vw;
 }
 
-.email{
-  opacity: 0.75;
+.user_info_topo_container{
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    margin-bottom: 2vw;
+}
+ion-card-title{
+    font-size: 1.5em;
+}
+ion-avatar{
+    --border-radius: 15px;
+}
+
+.image{
+    --background: url('../../assets/undraw_followers_4i0p.png');
+    --background-repeat: no-repeat;
+    --background-position: center;
+    --background-size: cover;
+    background-color: #ffffff;
+}
+
+img{
+    size:50%;
+    align-items: center;
+}
+ion-button{
+    color: #00EBCF;
+    --background: #700282;
 }

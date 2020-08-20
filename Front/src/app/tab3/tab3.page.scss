@@ -1,0 +1,36 @@
+.dados{
+    color: #700282;
+}
+.logout{
+    margin-top: 5vh;
+}
+.icon-text-logout{
+    margin-right: 2vw;
+}
+.text-dados{
+    margin: 5vw;
+}
+.avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2vh;
+}
+
+ion-avatar{
+    --border-radius: 15px;
+    width: 40%;
+    height: 40%;
+}
+
+.moderador-icon{
+    color: #00EBCF;
+    margin-left: 2vw;
+}
+.moderador{
+    display: flex;
+    align-items: center;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+}

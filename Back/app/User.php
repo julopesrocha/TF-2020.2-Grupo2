@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Storage;
+
 
 class User extends Authenticatable
 {
@@ -42,10 +44,16 @@ class User extends Authenticatable
 
 
     public function createUser(Request $request){
+        if($request->photo){
+            $this->photo = $request->photo;
+        } else{
+            $this->photo = "https://icon-library.com/images/generic-user-icon/generic-user-icon-19.jpg";
+        }
+
+        
         $this->name = $request->name;
         $this->email = $request->email;
         $this->password = bcrypt($request->password);
-        // $this['password'] = bcrypt($request->password);
         $this->degree = $request->degree;        
         $this->save();
     }
@@ -68,6 +76,22 @@ class User extends Authenticatable
 
     public function posts(){
         return $this->hasMany('App\Post');
+    }
+
+    public function likes(){
+        return $this->belongsToMany('App\Post');
+    }
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+    public function followers(){
+        return $this->belongsToMany('App\User','followed_follower','followed_id','follower_id');
+    }
+
+    public function following(){
+        return $this->belongsToMany('App\User','followed_follower','follower_id','followed_id');
     }
 
 }

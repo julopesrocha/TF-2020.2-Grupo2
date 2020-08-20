@@ -1,47 +1,28 @@
 <ion-header>
 
   <ion-toolbar>
-
-    <ion-grid>
-    
-      <ion-row>
-
-        <ion-title>Seguidos</ion-title>
-    
-        <ion-button class="retorno">
-          <ion-icon name="arrow-back-outline"></ion-icon>
-        </ion-button>
-
-      </ion-row>
-    
-    </ion-grid>
-
+      <img src="../../assets/logo.png">
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content class="image">
 
-  <ion-list>
-    <ion-item *ngFor="let user of users">
-      <!-- <img src=""> -->
-      <!-- depois implementar html para foto de cada usuario -->
-      <div class="container">
-
-        <div class="flex_item">
-          <ion-title class="user_info">{{ user.name }}</ion-title>
-          <ion-title class="user_info email">{{ user.email }}</ion-title>
-        </div>
-        <div class="flex_item following">
-          <ion-button>Seguindo</ion-button>
-        </div>
-
-      </div>
-        <!-- talvez fazer o nome e email clicaveis, levam para perfil do usuario -->
-        <!-- <ion-subtitle></ion-subtitle> -->
-        <!-- botao precisa mudar status de usuario seguido -->
-        
-    </ion-item>
-  </ion-list>
+    <ion-card *ngFor="let user of users" >
+        <ion-grid class="user_info_topo_container">
+            <ion-row>
+                <ion-col>
+                    <ion-avatar>
+                        <img src={{user.photo}}>
+                    </ion-avatar>
+                </ion-col>
+                <ion-col>
+                    <ion-card-title color="secondary">{{ user.name }}</ion-card-title>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-card-subtitle>{{ user.degree }}</ion-card-subtitle>
+        <ion-button (click)="unfollowUser(user.id)" (click)= "presentToast()"><ion-icon class="icon-button" name="heart-dislike"></ion-icon>Deixar de seguir</ion-button>
+    </ion-card>
 
 </ion-content>

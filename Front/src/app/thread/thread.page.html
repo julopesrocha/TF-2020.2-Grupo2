@@ -1,52 +1,81 @@
 <ion-header>
+    <ion-toolbar>
+      <ion-grid>
+
+        <ion-row class="toolbar_container">
+          <ion-button (click)="goToHome()" class="exit-button">
+            <ion-icon name="home"></ion-icon>
+          </ion-button>
+          <ion-title>Post</ion-title>
+          <ion-button (click)="goBackToSearch()" class="exit-button">
+            <ion-icon name="search"></ion-icon>
+          </ion-button>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1>{{original_post.author}}</h1>
-  <ion-card>{{original_post.title}}</ion-card>
-  <p>{{original_post.text}}</p>
+    <div  class="content">
+        <h1>{{postAuthor}}</h1>
 
-  <!-- integrar tags -->
-  <!-- <h5 *ngFor="tag in tags">{{tag}}</h5> -->
-
-  <!-- implementar requerimento para login -->
-  <ion-grid class="container">
-
-    <ion-row>
-      <ion-col>
-        <form [formGroup]="commentForm" (ngSubmit)="submitComment(commentForm)">
-          <ion-list >
-    
-            <ion-item>
-              <ion-label position="floating">Digite aqui</ion-label>
-              <ion-input type="text" formControlName="text"></ion-input>
-            </ion-item>
-    
-          </ion-list>
-          
-        </form>
-
-      </ion-col>
-
-      <ion-col class="send_button" size="3">
-
-        <ion-row class="button_container">
-
-          <ion-button>
-            <ion-icon name="send"></ion-icon>
-          </ion-button>
-
+        <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
+        <h2 class="post-content">{{post.content}}</h2>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h3 class="tag">#{{post.tag}}</h3>
+            </ion-col>
+            <ion-col>
+                <div class="op_buttons">
+                    <ion-button *ngIf="isAdmin || postUserId == userId" (click)="deletePost()">
+      <!-- [disabled]="registerForm.invalid" -->
+                    <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button *ngIf="postUserId == userId" (click)="editPost()">
+                    <ion-icon name="pencil-outline"></ion-icon>
+                    </ion-button>
+                </div>
+            </ion-col>
         </ion-row>
+    </ion-grid>
+    </div>
 
-      </ion-col>
+    <div class="content">
+        <h3 class="comment_header">Comentários</h3>
+    </div>
+    <form [formGroup]="commentForm" (ngSubmit)="submitForm(commentForm)">
+        <ion-grid class="container">
+            <ion-row>
+                <ion-col>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating">Faça um comentário</ion-label>
+                            <ion-textarea type="text" formControlName="comment"></ion-textarea>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+                <ion-col class="send_button" size="3">
+                    <ion-row class="button_container">
+                        <ion-button type="submit" class="send_button">
+                            <ion-icon name="send"></ion-icon>
+                        </ion-button>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
 
-    </ion-row>
-  </ion-grid>
-  
+    <ion-card *ngFor="let comment of comments" class="comment_container">
+            <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
+            <ion-label class="comment_content">{{comment.comment}}</ion-label>
+            <div *ngIf="userId == comment.user.id || isAdmin"  class="comment_buttons">
+                <ion-button size="small" class="delete-comment" (click)="deleteComment(comment.id)">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+            </div>
+  </ion-card>
 
-  <h3>Comentários</h3>
-  <div *ngFor="let comment of comments">
-    <!-- <img src=""> -->
-    <h4>{{comment.text}}</h4>
-  </div>
 </ion-content>

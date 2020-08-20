@@ -8,25 +8,25 @@ use App\Http\Controllers\UserController;
 use App\User;
 use Auth;
 use DB;
+use App\Notifications\EmailNotification;
 
 class PassportController extends Controller
 {
     public function register(Request $request){
         $newUser = new User;
         $newUser->createUser($request);
+
+        $newUser->notify(new EmailNotification());
+
         $success['token']=$newUser->createToken('MyApp')->accessToken;
         return response()->json(['success'=>$success,'user'=>$newUser]);
     }
 
     public function login(Request $request){
-        if(Auth::attempt(['email'=>request('email'), 'password'=>request('password')])){
-            $user = Auth::user();
-            $success['token']=$user->createToken('MyApp')->accessToken;
-            return response()->json(['success'=>$success, 'user'=>$user]);
-        }
-        else{
-            return response()->json(['error'=>'Não autorizado']);
-        }
+        Auth::attempt(['email'=>request('email'), 'password'=>request('password')]);
+        $user = Auth::user();
+        $success['token']=$user->createToken('MyApp')->accessToken;
+        return response()->json(['success'=>$success, 'user'=>$user]);
     }
 
     public function getDetails(){
@@ -40,4 +40,18 @@ class PassportController extends Controller
         $accessToken->revoke();
         return response()->json(['Usuário deslogado']);
     }
+
+    public function editProfile(Request $request){
+        $user = Auth::user();
+        $user->updateUser($request);
+        return response()->json($user);
+    }
+
+    public function deleteProfile(){
+        $user = Auth::user();
+        User::destroy($user->id);
+        return response()->json('Usuário deletado');
+
+    }
+
 }

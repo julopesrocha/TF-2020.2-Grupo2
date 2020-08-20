@@ -1,26 +1,35 @@
 <ion-header>
   <ion-toolbar>
     <ion-grid>
-
       <ion-row>
-
+        <ion-title>Cadastro</ion-title>
         <ion-button (click)="goToLanding()">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
-        <ion-title>Cadastro</ion-title>
       </ion-row>
-
     </ion-grid>
   </ion-toolbar>
+
 </ion-header>
-
-<ion-content>
-
+<ion-content class="background">
   <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+
+    <img [src]="photo">
+
+    <ion-button class="camera_button" (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+    </ion-button>
+
     <ion-list>
+
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Curso</ion-label>
+        <ion-input type="text" formControlName="degree"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -38,21 +47,24 @@
         <ion-input type="password" formControlName="confirm_password"></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Curso</ion-label>
-        <ion-input type="text" formControlName="degree"></ion-input>
-      </ion-item>
     </ion-list>
+
     <div class="container">
-      <ion-button type="submit" [disabled]="registerForm.invalid">Cadastrar</ion-button>
+
+      <ion-button class="sign_up_button" type="submit" [disabled]="registerForm.invalid">
+        Cadastrar
+      </ion-button>
+
     </div>
 
 
   </form>
 
 
-  <div class="container">
+  <div class="container" class="margem-fundo">
+
     <a href="../login">Já tenho uma conta</a>
+
   </div>
 
 </ion-content>
