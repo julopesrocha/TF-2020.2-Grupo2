@@ -2,7 +2,6 @@
 
   <ion-card-header>
 
-    <!-- <div class="title_container">{{title}}</div> -->
     <ion-card class="title_container">
       <ion-card-content class="font_title">{{title}} com {{teacher}}</ion-card-content>
     </ion-card>
@@ -12,26 +11,31 @@
   </ion-card-header>
 
   <ion-card-content>
+
     <h2>{{text}}</h2>
     <ion-card-subtitle class="tag">#{{tag}}</ion-card-subtitle>
+
     <div class="button_container">
+
       <div>
-        <h2 *ngIf="true" class="n-likes">{{likes}} pessoas curtiram
+
+        <h2 *ngIf="true" class="number_of_likes">{{likes}} pessoas curtiram
         &nbsp;</h2>
+
         <ion-button *ngIf="true" (click)="likePost()">
           <ion-icon name="thumbs-up-sharp"></ion-icon>
         </ion-button>
+        
         <ion-button (click)="dislikePost()">
           <ion-icon name="thumbs-down-sharp"></ion-icon>
         </ion-button>
+
       </div>
 
       <ion-button (click)="view_thread()">Ver mais</ion-button>
 
     </div>
+
   </ion-card-content>
-  <!-- <ion-card-subtitle>#{{tag}}</ion-card-subtitle> -->
-  <!-- colocar icone de coracao antes do seguidor -->
-  <!-- checar se tem como mostrar lista de seguidores -->
-  <!-- <ion-card-subtitle>{{follower}} segue esse post</ion-card-subtitle> -->
+
 </ion-card>
