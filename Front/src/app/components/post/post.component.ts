@@ -40,9 +40,11 @@ export class PostComponent implements OnInit {
     }, (err) => {
         if (err.statusText == 'Unauthorized') {
           this.presentToast('Para curtir o post é necessário entrar em uma conta.');
+          this.route.navigate(['/login']);
         } else {
           console.log(err);
           this.presentToast('Não foi possível curtir o post.'); 
+          this.route.navigate(['/login']);
         }
       })
   }
@@ -53,6 +55,7 @@ export class PostComponent implements OnInit {
     }, (err) => {
       if (err.statusText == 'Unauthorized') {
         this.presentToast('Para descurtir o post é necessário entrar em uma conta.');
+        this.route.navigate(['/login']);
       } else {
         console.log(err);
         this.presentToast('Não foi possível descurtir o post.');
