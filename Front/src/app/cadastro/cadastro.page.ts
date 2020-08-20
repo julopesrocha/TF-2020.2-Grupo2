@@ -16,7 +16,11 @@ export class CadastroPage implements OnInit {
   registerForm: FormGroup;
   photo: SafeResourceUrl;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, private sanitizer: DomSanitizer, public toastController: ToastController) {
+  constructor(public formBuilder: FormBuilder, 
+    public authService: AuthService, 
+    private route: Router, 
+    private sanitizer: DomSanitizer, 
+    public toastController: ToastController) {
 
     this.registerForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
@@ -29,12 +33,15 @@ export class CadastroPage implements OnInit {
   }
 
     async presentToast(message: string) {
+
      const toast = await this.toastController.create({
        message,
        duration: 2000,
        color: 'secondary'
      });
+
      toast.present();
+
    }
 
   ngOnInit() {
@@ -43,32 +50,43 @@ export class CadastroPage implements OnInit {
   goToLanding() {
     this.route.navigate(['/landing']);
   }
-  //botar mediumtext na migration
+
   submitForm(form){
+
     if(this.photo){
       form.value.photo = this.photo['changingThisBreaksApplicationSecurity'];
     }
+
     console.log(form.value);
+
     this.authService.register(form.value).subscribe(
     (res) =>{
+
       console.log(res);
       this.presentToast('Conta cadastrada! Realize o login.');
       this.route.navigate(['/login']);
+
     }, (err) => {
+
       console.log(err);
       this.presentToast('Não foi possível realizar seu cadastro.');
+
    })
   }
 
   async takePicture() {
+
     const image = await Plugins.Camera.getPhoto({
+
       quality: 100,
       allowEditing: true,
       saveToGallery: true,
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera
+
     });
 
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
+    
   }
 }

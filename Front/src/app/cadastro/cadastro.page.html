@@ -1,17 +1,23 @@
 <ion-header>
+
   <ion-toolbar>
+
     <ion-grid>
 
       <ion-row>
+
         <ion-title>Cadastro</ion-title>
 
         <ion-button (click)="goToLanding()">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
+        
       </ion-row>
 
     </ion-grid>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content class="background">
@@ -23,7 +29,9 @@
     <ion-button class="camera_button" (click)="takePicture()">
         <ion-icon name="camera"></ion-icon>
     </ion-button>
+
     <ion-list>
+
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
@@ -50,10 +58,13 @@
       </ion-item>
 
     </ion-list>
+
     <div class="container">
+
       <ion-button class="sign_up_button" type="submit" [disabled]="registerForm.invalid">
         Cadastrar
       </ion-button>
+
     </div>
 
 
