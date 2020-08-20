@@ -34,7 +34,6 @@ class PostController extends Controller
 
         if($user->id == $post->user_id){
             $post->editPost($request);
-            $post->save();
             return response()->json($post);
         }else{
             return response()->json(['Ele nao pode editar']);
