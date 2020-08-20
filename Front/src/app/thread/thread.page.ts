@@ -43,6 +43,12 @@ export class ThreadPage implements OnInit {
     this.getComments();
   }
 
+  ionViewWillEnter(){
+    this.getDetails();
+    this.getPost();
+    this.getComments();
+  }
+
   async presentToast(message: string) {
    const toast = await this.toastController.create({
      message,
