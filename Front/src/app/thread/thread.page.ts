@@ -116,6 +116,13 @@ export class ThreadPage implements OnInit {
 
   }
 
+  deleteComment(id){
+    this.threadService.deleteComment(id).subscribe((res)=>{
+      console.log('Comentário excluído');
+      this.getComments();
+    }, (err) => {console.log(err);})
+  }
+
   goToHome() {
     this.route.navigate(['/tabs/home']);
   }
