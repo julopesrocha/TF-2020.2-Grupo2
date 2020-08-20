@@ -37,16 +37,27 @@ export class PostComponent implements OnInit {
   likePost() {
     this.postService.likePost(this.id).subscribe((res)=>{
       this.likes = res;
-    }, (err) => {console.log(err);
-       this.presentToast('Não foi possível curtir o post.'); })
-
+    }, (err) => {
+        if (err.statusText == 'Unauthorized') {
+          this.presentToast('Para curtir o post é necessário entrar em uma conta.');
+        } else {
+          console.log(err);
+          this.presentToast('Não foi possível curtir o post.'); 
+        }
+      })
   }
 
   dislikePost(){
     this.postService.dislikePost(this.id).subscribe((res)=>{
       this.likes = res;
-    }, (err) => {console.log(err);
-       this.presentToast('Não foi possível descurtir o post.'); })
+    }, (err) => {
+      if (err.statusText == 'Unauthorized') {
+        this.presentToast('Para descurtir o post é necessário entrar em uma conta.');
+      } else {
+        console.log(err);
+        this.presentToast('Não foi possível descurtir o post.');
+      }
+    })
   }
 
   /* follow_user(){
