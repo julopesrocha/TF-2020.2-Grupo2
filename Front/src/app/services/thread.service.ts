@@ -43,4 +43,9 @@ export class ThreadService {
     return this.http.post(this.apiURL + "createComment/" + id, form, this.httpHeaders);
   }
 
+  deleteComment(id): Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem("userToken");
+    return this.http.delete(this.apiURL + "deleteComment/" + id, this.httpHeaders);
+  }
+
 }
