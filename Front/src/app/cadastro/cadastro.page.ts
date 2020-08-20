@@ -61,10 +61,12 @@ export class CadastroPage implements OnInit {
 
     this.authService.register(form.value).subscribe(
     (res) =>{
-
       console.log(res);
-      this.presentToast('Conta cadastrada! Realize o login.');
-      this.route.navigate(['/login']);
+
+      this.autoLogin(form.value);
+
+      // this.presentToast('Conta cadastrada! Realize o login.');
+      this.route.navigate(['/tabs/home']);
 
     }, (err) => {
 
@@ -88,5 +90,12 @@ export class CadastroPage implements OnInit {
 
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
     
+  }
+
+  autoLogin(userInfo){
+    this.authService.login(userInfo).subscribe((res)=>{
+      console.log(res);
+      localStorage.setItem('userToken', res.success.token);     
+    }), (err) => {console.log(err);}
   }
 }
