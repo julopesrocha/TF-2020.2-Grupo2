@@ -16,10 +16,10 @@ export class CadastroPage implements OnInit {
   registerForm: FormGroup;
   photo: SafeResourceUrl;
 
-  constructor(public formBuilder: FormBuilder, 
-    public authService: AuthService, 
-    private route: Router, 
-    private sanitizer: DomSanitizer, 
+  constructor(public formBuilder: FormBuilder,
+    public authService: AuthService,
+    private route: Router,
+    private sanitizer: DomSanitizer,
     public toastController: ToastController) {
 
     this.registerForm = this.formBuilder.group({
@@ -89,13 +89,13 @@ export class CadastroPage implements OnInit {
     });
 
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-    
+
   }
 
   autoLogin(userInfo){
     this.authService.login(userInfo).subscribe((res)=>{
       console.log(res);
-      localStorage.setItem('userToken', res.success.token);     
+      localStorage.setItem('userToken', res.success.token);
     }), (err) => {console.log(err);}
   }
 }

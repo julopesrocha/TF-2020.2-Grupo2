@@ -1,27 +1,17 @@
 <ion-header>
-
   <ion-toolbar>
-
     <ion-grid>
-
       <ion-row>
-
         <ion-title>Cadastro</ion-title>
-
         <ion-button (click)="goToLanding()">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
-        
       </ion-row>
-
     </ion-grid>
-
   </ion-toolbar>
 
 </ion-header>
-
 <ion-content class="background">
-
   <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
 
     <img [src]="photo">
@@ -74,7 +64,7 @@
   <div class="container" class="margem-fundo">
 
     <a href="../login">Já tenho uma conta</a>
-    
+
   </div>
 
 </ion-content>

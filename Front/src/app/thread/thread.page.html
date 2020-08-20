@@ -20,7 +20,7 @@
 <ion-content>
     <div  class="content">
         <h1>{{postAuthor}}</h1>
-          
+
         <ion-card class="card-course">{{post.course}} com {{post.teacher}}</ion-card>
         <h2 class="post-content">{{post.content}}</h2>
     <ion-grid>
@@ -69,13 +69,13 @@
     </form>
 
     <ion-card *ngFor="let comment of comments" class="comment_container">
-        <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
-        <ion-label class="comment_content">{{comment.comment}}</ion-label>
-      <div *ngIf="userId == comment.user.id || isAdmin"  class="comment_buttons">
-      <ion-button (click)="deleteComment(comment.id)">
-        <ion-icon name="trash-outline"></ion-icon>
-      </ion-button>
-    </div>
+            <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
+            <ion-label class="comment_content">{{comment.comment}}</ion-label>
+            <div *ngIf="userId == comment.user.id || isAdmin"  class="comment_buttons">
+                <ion-button size="small" class="delete-comment" (click)="deleteComment(comment.id)">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+            </div>
   </ion-card>
 
 </ion-content>

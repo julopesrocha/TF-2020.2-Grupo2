@@ -1,27 +1,17 @@
 <ion-header>
-
   <ion-toolbar>
-
     <ion-grid>
-
       <ion-row>
-
         <ion-title>Login</ion-title>
-
         <ion-button (click)="goToLanding()">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
-
       </ion-row>
-
     </ion-grid>
-
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content class="background">
-
   <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
 
     <ion-list>
@@ -41,7 +31,7 @@
     <div class="container">
       <ion-button type="submit" [disabled]="loginForm.invalid">Efetuar Login</ion-button>
     </div>
-    
+
   </form>
 
   <div class="container">

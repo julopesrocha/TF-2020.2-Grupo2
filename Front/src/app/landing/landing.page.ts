@@ -10,6 +10,8 @@ export class LandingPage implements OnInit {
 
   constructor(private route: Router) { }
 
+  backgroundImg = '../../assets/grafismo-superior-inferior.png';
+
   ngOnInit() {
   }
 
