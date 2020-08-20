@@ -131,6 +131,7 @@ export class ThreadPage implements OnInit {
           }, (err) => {console.log(err);
             if(err.statusText == 'Unauthorized'){
               this.presentToast('Para comentar é necessário entrar em uma conta.');
+              this.route.navigate(['../login']);
             }else{
               this.presentToast('Não foi possível comentar. ');
             }
