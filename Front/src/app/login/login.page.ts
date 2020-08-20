@@ -13,7 +13,10 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService, private route: Router, public toastController: ToastController) {
+  constructor(public formBuilder: FormBuilder, 
+    public authService: AuthService, 
+    private route: Router, 
+    public toastController: ToastController) {
 
     this.loginForm = this.formBuilder.group({
       email:[null, [Validators.required, Validators.email]],
@@ -35,7 +38,7 @@ export class LoginPage implements OnInit {
      color: "secondary"
    });
    toast.present();
- }
+  }
 
   submitForm(form) {
       console.log(form);
