@@ -33,14 +33,14 @@
     <ion-card *ngFor="let user of users" >
 
         <app-userinfo [photo]="user.photo" [id]="user.id" [name]="user.name" [degree]="user.degree"></app-userinfo>
-        
+
         <div *ngIf="user.followers">
             <ion-button *ngIf="user.followers.length == 0" (click)="followUser(user.id)" class="follow-button"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Seguir</ion-button>
-            <ion-button *ngIf="user.followers.length == 1" (click)="followUser(user.id)" class="follow-button"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Deixar de seguir</ion-button>    
+            <ion-button *ngIf="user.followers.length == 1" (click)="followUser(user.id)" class="follow-button"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Deixar de seguir</ion-button>
         </div>
 
         <div *ngIf="!user.followers">
-            <ion-button class="follow-button"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Seguir</ion-button>
+            <ion-button (click)="followVisitante()" class="follow-button"><ion-icon class="icon-button" name="heart-outline"></ion-icon>Seguir</ion-button>
         </div>
 
     </ion-card>
