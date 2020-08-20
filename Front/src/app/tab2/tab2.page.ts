@@ -62,6 +62,7 @@ export class Tab2Page {
         (res) => {
           this.posts = res;
           console.log(res);
+          this.searchForm.reset();
         }, (err) => {console.log(err); });
 
       if(userToken){
