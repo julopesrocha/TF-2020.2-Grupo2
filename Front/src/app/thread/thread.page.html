@@ -71,14 +71,11 @@
     <ion-card *ngFor="let comment of comments" class="comment_container">
         <ion-card-title class="user-comment">{{comment.user.name}}</ion-card-title>
         <ion-label class="comment_content">{{comment.comment}}</ion-label>
-      <!-- <div class="comment_buttons">
-      <ion-button (click)="deleteComment()">
+      <div *ngIf="userId == comment.user.id || isAdmin"  class="comment_buttons">
+      <ion-button (click)="deleteComment(comment.id)">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>
-      <ion-button (click)="editComment()">
-        <ion-icon name="pencil-outline"></ion-icon>
-      </ion-button>
-    </div> -->
+    </div>
   </ion-card>
 
 </ion-content>
