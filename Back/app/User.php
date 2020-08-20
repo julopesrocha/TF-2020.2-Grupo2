@@ -44,17 +44,6 @@ class User extends Authenticatable
 
 
     public function createUser(Request $request){
-        // if (!Storage::exists('localPhotos/')){
-        //     Storage::makeDirectory('localPhotos/',0775, true);
-        // }
-
-        // if($request->photo){
-        //     $file = $request->file('photo');
-        //     $filename = rand().'.'.$file->getClientOriginalExtension();
-        //     $path = $file->storeAs('localPhotos',$filename);
-        //     $this->photo = $path;
-        // }
-
         if($request->photo){
             $this->photo = $request->photo;
         } else{
