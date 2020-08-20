@@ -2,7 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FilterService} from '../services/filter.service';
 import { AuthService} from '../services/auth/auth.service';
-
+import { Router } from '@angular/router';
+import { ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -15,10 +16,12 @@ export class Tab2Page {
   lastSearch;
   searchForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, 
+  constructor(public formBuilder: FormBuilder,
     public filterService: FilterService,
     public authService: AuthService,
-    public changeDetect: ChangeDetectorRef) {
+    public changeDetect: ChangeDetectorRef,
+    public toastController: ToastController,
+    private route: Router) {
       this.searchForm = this.formBuilder.group({
         filter: [null],
       });
@@ -28,11 +31,25 @@ export class Tab2Page {
 
   }
 
+  async presentToast(message: string) {
+   const toast = await this.toastController.create({
+     message,
+     duration: 2000,
+     color: "secondary"
+   });
+   toast.present();
+ }
+
   followUser(id){
     this.authService.followUser(id).subscribe((res)=>{
       console.log(res);
       this.submitString(this.lastSearch);
     }, (err) => {console.log(err); })
+  }
+
+  followVisitante(){
+      this.presentToast('Para seguir essa pessoa é necessário entrar em uma conta.');
+      this.route.navigate(['/login']);
   }
 
   submitForm(form) {
@@ -43,12 +60,12 @@ export class Tab2Page {
           this.posts = res;
           console.log(res);
         }, (err) => {console.log(err); });
-        
+
       if(userToken){
         this.filterService.filterAuthUsers(form.value).subscribe(
           (res)=>{
             this.users = res;
-            this.lastSearch = form.value;  
+            this.lastSearch = form.value;
             console.log(res);
           }, (err) => {console.log(err); })
         }else{
@@ -57,7 +74,7 @@ export class Tab2Page {
               this.users = res;
               console.log(res);
             }, (err) => {console.log(err); })
-        }  
+        }
   }
 
 
@@ -66,7 +83,7 @@ export class Tab2Page {
     if(userToken){
       this.filterService.filterAuthUsers(lastSearch).subscribe(
         (res)=>{
-          this.users = res;  
+          this.users = res;
           console.log(res);
         }, (err) => {console.log(err); })}
   }
