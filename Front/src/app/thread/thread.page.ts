@@ -129,7 +129,12 @@ export class ThreadPage implements OnInit {
               // this.comments = res;
               this.presentToast('Comentário realizado com sucesso!');
           }, (err) => {console.log(err);
-             this.presentToast('Não foi possível comentar.');}
+            if(err.statusText == 'Unauthorized'){
+              this.presentToast('Para comentar é necessário entrar em uma conta.');
+            }else{
+              this.presentToast('Não foi possível comentar. ');
+            }
+          }
       );
   }
 
