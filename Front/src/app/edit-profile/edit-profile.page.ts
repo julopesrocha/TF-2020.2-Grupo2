@@ -44,7 +44,7 @@ export class EditProfilePage implements OnInit {
         (res)=>{
             console.log(res);
             this.presentToast('Suas alterações foram salvas!');
-            this.route.navigate(['/tabs/tab3']);
+            this.route.navigate(['/tabs/home']);
         }, (err) => {console.log(err);
             this.presentToast('Não foi possível salvar suas alterações.');
         }
